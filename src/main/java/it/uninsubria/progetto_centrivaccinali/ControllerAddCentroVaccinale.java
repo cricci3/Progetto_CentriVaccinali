@@ -30,7 +30,9 @@ public class ControllerAddCentroVaccinale implements Initializable{
         String comune = tf_comuneCV.getText();
         String provincia = tf_provinciaCV.getText();
         int cap = Integer.parseInt(tf_capCV.getText());
+        String tipologia = cb_tipoCV.getValue();
 
         lb_centro.setText("Aggiunto nuovo centro vaccinale: "+nomeCV+", "+indirizzoCV+", "+comune+", "+provincia+", "+cap);
+        CentroVaccinale nuovoCentro = new CentroVaccinale(nomeCV, indirizzoCV, comune, provincia, cap, tipologia);
     }
 }
