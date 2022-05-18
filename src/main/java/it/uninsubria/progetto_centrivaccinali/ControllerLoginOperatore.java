@@ -10,8 +10,10 @@ import java.net.*;
 import java.rmi.registry.*;
 
 public class ControllerLoginOperatore {
-    @FXML
+
     private Parent root;
+    private Scene scene;
+    private Stage stage;
     @FXML
     private TextField tf_username, pf_password;
     @FXML
@@ -36,8 +38,8 @@ public class ControllerLoginOperatore {
                     FXMLLoader fxmlLoader;
                     fxmlLoader= new FXMLLoader(url);
                     root = fxmlLoader.load();
-                    Scene scene = new Scene(root);
-                    Stage stage = new Stage();
+                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
                 }catch (Exception e){
