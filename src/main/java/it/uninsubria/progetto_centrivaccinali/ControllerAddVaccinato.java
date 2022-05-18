@@ -3,11 +3,10 @@ package it.uninsubria.progetto_centrivaccinali;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
+import java.rmi.registry.*;
 import java.util.ResourceBundle;
 
 public class ControllerAddVaccinato implements Initializable {
@@ -18,6 +17,8 @@ public class ControllerAddVaccinato implements Initializable {
     @FXML
     private DatePicker dp_datavaccinazione;
     private String[] vaccini = {"Pfizer", "Moderna", "AstraZeneca", "Johnson&Johnson"};
+    @FXML
+    private Label lbl_addVaccinato;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -28,8 +29,31 @@ public class ControllerAddVaccinato implements Initializable {
     public void addVaccinato(ActionEvent event){
         String nome = tf_nome.getText();
         String cognome = tf_cognome.getText();
-        String nomecentrovaccinale = tf_nomecentrovaccinale.getText();
-        String codicefiscale = tf_codicefiscale.getText();
+        String nomeCV = tf_nomecentrovaccinale.getText().replaceAll(" ","");
+        String cf = tf_codicefiscale.getText();
         String datavaccinazione = dp_datavaccinazione.getValue().toString();
+        String nomeVaccino = cb_vaccino.getValue();
+        int id=0;
+        do {
+            id= IdGenerator.generateUniqueId();
+        }while(id>99999999);
+
+        CittadinoVaccinato nuovoVaccinato = new CittadinoVaccinato(nomeCV,id,nome,cognome,cf,datavaccinazione,nomeVaccino);
+
+        try {
+            Registry registro = LocateRegistry.getRegistry(1099);
+            InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
+
+            boolean response = stub.addCittadinoVaccinato(nuovoVaccinato);
+
+            if (response) {
+                lbl_addVaccinato.setText("TUTTO OK");
+            } else {
+                lbl_addVaccinato.setText("ERROREEEEEEEEEEEEEEEEEEE");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }

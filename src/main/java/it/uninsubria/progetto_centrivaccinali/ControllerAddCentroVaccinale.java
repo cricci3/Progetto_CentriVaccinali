@@ -26,8 +26,7 @@ public class ControllerAddCentroVaccinale implements Initializable{
     }
 
     public void addCentroVaccinale(ActionEvent actionEvent) {
-        String nome = tf_nomeCV.getText();
-        String nomeCV = nome.replaceAll(" ", "");
+        String nomeCV = tf_nomeCV.getText().replaceAll(" ","");
         String indirizzoCV = tf_indirizzoCV.getText();
         String comune = tf_comuneCV.getText();
         String provincia = tf_provinciaCV.getText();
