@@ -74,19 +74,19 @@ public class DataTables {
     }
 
 
-    public void handleCittadiniVaccinatiSet(ResultSet rs) throws SQLException {
-        rs.first(); //così handle iniziano da prima riga
-        while(rs.next()) {
+    public void handleCittadiniVaccinatiSet(ResultSet rs, String nomeCV) throws SQLException {
+        rs.first();
+        do {
             CittadinoVaccinato cittv = new CittadinoVaccinato(
-                    rs.getString("nomeCV"),
-                    rs.getInt("id"),
+                    nomeCV,
+                    rs.getInt("idcittadino"),
                     rs.getString("nome"),
                     rs.getString("cognome"),
                     rs.getString("cf"),
-                    rs.getString("data"),
-                    rs.getString("nomeV"));
+                    rs.getString("datavaccinazione"),
+                    rs.getString("nomevaccino"));
             cittadiniVaccinatiTable.add(cittv);
-        }
+        }while (rs.next());
     }
 
     public ArrayList<CittadinoVaccinato> getCittadiniVaccinatiTable(){

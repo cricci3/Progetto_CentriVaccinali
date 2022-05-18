@@ -71,7 +71,7 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         try {
             ResultSet rs = db.submitQuery(query);
             DataTables dt = new DataTables();
-            dt.handleCittadiniVaccinatiSet(rs);
+            dt.handleCittadiniVaccinatiSet(rs, nomeCV);
             ArrayList<CittadinoVaccinato> listaCittadini = dt.getCittadiniVaccinatiTable();
             if(listaCittadini.isEmpty()){
                 System.out.println("La lista è vuota");
