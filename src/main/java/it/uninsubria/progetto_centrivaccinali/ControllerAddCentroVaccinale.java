@@ -5,6 +5,7 @@ import javafx.fxml.*;
 import javafx.scene.control.*;
 
 import java.net.*;
+import java.rmi.registry.*;
 import java.util.*;
 
 public class ControllerAddCentroVaccinale implements Initializable{
@@ -25,14 +26,30 @@ public class ControllerAddCentroVaccinale implements Initializable{
     }
 
     public void addCentroVaccinale(ActionEvent actionEvent) {
-        String nomeCV = tf_nomeCV.getText();
+        String nome = tf_nomeCV.getText();
+        String nomeCV = nome.replaceAll(" ", "");
         String indirizzoCV = tf_indirizzoCV.getText();
         String comune = tf_comuneCV.getText();
         String provincia = tf_provinciaCV.getText();
         int cap = Integer.parseInt(tf_capCV.getText());
         String tipologia = cb_tipoCV.getValue();
 
-        lb_centro.setText("Aggiunto nuovo centro vaccinale: "+nomeCV+", "+indirizzoCV+", "+comune+", "+provincia+", "+cap);
+
+
         CentroVaccinale nuovoCentro = new CentroVaccinale(nomeCV, indirizzoCV, comune, provincia, cap, tipologia);
+
+        try {
+            Registry registro = LocateRegistry.getRegistry(1099);
+            InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
+
+            boolean response = stub.addCentroVaccinale(nuovoCentro);
+            if(response){
+                lb_centro.setText("TUTTO OK");
+            }else{
+                lb_centro.setText("ERROREEEEEEEEEEEEEEEEEEE");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
