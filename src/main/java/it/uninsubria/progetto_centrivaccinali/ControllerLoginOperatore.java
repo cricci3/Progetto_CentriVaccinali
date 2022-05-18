@@ -1,16 +1,17 @@
 package it.uninsubria.progetto_centrivaccinali;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.event.*;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.stage.*;
 
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
+import java.net.*;
+import java.rmi.registry.*;
 
 public class ControllerLoginOperatore {
+    @FXML
+    private Parent root;
     @FXML
     private TextField tf_username, pf_password;
     @FXML
@@ -28,7 +29,27 @@ public class ControllerLoginOperatore {
 
             if(result){
                 lb_control.setText("TUTTO OK");
-            } else lb_control.setText("ERRORE");
+
+                String sceneFile = "hello-operatore.fxml";
+                URL url = getClass().getResource(sceneFile);
+                try {
+                    FXMLLoader fxmlLoader;
+                    fxmlLoader= new FXMLLoader(url);
+                    root = fxmlLoader.load();
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.show();
+                }catch (Exception e){
+                    System.out.println( "Exception on FXMLLoader.load()" );
+                    System.out.println( "  * url: " + url );
+                    System.out.println( "  * " + e );
+                    System.out.println( "    ----------------------------------------\n" );
+                }
+
+            } else{
+                lb_control.setText("ERRORE");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

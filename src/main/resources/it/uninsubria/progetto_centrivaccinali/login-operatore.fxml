@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerLoginOperatore">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerLoginOperatore">
    <children>
       <Label layoutX="151.0" layoutY="56.0" text="Login Operatore Vaccinale">
          <font>
@@ -14,7 +14,7 @@
       <TextField fx:id="tf_username" layoutX="171.0" layoutY="155.0" prefHeight="25.0" prefWidth="263.0" promptText="Username" />
       <Label layoutX="171.0" layoutY="138.0" prefHeight="17.0" prefWidth="57.0" text="Username" />
       <Label layoutX="171.0" layoutY="210.0" text="Password" />
-      <Button fx:id="btn_login" layoutX="277.0" layoutY="282.0" mnemonicParsing="false" text="Login" />
+      <Button fx:id="btn_login" layoutX="277.0" layoutY="282.0" mnemonicParsing="false" onAction="#logIn" text="Login" />
       <Label fx:id="lb_control" layoutX="289.0" layoutY="337.0" textAlignment="CENTER" />
       <PasswordField fx:id="pf_password" layoutX="171.0" layoutY="227.0" prefHeight="25.0" prefWidth="263.0" promptText="*****************" />
    </children>

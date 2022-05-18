@@ -96,7 +96,32 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
 
     @Override
     public boolean loginOperatore(String username, String password) throws RemoteException {
-        return false;
+        String query = "SELECT * FROM operatori";
+        boolean response = false;
+        try {
+            ResultSet rs = db.submitQuery(query);
+            DataTables dt = new DataTables();
+            dt.handleOperatoriSet(rs);
+            ArrayList<Operatore> operatoriList = dt.getOperatoriTable();
+            if(operatoriList.isEmpty()){
+                System.out.println("LA LISTA è VUOTA");
+            }else{
+                for (Operatore operatore : operatoriList){
+                    System.out.println(operatore.toString());
+                }
+                Operatore ricercato = new Operatore(username, password);
+                for (Operatore operatore : operatoriList){
+                    if(operatore.getUsername().equals(ricercato.getUsername()))
+                        if(operatore.getPassword().equals(ricercato.getPassword())){
+                            response = true;
+                            break;
+                        }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return response;
     }
 
     @Override

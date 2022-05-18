@@ -10,12 +10,26 @@ public class DataTables {
     private ArrayList<CittadinoRegistrato> cittadiniRegistratiTable;
     private ArrayList<CittadinoVaccinato> cittadiniVaccinatiTable; //da implementare
     private ArrayList<EventiAvversi> eventiAvversiTable; //da implementare
+    private ArrayList<Operatore> operatoriList;
 
     public DataTables() {
         this.centriVaccinaliTable = new ArrayList<CentroVaccinale>();
         this.cittadiniRegistratiTable = new ArrayList<CittadinoRegistrato>();
         this.cittadiniVaccinatiTable = new ArrayList<CittadinoVaccinato>();
         this.eventiAvversiTable = new ArrayList<EventiAvversi>();
+        this.operatoriList = new ArrayList<Operatore>();
+    }
+
+    public void handleOperatoriSet(ResultSet rs) throws SQLException{
+        rs.first();
+        do {
+            Operatore operatore = new Operatore(rs.getString("username"), rs.getString("password"));
+            operatoriList.add(operatore);
+        }while (rs.next());
+    }
+
+    public ArrayList<Operatore> getOperatoriTable(){
+        return this.operatoriList;
     }
 
     public ArrayList<CentroVaccinale> handleCentriVaccinaliSet(ResultSet rs) throws SQLException {

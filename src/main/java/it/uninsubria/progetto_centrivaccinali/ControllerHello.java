@@ -11,7 +11,7 @@ public class ControllerHello {
     private Parent root;
     @FXML
     protected void switchToOperatore(){
-        String sceneFile = "hello-operatore.fxml";
+        String sceneFile = "login-operatore.fxml";
         URL url = getClass().getResource(sceneFile);
         try {
             FXMLLoader fxmlLoader;
