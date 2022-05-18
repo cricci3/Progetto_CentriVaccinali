@@ -28,4 +28,25 @@ public class ControllerHelloOperatore {
             System.out.println( "    ----------------------------------------\n" );
         }
     }
+
+    @FXML
+    protected void switchToAddVaccinato(){
+        String sceneFile = "add-vaccinato.fxml";
+        URL url = getClass().getResource(sceneFile);
+        try {
+            FXMLLoader fxmlLoader;
+            fxmlLoader= new FXMLLoader(url);
+            root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println( "Exception on FXMLLoader.load()" );
+            System.out.println( "  * url: " + url );
+            System.out.println( "  * " + e );
+            System.out.println( "    ----------------------------------------\n" );
+            e.printStackTrace();
+        }
+    }
 }
