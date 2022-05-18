@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerAddVaccinato">
+   <children>
+      <Label layoutX="148.0" layoutY="52.0" text="Aggiungi un nuovo vaccinato">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <Label layoutX="208.0" layoutY="95.0" text="Inserire tutti i dati richiesti">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <TextField fx:id="tf_nome" layoutX="141.0" layoutY="144.0" promptText="Nome" />
+      <TextField fx:id="tf_cognome" layoutX="318.0" layoutY="144.0" promptText="Cognome" />
+      <TextField fx:id="tf_nomecentrovaccinale" layoutX="141.0" layoutY="200.0" promptText="Nome Centro Vaccinale" />
+      <TextField fx:id="tf_codicefiscale" layoutX="318.0" layoutY="200.0" promptText="Codice Fiscale" />
+      <DatePicker fx:id="dp_datavaccinazione" layoutX="141.0" layoutY="252.0" prefHeight="25.0" prefWidth="149.0" promptText="Data Vaccinazione" />
+      <ChoiceBox fx:id="cb_vaccino" layoutX="318.0" layoutY="252.0" prefHeight="25.0" prefWidth="149.0" />
+      <Button fx:id="btn_aggiungivaccinato" layoutX="239.0" layoutY="310.0" mnemonicParsing="false" onAction="#addVaccinato" style="-fx-padding: 10;" text="Aggiungi vaccinato" />
+   </children>
+</AnchorPane>
