@@ -50,23 +50,23 @@ public class DataTables {
         return this.centriVaccinaliTable;
     }
 
-    public void handleCittadiniRegistratiSet(ResultSet rs) throws SQLException {
-        rs.first(); //così handle iniziano da prima riga
-        while(rs.next()) {
+    public void handleCittadiniRegistratiSet(ResultSet rs, String nomeCV, String data, String vaccino) throws SQLException {
+        rs.first();
+        do {
             CittadinoRegistrato cittr = new CittadinoRegistrato(
-                    rs.getString("nomeCV"),
-                    rs.getInt("id"),
+                    nomeCV,
+                    rs.getInt("idCittadino"),
                     rs.getString("nome"),
                     rs.getString("cognome"),
                     rs.getString("cf"),
-                    rs.getString("data"),
-                    rs.getString("nomeVacc"),
+                    data,
+                    vaccino,
                     rs.getString("email"),
                     rs.getString("username"),
                     rs.getString("password")
             );
             cittadiniRegistratiTable.add(cittr);
-        }
+        }while (rs.next());
     }
 
     public ArrayList<CittadinoRegistrato> getCittadiniRegistratiTable(){
