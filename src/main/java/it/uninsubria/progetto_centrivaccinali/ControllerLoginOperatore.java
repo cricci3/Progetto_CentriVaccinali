@@ -50,7 +50,7 @@ public class ControllerLoginOperatore {
                 }
 
             } else{
-                lb_control.setText("ERRORE");
+                lb_control.setText("Credenziali sbagliate, riprovare");
             }
         } catch (Exception e) {
             e.printStackTrace();

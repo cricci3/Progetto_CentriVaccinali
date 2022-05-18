@@ -47,9 +47,9 @@ public class ControllerAddVaccinato implements Initializable {
             boolean response = stub.addCittadinoVaccinato(nuovoVaccinato);
 
             if (response) {
-                lbl_addVaccinato.setText("TUTTO OK");
+                lbl_addVaccinato.setText("Vaccinato aggiunto correttamente");
             } else {
-                lbl_addVaccinato.setText("ERROREEEEEEEEEEEEEEEEEEE");
+                lbl_addVaccinato.setText("ERRORE, riprovare");
             }
         }catch (Exception e){
             e.printStackTrace();

@@ -25,17 +25,21 @@ public class ControllerRegistrazioneCittadino {
         String username = tf_usernameReg.getText();
         String password = pf_passwordReg.getText();
 
-        try {
-            Registry registro = LocateRegistry.getRegistry(1099);
-            InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
-            boolean result = stub.addCittadinoRegistrato(id, nomeCV, nome, cognome, email, username, password);
-            if(result){
-                lb_erroreReg.setText("Registrazione effettuata con successo");
-            }else{
-                lb_erroreReg.setText("ERRORE");
+        if(password.length()<8){
+            lb_erroreReg.setText("Password deve avere almeno 8 caratteri");
+        }else{
+            try {
+                Registry registro = LocateRegistry.getRegistry(1099);
+                InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
+                boolean result = stub.addCittadinoRegistrato(id, nomeCV, nome, cognome, email, username, password);
+                if(result){
+                    lb_erroreReg.setText("Registrazione effettuata con successo");
+                }else{
+                    lb_erroreReg.setText("ERRORE");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

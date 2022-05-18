@@ -43,9 +43,9 @@ public class ControllerAddCentroVaccinale implements Initializable{
 
             boolean response = stub.addCentroVaccinale(nuovoCentro);
             if(response){
-                lb_centro.setText("TUTTO OK");
+                lb_centro.setText("Centro aggiunto correttamente");
             }else{
-                lb_centro.setText("ERROREEEEEEEEEEEEEEEEEEE");
+                lb_centro.setText("ERRORE, riprovare");
             }
         }catch (Exception e){
             e.printStackTrace();

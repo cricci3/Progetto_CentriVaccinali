@@ -15,7 +15,7 @@
       <Label layoutX="171.0" layoutY="138.0" prefHeight="17.0" prefWidth="57.0" text="Username" />
       <Label layoutX="171.0" layoutY="210.0" text="Password" />
       <Button fx:id="btn_login" layoutX="277.0" layoutY="282.0" mnemonicParsing="false" onAction="#logIn" text="Login" />
-      <Label fx:id="lb_control" layoutX="289.0" layoutY="337.0" textAlignment="CENTER" />
-      <PasswordField fx:id="pf_password" layoutX="171.0" layoutY="227.0" prefHeight="25.0" prefWidth="263.0" promptText="*****************" />
+      <Label fx:id="lb_control" alignment="CENTER" layoutX="289.0" layoutY="338.0" textAlignment="CENTER" />
+      <PasswordField fx:id="pf_password" layoutX="171.0" layoutY="227.0" prefHeight="25.0" prefWidth="263.0" />
    </children>
 </AnchorPane>

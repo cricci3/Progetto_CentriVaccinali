@@ -76,15 +76,18 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
             if(listaCittadini.isEmpty()){
                 System.out.println("La lista è vuota");
             }else{
+                //stampa tutto il contenuto di vaccinati_nomeCentro (serve a noi)
                 for (CittadinoVaccinato cittadinoVaccinato : listaCittadini){
                     System.out.println(cittadinoVaccinato.toString());
                 }
+                //crea un vaccinato con i dati inseriti dall'utente e controlla se nei cittadini vaccinati ne esiste uno che corrisponde
                 CittadinoVaccinato ricercato = new CittadinoVaccinato(nomeCV,id, nome,cognome,null,null,null);
                 for(CittadinoVaccinato cittadinoVaccinato : listaCittadini){
                     if(cittadinoVaccinato.getIdUnivoco() == ricercato.getIdUnivoco()){
                         if(cittadinoVaccinato.getNome().equals(ricercato.getNome())){
                             if(cittadinoVaccinato.getCognome().equals(ricercato.getCognome())){
                                 //CittadinoRegistrato registrato = new CittadinoRegistrato(nomeCV, id, nome, cognome, cittadinoVaccinato.getCf(), cittadinoVaccinato.getDataVaccinazione(), cittadinoVaccinato.getNomeVaccino(), email, username, password);
+                                //se esiste un cittadino vaccinato corrispondente ai dati inseriti allora può registrarsi
                                 query = "INSERT INTO cittadini_registrati VALUES ('"+id+"','"+nome+"','"+cognome+"','"+ cittadinoVaccinato.cf+"','"+email+"','"+username+"','"+password+"')";
                                 try{
                                     db.submitQuery(query);
