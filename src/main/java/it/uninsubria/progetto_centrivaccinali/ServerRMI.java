@@ -107,6 +107,24 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return response;
     }
 
+    @Override
+    public boolean addCittadinoRegistrato2(int id, String nomeCV, String nome, String cognome, String email, String username, String password) throws RemoteException {
+        String query = "SELECT * FROM cittadini_registrati WHERE idcittadino='"+id+"'";
+        boolean response = false;
+        try {
+            ResultSet rs = db.submitQuery(query);
+            DataTables dt = new DataTables();
+            dt.handleCittadiniRegistratiSet(rs);
+            ArrayList<CittadinoRegistrato> list = dt.getCittadiniRegistratiTable();
+            if(list.isEmpty()){
+                response = true; //può registrarsi
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return response;
+    }
+
     //funzione chiamata quando un cittadino inserisce i suoi eventi avversi
     //da aggiungere a listenerButton invio dati eventi avversi
     @Override
@@ -122,6 +140,44 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
             e.printStackTrace();
         }
         return true;
+    }
+
+    @Override
+    public boolean controlloRegistrazione(int id) throws RemoteException {
+        String query = "SELECT * FROM cittadini_registrati WHERE idcittadino='"+id+"'";
+        boolean response = false;
+        try {
+            ResultSet rs = db.submitQuery(query);
+            DataTables dt = new DataTables();
+            dt.handleCittadiniRegistratiSet(rs);
+            ArrayList<CittadinoRegistrato> list = dt.getCittadiniRegistratiTable();
+            if(list.isEmpty()){
+                response = true; //può registrarsi
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return response;
+    }
+
+    @Override
+    public boolean loginOperatore2(String username, String password) throws RemoteException {
+        String query = "SELECT * FROM operatori WHERE username = '"+username+"' AND password = '"+password+"'";
+        boolean response = false;
+        try {
+            ResultSet rs = db.submitQuery(query);
+            dt.handleOperatoriSet(rs);
+            ArrayList<Operatore> lista = dt.getOperatoriTable();
+            if(!lista.isEmpty()){
+                for (Operatore operatore : lista){
+                    System.out.println(operatore.toString());
+                }
+                response = true;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return response;
     }
 
     @Override
