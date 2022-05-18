@@ -86,32 +86,16 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
                     if(cittadinoVaccinato.getIdUnivoco() == ricercato.getIdUnivoco()){
                         if(cittadinoVaccinato.getNome().equals(ricercato.getNome())){
                             if(cittadinoVaccinato.getCognome().equals(ricercato.getCognome())){
+                                //CittadinoRegistrato registrato = new CittadinoRegistrato(nomeCV, id, nome, cognome, cittadinoVaccinato.getCf(), cittadinoVaccinato.getDataVaccinazione(), cittadinoVaccinato.getNomeVaccino(), email, username, password);
                                 //se esiste un cittadino vaccinato corrispondente ai dati inseriti allora può registrarsi
-
-                                //controllare prima che non sia già registrato
-                                query = "SELECT * FROM cittadini_registrati";
-                                rs = db.submitQuery(query);
-                                dt.handleCittadiniRegistratiSet(rs, cittadinoVaccinato.getNomeCV(), cittadinoVaccinato.getDataVaccinazione(), cittadinoVaccinato.getNomeVaccino());
-                                ArrayList<CittadinoRegistrato> listaRegistrati = dt.getCittadiniRegistratiTable();
-
-                                if(listaRegistrati.isEmpty()){
-                                    System.out.println("Lista registrati è vuota");
-                                }else{
-                                    //CittadinoRegistrato registratoDaCercare = new CittadinoRegistrato(nomeCV, id, nome, cognome, null, null,null,email,username,password);
-                                    for(CittadinoRegistrato registratoLista : listaRegistrati){
-                                        if(registratoLista.getIdUnivoco() == id){
-                                            System.out.println("utente già registrato");
-                                        }else{
-                                            query = "INSERT INTO cittadini_registrati VALUES ('"+id+"','"+nome+"','"+cognome+"','"+ cittadinoVaccinato.cf+"','"+email+"','"+username+"','"+password+"')";
-                                            try{
-                                                db.submitQuery(query);
-                                                response = true;
-                                            }catch (SQLException e){
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                    }
+                                query = "INSERT INTO cittadini_registrati VALUES ('"+id+"','"+nome+"','"+cognome+"','"+ cittadinoVaccinato.cf+"','"+email+"','"+username+"','"+password+"')";
+                                try{
+                                    db.submitQuery(query);
+                                    response = true;
+                                }catch (SQLException e){
+                                    e.printStackTrace();
                                 }
+
                             }
                         }
                     }
