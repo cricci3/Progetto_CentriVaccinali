@@ -11,6 +11,9 @@ public interface InterfaceRMI extends Remote {
     public boolean addCittadinoRegistrato(CittadinoRegistrato cittadinoR) throws RemoteException; //funzionante (ma migliorabile)
     public boolean addEventiAvversi(EventiAvversi eventi) throws RemoteException; //funziona male
 
+    public boolean loginOperatore(String username, String password) throws RemoteException;
+    public boolean loginCittadino(String username, String password) throws RemoteException;
+
     //metodi lettura db
     //restiuiscono dei valori che cittadino deve leggere, server rimanda robe al client
     public String visualizzaInfoCentroVaccinale(CentroVaccinale centro) throws RemoteException; //non funziona

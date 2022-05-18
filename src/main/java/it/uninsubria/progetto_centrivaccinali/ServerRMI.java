@@ -94,6 +94,16 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return true;
     }
 
+    @Override
+    public boolean loginOperatore(String username, String password) throws RemoteException {
+        return false;
+    }
+
+    @Override
+    public boolean loginCittadino(String username, String password) throws RemoteException {
+        return false;
+    }
+
     //funzione chiamata quando un cittadino vuole cercare informazioni riguardo a un centro vaccinale
     @Override
     public String visualizzaInfoCentroVaccinale(CentroVaccinale centro){
