@@ -123,9 +123,11 @@ public class DataTables {
             cittadiniVaccinatiTable.add(eventi);
         }
     }
+    
+     */
 
     public ArrayList<EventiAvversi> getEventiAvversiTables(){
         return this.eventiAvversiTable;
     }
-     */
+
 }

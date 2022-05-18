@@ -65,16 +65,43 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
     //funzione chiamata quando cittadino, in seguito a vaccinazione effettua registrazione al sistema
     //da aggiungere a listenerButton invio dati
     @Override
-    public boolean addCittadinoRegistrato(CittadinoRegistrato cittR) {
-        String query = "INSERT INTO cittadini_registrati VALUES ('" + cittR.getIdUnivoco() + "','" + cittR.getNome() + "','"
-                + cittR.getCognome() + "','" + cittR.getCf() + "','" + cittR.getEmail() + "','" + cittR.getUsername() + "',"+cittR.getPassword()+")";
+    public boolean addCittadinoRegistrato(int id, String nomeCV, String nome, String cognome, String email, String username, String password) {
+        String query = "SELECT * FROM vaccinati_"+nomeCV;
+        boolean response = false;
         try {
-            db.submitQuery(query);
+            ResultSet rs = db.submitQuery(query);
+            DataTables dt = new DataTables();
+            dt.handleCittadiniVaccinatiSet(rs);
+            ArrayList<CittadinoVaccinato> listaCittadini = dt.getCittadiniVaccinatiTable();
+            if(listaCittadini.isEmpty()){
+                System.out.println("La lista è vuota");
+            }else{
+                for (CittadinoVaccinato cittadinoVaccinato : listaCittadini){
+                    System.out.println(cittadinoVaccinato.toString());
+                }
+                CittadinoVaccinato ricercato = new CittadinoVaccinato(nomeCV,id, nome,cognome,null,null,null);
+                for(CittadinoVaccinato cittadinoVaccinato : listaCittadini){
+                    if(cittadinoVaccinato.getIdUnivoco() == ricercato.getIdUnivoco()){
+                        if(cittadinoVaccinato.getNome().equals(ricercato.getNome())){
+                            if(cittadinoVaccinato.getCognome().equals(ricercato.getCognome())){
+                                //CittadinoRegistrato registrato = new CittadinoRegistrato(nomeCV, id, nome, cognome, cittadinoVaccinato.getCf(), cittadinoVaccinato.getDataVaccinazione(), cittadinoVaccinato.getNomeVaccino(), email, username, password);
+                                query = "INSERT INTO cittadini_registrati VALUES ('"+id+"','"+nome+"','"+cognome+"','"+ cittadinoVaccinato.cf+"','"+email+"','"+username+"','"+password+"')";
+                                try{
+                                    db.submitQuery(query);
+                                    response = true;
+                                }catch (SQLException e){
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
         }catch (SQLException e){
             e.printStackTrace();
-            return false;
         }
-        return true;
+        return response;
     }
 
     //funzione chiamata quando un cittadino inserisce i suoi eventi avversi

@@ -8,7 +8,7 @@ public interface InterfaceRMI extends Remote {
     //restituiscono solamente true/false se operazione riuscita/fallita
     public boolean addCentroVaccinale(CentroVaccinale centro) throws RemoteException;//funzionante
     public boolean addCittadinoVaccinato(CittadinoVaccinato cittadino) throws RemoteException;//funzionante
-    public boolean addCittadinoRegistrato(CittadinoRegistrato cittadinoR) throws RemoteException; //funzionante (ma migliorabile)
+    public boolean addCittadinoRegistrato(int id, String nomeCV, String nome, String cognome, String email, String username, String password) throws RemoteException; //funzionante (ma migliorabile)
     public boolean addEventiAvversi(EventiAvversi eventi) throws RemoteException; //funziona male
 
     public boolean loginOperatore(String username, String password) throws RemoteException;

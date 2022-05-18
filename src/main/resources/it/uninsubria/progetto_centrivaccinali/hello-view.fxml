@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerHello" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerHello">
    <children>
       <Label layoutX="134.0" layoutY="47.0" text="Benvenuto in Centri Vaccinali">
          <font>
@@ -16,6 +16,6 @@
          </font>
       </Label>
       <Button layoutX="177.0" layoutY="188.0" mnemonicParsing="false" onAction="#switchToOperatore" style="-fx-padding: 10;" text="Operatore" />
-      <Button layoutX="357.0" layoutY="187.0" mnemonicParsing="false" style="-fx-padding: 10;" text="Cittadino" />
+      <Button layoutX="357.0" layoutY="187.0" mnemonicParsing="false" onAction="#switchToCittadino" style="-fx-padding: 10;" text="Cittadino" />
    </children>
 </AnchorPane>
