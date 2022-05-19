@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="490.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerAddEventiAvversi">
+   <children>
+      <Label layoutX="173.0" layoutY="13.0" text="Inserisci eventi avversi">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="74.0" layoutY="58.0" text="Mal di testa" />
+      <Label layoutX="75.0" layoutY="113.0" text="Febbre" />
+      <Label layoutX="75.0" layoutY="168.0" text="Linfoadenopatia" />
+      <Label layoutX="75.0" layoutY="225.0" text="Dolori muscolari e articolari" />
+      <Label layoutX="76.0" layoutY="280.0" text="Crisi ipertensiva" />
+      <Label layoutX="75.0" layoutY="337.0" text="Tachicardia" />
+      <TextField fx:id="tf_mdt" layoutX="73.0" layoutY="73.0" prefHeight="25.0" prefWidth="149.0" promptText="Inserire valore tra 1 e 5" />
+      <TextField fx:id="tf_febbre" layoutX="74.0" layoutY="128.0" promptText="Inserire valore tra 1 e 5" />
+      <TextArea fx:id="tf_noteMdt" layoutX="250.0" layoutY="67.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a mal di testa (opzionali)" />
+      <TextArea fx:id="tf_noteFebbre" layoutX="250.0" layoutY="122.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a febbre (opzionali)" />
+      <TextField fx:id="tf_linfo" layoutX="74.0" layoutY="183.0" promptText="Inserire valore tra 1 e 5" />
+      <TextField fx:id="tf_dolori" layoutX="74.0" layoutY="240.0" promptText="Inserire valore tra 1 e 5" />
+      <TextField fx:id="tf_crisi" layoutX="74.0" layoutY="295.0" promptText="Inserire valore tra 1 e 5" />
+      <TextField fx:id="tf_tachi" layoutX="74.0" layoutY="352.0" promptText="Inserire valore tra 1 e 5" />
+      <TextArea fx:id="tf_noteLinfo" layoutX="250.0" layoutY="177.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a linfoadenopatia (opzionali)" />
+      <TextArea fx:id="tf_noteDolori" layoutX="250.0" layoutY="234.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a dolori muscolari e articolari (opzionali)" />
+      <TextArea fx:id="tf_noteCrisi" layoutX="250.0" layoutY="289.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a crisi ipertensiva (opzionali)" />
+      <TextArea fx:id="tf_noteTachi" layoutX="250.0" layoutY="346.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a tachicardia (opzionali)" />
+      <Button layoutX="266.0" layoutY="402.0" mnemonicParsing="false" onAction="#inviaDati" style="-fx-padding: 10;" text="Invia dati" />
+      <Label fx:id="lb_errore" alignment="CENTER" layoutX="286.0" layoutY="445.0" textAlignment="CENTER" />
+   </children>
+</AnchorPane>

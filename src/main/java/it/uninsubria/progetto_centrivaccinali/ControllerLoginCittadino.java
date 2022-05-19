@@ -6,6 +6,7 @@ import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.stage.*;
 
+import java.net.*;
 import java.rmi.registry.*;
 
 public class ControllerLoginCittadino {
@@ -34,8 +35,7 @@ public class ControllerLoginCittadino {
             if(result){
                 lb_erroreLogin.setText("TUTTO OK");
 
-                /*
-                String sceneFile = "hello-operatore.fxml";
+                String sceneFile = "add-eventi-avversi.fxml";
                 URL url = getClass().getResource(sceneFile);
                 try {
                     FXMLLoader fxmlLoader;
@@ -45,13 +45,12 @@ public class ControllerLoginCittadino {
                     scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
-                }catch (Exception e){
-                    System.out.println( "Exception on FXMLLoader.load()" );
-                    System.out.println( "  * url: " + url );
-                    System.out.println( "  * " + e );
-                    System.out.println( "    ----------------------------------------\n" );
+                }catch (Exception e) {
+                    System.out.println("Exception on FXMLLoader.load()");
+                    System.out.println("  * url: " + url);
+                    System.out.println("  * " + e);
+                    System.out.println("    ----------------------------------------\n");
                 }
-                 */
 
             } else{
                 lb_erroreLogin.setText("Credenziali sbagliate, riprovare");
