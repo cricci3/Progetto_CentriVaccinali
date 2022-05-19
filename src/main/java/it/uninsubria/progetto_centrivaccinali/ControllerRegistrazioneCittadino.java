@@ -31,19 +31,25 @@ public class ControllerRegistrazioneCittadino {
             try {
                 Registry registro = LocateRegistry.getRegistry(1099);
                 InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
+                stub.addCittadinoRegistrato(id,nomeCV,nome,cognome,email,username,password);
+
+
+                /*
                 boolean result = stub.controlloRegistrazione(id);
-                if(result){
+                //se result == false non è ancora registrato e può farlo
+                if(!result){
+                    //serve ora controllare se a id corrisponde un cittadino vaccinato
                     result = stub.addCittadinoRegistrato2(id, nomeCV, nome, cognome, email, username, password);
                     if(result){
                         lb_erroreReg.setText("Registrazione effettuata con successo");
                     }else{
-                        lb_erroreReg.setText("ERRORE");
+                        lb_erroreReg.setText("A questo ID non corrisponde nessun cittadino vaccinato");
                     }
                 }else{
                     lb_erroreReg.setText("A questo ID corrisponde un cittadino già registrato");
                 }
 
-
+                 */
             } catch (Exception e) {
                 e.printStackTrace();
             }

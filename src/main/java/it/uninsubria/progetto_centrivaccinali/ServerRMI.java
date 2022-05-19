@@ -62,6 +62,24 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return true;
     }
 
+    @Override
+    public boolean controlloRegistrazione(int id) throws RemoteException {
+        String query = "SELECT * FROM cittadini_registrati WHERE idcittadino='"+id+"'";
+        boolean response = true;
+        try {
+            ResultSet rs = db.submitQuery(query);
+            DataTables dt = new DataTables();
+            dt.handleCittadiniRegistratiSet(rs);
+            ArrayList<CittadinoRegistrato> list = dt.getCittadiniRegistratiTable();
+            if(list.isEmpty()){
+                response = false; //id inserito non risulta già nella lista dei registrati
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return response;
+    }
+
     //funzione chiamata quando cittadino, in seguito a vaccinazione effettua registrazione al sistema
     //da aggiungere a listenerButton invio dati
     @Override
@@ -109,15 +127,22 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
 
     @Override
     public boolean addCittadinoRegistrato2(int id, String nomeCV, String nome, String cognome, String email, String username, String password) throws RemoteException {
-        String query = "SELECT * FROM cittadini_registrati WHERE idcittadino='"+id+"'";
+        String query = "SELECT * FROM vaccinati_"+nomeCV+" WHERE idcittadino='"+id+"'";
+        DataTables dt = new DataTables();
         boolean response = false;
         try {
             ResultSet rs = db.submitQuery(query);
-            DataTables dt = new DataTables();
-            dt.handleCittadiniRegistratiSet(rs);
-            ArrayList<CittadinoRegistrato> list = dt.getCittadiniRegistratiTable();
-            if(list.isEmpty()){
-                response = true; //può registrarsi
+            dt.handleCittadiniVaccinatiSet(rs, nomeCV);
+            ArrayList<CittadinoVaccinato> list = dt.getCittadiniVaccinatiTable();
+            if(!list.isEmpty()){
+                CittadinoVaccinato cittadino = list.get(0);
+                query = "INSERT INTO cittadini_registrati VALUES ('"+id+"','"+nome+"','"+cognome+"','"+ cittadino.cf+"','"+email+"','"+username+"','"+password+"')";
+                try{
+                    db.submitQuery(query);
+                    response = true;
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -140,24 +165,6 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
             e.printStackTrace();
         }
         return true;
-    }
-
-    @Override
-    public boolean controlloRegistrazione(int id) throws RemoteException {
-        String query = "SELECT * FROM cittadini_registrati WHERE idcittadino='"+id+"'";
-        boolean response = false;
-        try {
-            ResultSet rs = db.submitQuery(query);
-            DataTables dt = new DataTables();
-            dt.handleCittadiniRegistratiSet(rs);
-            ArrayList<CittadinoRegistrato> list = dt.getCittadiniRegistratiTable();
-            if(list.isEmpty()){
-                response = true; //può registrarsi
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return response;
     }
 
     @Override

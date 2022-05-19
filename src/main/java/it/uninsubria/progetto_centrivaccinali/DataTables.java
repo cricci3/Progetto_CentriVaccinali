@@ -51,8 +51,8 @@ public class DataTables {
     }
 
     public void handleCittadiniRegistratiSet(ResultSet rs) throws SQLException {
-        rs.first(); //così handle iniziano da prima riga
-        while(rs.next()) {
+        rs.first();
+        do {
             CittadinoRegistrato cittr = new CittadinoRegistrato(
                     rs.getString("nomeCV"),
                     rs.getInt("id"),
@@ -66,7 +66,7 @@ public class DataTables {
                     rs.getString("password")
             );
             cittadiniRegistratiTable.add(cittr);
-        }
+        }while(rs.next());
     }
 
     public ArrayList<CittadinoRegistrato> getCittadiniRegistratiTable(){
