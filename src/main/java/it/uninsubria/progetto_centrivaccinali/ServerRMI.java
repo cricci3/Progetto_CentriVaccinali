@@ -219,7 +219,19 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
 
     @Override
     public boolean loginCittadino(String username, String password) throws RemoteException {
-        return false;
+        String query = "SELECT * FROM cittadini_registrati WHERE username = '"+username+"' AND password = '"+password+"'";
+        boolean response = false;
+        try {
+            ResultSet rs = db.submitQuery(query);
+            dt.handleLoginCittadini(rs);
+            ArrayList<String> lista = dt.getLoggatiTable();
+            if(!lista.isEmpty()){
+                response = true;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return response;
     }
 
     //funzione chiamata quando un cittadino vuole cercare informazioni riguardo a un centro vaccinale
