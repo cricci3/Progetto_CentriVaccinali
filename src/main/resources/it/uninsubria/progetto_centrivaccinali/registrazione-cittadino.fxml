@@ -16,22 +16,22 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="tf_nomeReg" layoutX="109.0" layoutY="111.0" promptText="es. Mario" />
-      <TextField fx:id="tf_cognomeReg" layoutX="342.0" layoutY="111.0" promptText="es. Rossi" />
-      <TextField fx:id="tf_emailReg" layoutX="111.0" layoutY="248.0" prefHeight="25.0" prefWidth="149.0" promptText="es. mariorossi@gmail.com" style="-fx-padding: 3;" />
-      <TextField fx:id="tf_usernameReg" layoutX="342.0" layoutY="248.0" promptText="mariorossi85" />
-      <TextField fx:id="tf_idReg" layoutX="342.0" layoutY="175.0" promptText="es. 12345678" />
       <Label layoutX="109.0" layoutY="94.0" text="Nome" />
+      <TextField fx:id="tf_nomeReg" layoutX="109.0" layoutY="111.0" promptText="es. Mario" />
       <Label layoutX="342.0" layoutY="94.0" text="Cognome" />
-      <Label fx:id="lb_erroreReg" layoutX="262.0" layoutY="356.0" textAlignment="CENTER" textFill="RED" />
-      <Label layoutX="111.0" layoutY="230.0" text="Indirizzo e-mail" />
-      <Label layoutX="346.0" layoutY="230.0" text="Crea un username" />
-      <Label layoutX="111.0" layoutY="298.0" text="Crea una password" />
-      <Label layoutX="342.0" layoutY="157.0" text="ID Cittadino" />
-      <Button layoutX="370.0" layoutY="310.0" mnemonicParsing="false" onAction="#registrazioneCittadino" style="-fx-padding: 10;" text="Registrati" />
-      <PasswordField fx:id="pf_passwordReg" layoutX="111.0" layoutY="316.0" promptText="Almeno 8 caratteri" />
-      <Label fx:id="lb_regCittadino" alignment="CENTER" layoutX="286.0" layoutY="356.0" textAlignment="CENTER" />
-      <TextField fx:id="tf_nomeCVReg" layoutX="109.0" layoutY="175.0" promptText="es. Ospedale Varese" />
+      <TextField fx:id="tf_cognomeReg" layoutX="342.0" layoutY="111.0" promptText="es. Rossi" />
       <Label layoutX="111.0" layoutY="157.0" text="Centro Vaccinale" />
+      <TextField fx:id="tf_nomeCVReg" layoutX="109.0" layoutY="175.0" promptText="es. Ospedale Varese" />
+      <Label layoutX="342.0" layoutY="157.0" text="ID Cittadino" />
+      <TextField fx:id="tf_idReg" layoutX="342.0" layoutY="175.0" promptText="es. 12345678" />
+      <Label layoutX="111.0" layoutY="230.0" text="Indirizzo e-mail" />
+      <TextField fx:id="tf_emailReg" layoutX="111.0" layoutY="248.0" prefHeight="25.0" prefWidth="149.0" promptText="es. mariorossi@gmail.com" style="-fx-padding: 3;" />
+      <Label layoutX="346.0" layoutY="230.0" text="Crea un username" />
+      <TextField fx:id="tf_usernameReg" layoutX="342.0" layoutY="248.0" promptText="mariorossi85" />
+      <Label layoutX="111.0" layoutY="298.0" text="Crea una password" />
+      <PasswordField fx:id="pf_passwordReg" layoutX="111.0" layoutY="316.0" promptText="Almeno 8 caratteri" />
+      <Button layoutX="370.0" layoutY="310.0" mnemonicParsing="false" onAction="#registrazioneCittadino" style="-fx-padding: 10;" text="Registrati" />
+      <Label fx:id="lb_erroreReg" layoutX="262.0" layoutY="356.0" textAlignment="CENTER" textFill="RED" />
+      <Label fx:id="lb_regCittadino" alignment="CENTER" layoutX="286.0" layoutY="356.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>
