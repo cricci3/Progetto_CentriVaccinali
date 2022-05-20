@@ -63,28 +63,28 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
     }
 
     @Override
-    public boolean controlloRegistrazione(int id) throws RemoteException {
+    public boolean controlloRegistrazione(int id, String nomeCV) throws RemoteException {
         String query = "SELECT * FROM cittadini_registrati WHERE idcittadino='"+id+"'";
-        boolean response = true;
+        boolean registrato = false;
         try {
             ResultSet rs = db.submitQuery(query);
             DataTables dt = new DataTables();
-            dt.handleCittadiniRegistratiSet(rs);
+            dt.handleCittadiniRegistratiSet(rs, nomeCV);
             ArrayList<CittadinoRegistrato> list = dt.getCittadiniRegistratiTable();
-            if(list.isEmpty()){
-                response = false; //id inserito non risulta già nella lista dei registrati
+            if(!list.isEmpty()){
+                registrato = true; //id inserito risulta già nella lista dei registrati
             }
         }catch (SQLException e){
             e.printStackTrace();
         }
-        return response;
+        return registrato;
     }
 
     //funzione chiamata quando cittadino, in seguito a vaccinazione effettua registrazione al sistema
     //da aggiungere a listenerButton invio dati
     @Override
     public boolean addCittadinoRegistrato(int id, String nomeCV, String nome, String cognome, String email, String username, String password) {
-        String query = "SELECT * FROM vaccinati_"+nomeCV;
+        String query = "SELECT * FROM vaccinati_"+nomeCV+" WHERE idcittadino = '"+id+"'";
         boolean response = false;
         try {
             ResultSet rs = db.submitQuery(query);
@@ -99,24 +99,15 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
                     System.out.println(cittadinoVaccinato.toString());
                 }
                 //crea un vaccinato con i dati inseriti dall'utente e controlla se nei cittadini vaccinati ne esiste uno che corrisponde
-                CittadinoVaccinato ricercato = new CittadinoVaccinato(nomeCV,id, nome,cognome,null,null,null);
-                for(CittadinoVaccinato cittadinoVaccinato : listaCittadini){
-                    if(cittadinoVaccinato.getIdUnivoco() == ricercato.getIdUnivoco()){
-                        if(cittadinoVaccinato.getNome().equals(ricercato.getNome())){
-                            if(cittadinoVaccinato.getCognome().equals(ricercato.getCognome())){
-                                //CittadinoRegistrato registrato = new CittadinoRegistrato(nomeCV, id, nome, cognome, cittadinoVaccinato.getCf(), cittadinoVaccinato.getDataVaccinazione(), cittadinoVaccinato.getNomeVaccino(), email, username, password);
-                                //se esiste un cittadino vaccinato corrispondente ai dati inseriti allora può registrarsi
-                                query = "INSERT INTO cittadini_registrati VALUES ('"+id+"','"+nome+"','"+cognome+"','"+ cittadinoVaccinato.cf+"','"+email+"','"+username+"','"+password+"')";
-                                try{
-                                    db.submitQuery(query);
-                                    response = true;
-                                }catch (SQLException e){
-                                    e.printStackTrace();
-                                }
-
-                            }
-                        }
-                    }
+                CittadinoVaccinato cittadino = listaCittadini.get(0);
+                //CittadinoRegistrato registrato = new CittadinoRegistrato(nomeCV, id, nome, cognome, cittadinoVaccinato.getCf(), cittadinoVaccinato.getDataVaccinazione(), cittadinoVaccinato.getNomeVaccino(), email, username, password);
+                //se esiste un cittadino vaccinato corrispondente ai dati inseriti allora può registrarsi
+                query = "INSERT INTO cittadini_registrati VALUES ('"+id+"','"+nome+"','"+cognome+"','"+ cittadino.cf+"','"+email+"','"+username+"','"+password+"')";
+                try{
+                    db.submitQuery(query);
+                    response = true;
+                }catch (SQLException e){
+                    e.printStackTrace();
                 }
             }
         }catch (SQLException e){

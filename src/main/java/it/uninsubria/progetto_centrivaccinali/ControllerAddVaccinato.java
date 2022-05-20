@@ -38,6 +38,10 @@ public class ControllerAddVaccinato implements Initializable {
             id= IdGenerator.generateUniqueId();
         }while(id>99999999);
 
+        if(cf.length()!=16){
+            lbl_addVaccinato.setText("Codice fiscale errato");
+        }
+
         CittadinoVaccinato nuovoVaccinato = new CittadinoVaccinato(nomeCV,id,nome,cognome,cf,datavaccinazione,nomeVaccino);
 
         try {

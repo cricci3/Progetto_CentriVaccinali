@@ -54,17 +54,16 @@ public class DataTables {
         return this.centriVaccinaliTable;
     }
 
-    public void handleCittadiniRegistratiSet(ResultSet rs) throws SQLException {
+    public void handleCittadiniRegistratiSet(ResultSet rs, String cv) throws SQLException {
         rs.first();
         do {
             CittadinoRegistrato cittr = new CittadinoRegistrato(
-                    rs.getString("nomeCV"),
-                    rs.getInt("id"),
+                    cv,
+                    rs.getInt("idcittadino"),
                     rs.getString("nome"),
                     rs.getString("cognome"),
                     rs.getString("cf"),
-                    rs.getString("data"),
-                    rs.getString("nomeVacc"),
+                    null, null,
                     rs.getString("email"),
                     rs.getString("username"),
                     rs.getString("password")
