@@ -23,4 +23,5 @@ public interface InterfaceRMI extends Remote {
     public String visualizzaInfoCentroVaccinale(CentroVaccinale centro) throws RemoteException; //non funziona
     public ArrayList<CentroVaccinale> cercaCentroVaccinale(String nomeCV) throws RemoteException; //non funziona
     public String cercaCentroVaccinale(String comune, String tipologia) throws RemoteException;
+
 }

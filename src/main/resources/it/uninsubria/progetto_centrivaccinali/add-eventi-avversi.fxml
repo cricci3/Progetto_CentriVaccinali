@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="490.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerAddEventiAvversi">
+<AnchorPane prefHeight="490.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerAddEventiAvversi">
    <children>
       <Label layoutX="173.0" layoutY="13.0" text="Inserisci eventi avversi">
          <font>
@@ -29,7 +29,11 @@
       <TextArea fx:id="tf_noteDolori" layoutX="250.0" layoutY="234.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a dolori muscolari e articolari (opzionali)" />
       <TextArea fx:id="tf_noteCrisi" layoutX="250.0" layoutY="289.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a crisi ipertensiva (opzionali)" />
       <TextArea fx:id="tf_noteTachi" layoutX="250.0" layoutY="346.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a tachicardia (opzionali)" />
-      <Button layoutX="266.0" layoutY="402.0" mnemonicParsing="false" onAction="#inviaDati" style="-fx-padding: 10;" text="Invia dati" />
-      <Label fx:id="lb_errore" alignment="CENTER" layoutX="286.0" layoutY="445.0" textAlignment="CENTER" />
+      <Button layoutX="243.0" layoutY="435.0" mnemonicParsing="false" onAction="#inviaDati" style="-fx-padding: 10;" text="Invia dati" />
+      <Label fx:id="lb_errore" alignment="CENTER" layoutX="397.0" layoutY="445.0" prefHeight="17.0" prefWidth="112.0" textAlignment="CENTER" />
+      <TextField fx:id="tf_id" layoutX="74.0" layoutY="401.0" prefHeight="25.0" prefWidth="149.0" promptText="Inserisci il tuo ID" />
+      <Label layoutX="76.0" layoutY="384.0" text="ID" />
+      <TextField fx:id="tf_centrovaccinale" layoutX="250.0" layoutY="401.0" prefHeight="25.0" prefWidth="270.0" promptText="Inserisci il centro vaccinale" />
+      <Label layoutX="250.0" layoutY="384.0" text="Centro Vaccinale" />
    </children>
 </AnchorPane>
