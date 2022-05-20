@@ -12,6 +12,7 @@ public class DataTables {
     private ArrayList<EventiAvversi> eventiAvversiTable; //da implementare
     private ArrayList<Operatore> operatoriList;
     private ArrayList<String> listLog;
+    private ArrayList<Integer> listId;
 
     public DataTables() {
         this.centriVaccinaliTable = new ArrayList<CentroVaccinale>();
@@ -20,6 +21,7 @@ public class DataTables {
         this.eventiAvversiTable = new ArrayList<EventiAvversi>();
         this.operatoriList = new ArrayList<Operatore>();
         this.listLog = new ArrayList<>();
+        this.listId = new ArrayList<>();
     }
 
     public void handleOperatoriSet(ResultSet rs) throws SQLException{
@@ -80,12 +82,14 @@ public class DataTables {
         do {
             listLog.add(rs.getString("username"));
             listLog.add(rs.getString("password"));
+            listId.add(rs.getInt("idcittadino"));
         }while(rs.next());
     }
 
     public ArrayList<String> getLoggatiTable(){
         return this.listLog;
     }
+    public ArrayList<Integer> getListIdTable(){ return this.listId; }
 
 
     public void handleCittadiniVaccinatiSet(ResultSet rs, String nomeCV) throws SQLException {

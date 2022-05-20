@@ -6,7 +6,6 @@ import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.stage.*;
 
-import java.net.*;
 import java.rmi.registry.*;
 
 public class ControllerLoginCittadino {
@@ -30,6 +29,7 @@ public class ControllerLoginCittadino {
             Registry registro = LocateRegistry.getRegistry(1099);
             InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
 
+            /*
             boolean result = stub.loginCittadino(username, password);
 
             if(result){
@@ -54,6 +54,34 @@ public class ControllerLoginCittadino {
 
             } else{
                 lb_erroreLogin.setText("Credenziali sbagliate, riprovare");
+            }
+             */
+
+
+            int id = stub.loginCittadinoID(username, password);
+            if(id==0){
+                lb_erroreLogin.setText("Credenziali sbagliate, riprovare");
+            }else{
+                lb_erroreLogin.setText(String.valueOf(id));
+
+                /*
+                String sceneFile = "add-eventi-avversi.fxml";
+                URL url = getClass().getResource(sceneFile);
+                try {
+                    FXMLLoader fxmlLoader;
+                    fxmlLoader= new FXMLLoader(url);
+                    root = fxmlLoader.load();
+                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                }catch (Exception e) {
+                    System.out.println("Exception on FXMLLoader.load()");
+                    System.out.println("  * url: " + url);
+                    System.out.println("  * " + e);
+                    System.out.println("    ----------------------------------------\n");
+                }
+                 */
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -155,10 +155,10 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
     @Override
     public boolean addEventiAvversi(EventiAvversi eventi) {
         //CittadinoRegistrato cittadino = eventi.getCittadino();
-        String query = "INSERT INTO eventiavversi VALUES ('" +eventi.getId() + "','"
-                + eventi.getCentroVaccinale() + "','" + eventi.getValoreFebbre() + "','" + eventi.getNotaFebbre() + "','" + eventi.getValoreMalDiTesta() + "',"+eventi.getNotaMdT()
-                + eventi.getValoreDolori() + "','" + eventi.getNotaDolori() + "','" + eventi.getValoreLinfoadenopatia() + "','" + eventi.getNotaLinfoadenopatia() + "',"+eventi.getValoreTachicardia()
-                + eventi.getNotaTachicardia() + "','" + eventi.getValoreCrisiI() + "','" + eventi.getNotaCrisiI() +")";
+        String query = "INSERT INTO eventiavversi VALUES ('"+eventi.getId()+"','"+eventi.getCentroVaccinale()+"','"
+                +eventi.getValoreFebbre()+"','"+eventi.getNotaFebbre()+"','"+eventi.getValoreMalDiTesta()+"','"+eventi.getNotaMdT()+"','"
+                +eventi.getValoreDolori()+"','"+eventi.getNotaDolori()+"','"+eventi.getValoreLinfoadenopatia()+"','"+eventi.getNotaLinfoadenopatia()+"','"
+                +eventi.getValoreTachicardia()+"','"+eventi.getNotaTachicardia()+"','"+eventi.getValoreCrisiI()+"','"+eventi.getNotaCrisiI()+"')";
         try {
             db.submitQuery(query);
         }catch (SQLException e){
@@ -232,6 +232,24 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
             e.printStackTrace();
         }
         return response;
+    }
+
+    @Override
+    public int loginCittadinoID(String username, String password) throws RemoteException {
+        String query = "SELECT * FROM cittadini_registrati WHERE username = '"+username+"' AND password = '"+password+"'";
+        try {
+            ResultSet rs = db.submitQuery(query);
+            dt.handleLoginCittadini(rs);
+            ArrayList<String> listaCredenziali = dt.getLoggatiTable();
+            ArrayList<Integer> listId = dt.getListIdTable();
+            if(!listaCredenziali.isEmpty()){
+                int id = listId.get(0);
+                return id;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     //funzione chiamata quando un cittadino vuole cercare informazioni riguardo a un centro vaccinale

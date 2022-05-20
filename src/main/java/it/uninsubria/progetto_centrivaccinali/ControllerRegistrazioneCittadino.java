@@ -18,7 +18,7 @@ public class ControllerRegistrazioneCittadino {
 
     public void registrazioneCittadino(ActionEvent actionEvent) {
         int id = (int)Integer.parseInt(tf_idReg.getText());
-        String nomeCV = tf_nomeCVReg.getText();
+        String nomeCV = tf_nomeCVReg.getText().replaceAll(" ","");
         String nome = tf_nomeReg.getText();
         String cognome = tf_cognomeReg.getText();
         String email = tf_emailReg.getText();

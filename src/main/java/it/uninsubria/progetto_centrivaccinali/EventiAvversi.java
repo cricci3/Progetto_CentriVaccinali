@@ -7,10 +7,10 @@ public class EventiAvversi implements Serializable {
 
     private int id;
     private String centroVaccinale;
-    private int valoreMalDiTesta;
-    private String notaMdT;
     private int valoreFebbre;
     private String notaFebbre;
+    private int valoreMalDiTesta;
+    private String notaMdT;
     private int valoreDolori;
     private String notaDolori;
     private int valoreLinfoadenopatia;
@@ -20,15 +20,15 @@ public class EventiAvversi implements Serializable {
     private int valoreCrisiI;
     private String notaCrisiI;
 
-    EventiAvversi(int id, String centro, int testa, String notaMdT, int febbre, String notaFebbre,
+    EventiAvversi(int id, String centro, int febbre, String notaFebbre, int testa, String notaMdT,
                   int dolori, String notaDolori, int linfoadenopatia, String notaLinfo,
                   int tachicardia, String notaTach, int crisi, String notaCrisi){
         this.id = id;
         this.centroVaccinale = centro;
-        this.valoreMalDiTesta=testa;
-        this.notaMdT=notaMdT;
         this.valoreFebbre=febbre;
         this.notaFebbre=notaFebbre;
+        this.valoreMalDiTesta=testa;
+        this.notaMdT=notaMdT;
         this.valoreDolori=dolori;
         this.notaDolori=notaDolori;
         this.valoreLinfoadenopatia=linfoadenopatia;

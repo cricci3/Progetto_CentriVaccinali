@@ -17,6 +17,7 @@ public interface InterfaceRMI extends Remote {
     public boolean loginOperatore(String username, String password) throws RemoteException;
     public boolean loginOperatore2(String username, String password) throws RemoteException;
     public boolean loginCittadino(String username, String password) throws RemoteException;
+    public int loginCittadinoID(String username, String password) throws RemoteException;
 
     //metodi lettura db
     //restiuiscono dei valori che cittadino deve leggere, server rimanda robe al client

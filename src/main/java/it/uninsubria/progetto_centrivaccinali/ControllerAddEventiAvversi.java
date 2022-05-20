@@ -31,7 +31,7 @@ public class ControllerAddEventiAvversi {
         String noteDolori = tf_noteDolori.getText();
         String noteTachi = tf_noteTachi.getText();
 
-        EventiAvversi nuovoEventiavversi = new EventiAvversi(id, cv, mdt, noteMdt, febbre, noteFebbre, dolori,
+        EventiAvversi nuovoEventiavversi = new EventiAvversi(id, cv, febbre, noteFebbre, mdt, noteMdt, dolori,
                 noteDolori, linfo, noteLinfo, tachi, noteTachi, crisi, noteCrisi);
 
         try {
