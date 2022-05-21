@@ -6,6 +6,7 @@ import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.stage.*;
 
+import java.net.*;
 import java.rmi.registry.*;
 
 public class ControllerLoginCittadino {
@@ -64,13 +65,16 @@ public class ControllerLoginCittadino {
             }else{
                 lb_erroreLogin.setText(String.valueOf(id));
 
-                /*
                 String sceneFile = "add-eventi-avversi.fxml";
                 URL url = getClass().getResource(sceneFile);
                 try {
                     FXMLLoader fxmlLoader;
                     fxmlLoader= new FXMLLoader(url);
                     root = fxmlLoader.load();
+
+                    ControllerAddEventiAvversi controller2 = fxmlLoader.getController();
+                    controller2.getId(id);
+
                     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);
@@ -81,7 +85,6 @@ public class ControllerLoginCittadino {
                     System.out.println("  * " + e);
                     System.out.println("    ----------------------------------------\n");
                 }
-                 */
             }
         } catch (Exception e) {
             e.printStackTrace();

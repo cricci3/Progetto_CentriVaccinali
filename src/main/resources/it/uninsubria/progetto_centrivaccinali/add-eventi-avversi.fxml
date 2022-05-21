@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="490.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerAddEventiAvversi">
+<AnchorPane prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerAddEventiAvversi">
    <children>
       <Label layoutX="173.0" layoutY="13.0" text="Inserisci eventi avversi">
          <font>
@@ -18,22 +18,20 @@
       <Label layoutX="76.0" layoutY="280.0" text="Crisi ipertensiva" />
       <Label layoutX="75.0" layoutY="337.0" text="Tachicardia" />
       <TextField fx:id="tf_mdt" layoutX="73.0" layoutY="73.0" prefHeight="25.0" prefWidth="149.0" promptText="Inserire valore tra 1 e 5" />
-      <TextField fx:id="tf_febbre" layoutX="74.0" layoutY="128.0" promptText="Inserire valore tra 1 e 5" />
       <TextArea fx:id="tf_noteMdt" layoutX="250.0" layoutY="67.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a mal di testa (opzionali)" />
+      <TextField fx:id="tf_febbre" layoutX="74.0" layoutY="128.0" promptText="Inserire valore tra 1 e 5" />
       <TextArea fx:id="tf_noteFebbre" layoutX="250.0" layoutY="122.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a febbre (opzionali)" />
       <TextField fx:id="tf_linfo" layoutX="74.0" layoutY="183.0" promptText="Inserire valore tra 1 e 5" />
-      <TextField fx:id="tf_dolori" layoutX="74.0" layoutY="240.0" promptText="Inserire valore tra 1 e 5" />
-      <TextField fx:id="tf_crisi" layoutX="74.0" layoutY="295.0" promptText="Inserire valore tra 1 e 5" />
-      <TextField fx:id="tf_tachi" layoutX="74.0" layoutY="352.0" promptText="Inserire valore tra 1 e 5" />
       <TextArea fx:id="tf_noteLinfo" layoutX="250.0" layoutY="177.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a linfoadenopatia (opzionali)" />
+      <TextField fx:id="tf_dolori" layoutX="74.0" layoutY="240.0" promptText="Inserire valore tra 1 e 5" />
       <TextArea fx:id="tf_noteDolori" layoutX="250.0" layoutY="234.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a dolori muscolari e articolari (opzionali)" />
+      <TextField fx:id="tf_crisi" layoutX="74.0" layoutY="295.0" promptText="Inserire valore tra 1 e 5" />
       <TextArea fx:id="tf_noteCrisi" layoutX="250.0" layoutY="289.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a crisi ipertensiva (opzionali)" />
+      <TextField fx:id="tf_tachi" layoutX="74.0" layoutY="352.0" promptText="Inserire valore tra 1 e 5" />
       <TextArea fx:id="tf_noteTachi" layoutX="250.0" layoutY="346.0" prefHeight="38.0" prefWidth="270.0" promptText="Note riferite a tachicardia (opzionali)" />
-      <Button layoutX="243.0" layoutY="435.0" mnemonicParsing="false" onAction="#inviaDati" style="-fx-padding: 10;" text="Invia dati" />
-      <Label fx:id="lb_errore" alignment="CENTER" layoutX="397.0" layoutY="445.0" prefHeight="17.0" prefWidth="112.0" textAlignment="CENTER" />
-      <TextField fx:id="tf_id" layoutX="74.0" layoutY="401.0" prefHeight="25.0" prefWidth="149.0" promptText="Inserisci il tuo ID" />
-      <Label layoutX="76.0" layoutY="384.0" text="ID" />
-      <TextField fx:id="tf_centrovaccinale" layoutX="250.0" layoutY="401.0" prefHeight="25.0" prefWidth="270.0" promptText="Inserisci il centro vaccinale" />
-      <Label layoutX="250.0" layoutY="384.0" text="Centro Vaccinale" />
+      <Label layoutX="73.0" layoutY="405.0" text="Centro Vaccinale" />
+      <TextField fx:id="tf_centrovaccinale" layoutX="172.0" layoutY="401.0" prefHeight="25.0" prefWidth="348.0" promptText="Inserisci il centro vaccinale" />
+      <Button layoutX="265.0" layoutY="443.0" mnemonicParsing="false" onAction="#inviaDati" style="-fx-padding: 10;" text="Invia dati" />
+      <Label fx:id="lb_errore" alignment="CENTER" layoutX="81.0" layoutY="491.0" prefHeight="17.0" prefWidth="432.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>

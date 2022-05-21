@@ -56,20 +56,18 @@ public class DataTables {
 
     public void handleCittadiniRegistratiSet(ResultSet rs, String cv) throws SQLException {
         rs.first();
-        do {
-            CittadinoRegistrato cittr = new CittadinoRegistrato(
-                    cv,
-                    rs.getInt("idcittadino"),
-                    rs.getString("nome"),
-                    rs.getString("cognome"),
-                    rs.getString("cf"),
-                    null, null,
-                    rs.getString("email"),
-                    rs.getString("username"),
-                    rs.getString("password")
-            );
-            cittadiniRegistratiTable.add(cittr);
-        }while(rs.next());
+        CittadinoRegistrato cittr = new CittadinoRegistrato(
+            cv,
+            rs.getInt("idcittadino"),
+            rs.getString("nome"),
+            rs.getString("cognome"),
+            rs.getString("cf"),
+            null, null,
+            rs.getString("email"),
+            rs.getString("username"),
+            rs.getString("password")
+        );
+        cittadiniRegistratiTable.add(cittr);
     }
 
     public ArrayList<CittadinoRegistrato> getCittadiniRegistratiTable(){

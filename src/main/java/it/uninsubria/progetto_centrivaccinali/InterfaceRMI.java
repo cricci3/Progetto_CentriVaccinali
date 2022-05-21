@@ -10,7 +10,7 @@ public interface InterfaceRMI extends Remote {
     public boolean addCittadinoVaccinato(CittadinoVaccinato cittadino) throws RemoteException;//funzionante
     public boolean addCittadinoRegistrato(int id, String nomeCV, String nome, String cognome, String email, String username, String password) throws RemoteException; //funzionante (ma migliorabile)
     public boolean addCittadinoRegistrato2(int id, String nomeCV, String nome, String cognome, String email, String username, String password) throws RemoteException; //da implementare per migliorare registrazione
-    public boolean addEventiAvversi(EventiAvversi eventi) throws RemoteException; //funziona male
+    public String addEventiAvversi(EventiAvversi eventi) throws RemoteException; //funziona male
 
     public boolean controlloRegistrazione(int id, String nomeCV) throws RemoteException; //si può implementare per migliorare registrazione
 

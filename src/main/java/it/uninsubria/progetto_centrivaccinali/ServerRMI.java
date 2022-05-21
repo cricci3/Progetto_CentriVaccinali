@@ -144,18 +144,31 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
     //funzione chiamata quando un cittadino inserisce i suoi eventi avversi
     //da aggiungere a listenerButton invio dati eventi avversi
     @Override
-    public boolean addEventiAvversi(EventiAvversi eventi) {
+    public String addEventiAvversi(EventiAvversi eventi) {
         //CittadinoRegistrato cittadino = eventi.getCittadino();
-        String query = "INSERT INTO eventiavversi VALUES ('"+eventi.getId()+"','"+eventi.getCentroVaccinale()+"','"
-                +eventi.getValoreFebbre()+"','"+eventi.getNotaFebbre()+"','"+eventi.getValoreMalDiTesta()+"','"+eventi.getNotaMdT()+"','"
-                +eventi.getValoreDolori()+"','"+eventi.getNotaDolori()+"','"+eventi.getValoreLinfoadenopatia()+"','"+eventi.getNotaLinfoadenopatia()+"','"
-                +eventi.getValoreTachicardia()+"','"+eventi.getNotaTachicardia()+"','"+eventi.getValoreCrisiI()+"','"+eventi.getNotaCrisiI()+"')";
+        String queryControlloCentro = "SELECT * FROM vaccinati_"+eventi.getCentroVaccinale()+" WHERE idcittadino = '"+eventi.getId()+"'";
         try {
-            db.submitQuery(query);
-        }catch (SQLException e){
+            ResultSet rs = db.submitQuery(queryControlloCentro);
+            DataTables dt = new DataTables();
+            dt.handleCittadiniVaccinatiSet(rs, eventi.getCentroVaccinale());
+            ArrayList<CittadinoVaccinato> cittadinoList = dt.getCittadiniVaccinatiTable();
+            if(!cittadinoList.isEmpty()){
+                String queryInserimento = "INSERT INTO eventiavversi VALUES ('"+eventi.getId()+"','"+eventi.getCentroVaccinale()+"','"
+                        +eventi.getValoreFebbre()+"','"+eventi.getNotaFebbre()+"','"+eventi.getValoreMalDiTesta()+"','"+eventi.getNotaMdT()+"','"
+                        +eventi.getValoreDolori()+"','"+eventi.getNotaDolori()+"','"+eventi.getValoreLinfoadenopatia()+"','"+eventi.getNotaLinfoadenopatia()+"','"
+                        +eventi.getValoreTachicardia()+"','"+eventi.getNotaTachicardia()+"','"+eventi.getValoreCrisiI()+"','"+eventi.getNotaCrisiI()+"')";
+                try {
+                    db.submitQuery(queryInserimento);
+                }catch (SQLException e){
+                    e.printStackTrace();
+                    return "ERRORE nel inserimento dei dati";
+                }
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
+            return "ERRORE, centro vaccinale inserito errato";
         }
-        return true;
+        return "Dati inseriti correttamente";
     }
 
     @Override

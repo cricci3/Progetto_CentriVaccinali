@@ -26,12 +26,12 @@ public class ControllerAddCentroVaccinale implements Initializable{
     }
 
     public void addCentroVaccinale(ActionEvent actionEvent) {
-        String nomeCV = tf_nomeCV.getText().replaceAll(" ","");
-        String indirizzoCV = tf_indirizzoCV.getText();
-        String comune = tf_comuneCV.getText();
-        String provincia = tf_provinciaCV.getText();
+        String nomeCV = tf_nomeCV.getText().replaceAll(" ","").toLowerCase();
+        String indirizzoCV = tf_indirizzoCV.getText().toLowerCase();
+        String comune = tf_comuneCV.getText().toLowerCase();
+        String provincia = tf_provinciaCV.getText().toLowerCase();
         int cap = Integer.parseInt(tf_capCV.getText());
-        String tipologia = cb_tipoCV.getValue();
+        String tipologia = cb_tipoCV.getValue().toLowerCase();
 
 
 

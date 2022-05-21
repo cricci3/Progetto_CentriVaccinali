@@ -15,6 +15,13 @@ public class ControllerAddEventiAvversi {
     @FXML
     private Label lb_errore;
 
+    private int idCittadino;
+
+    public void getId(int id) {
+        idCittadino = id;
+        lb_errore.setText(String.valueOf(idCittadino));
+    }
+
     public void inviaDati(ActionEvent actionEvent) {
         int mdt = Integer.parseInt(tf_mdt.getText());
         int febbre = Integer.parseInt(tf_febbre.getText());
@@ -22,7 +29,7 @@ public class ControllerAddEventiAvversi {
         int crisi = Integer.parseInt(tf_crisi.getText());
         int dolori = Integer.parseInt(tf_dolori.getText());
         int tachi = Integer.parseInt(tf_tachi.getText());
-        int id = Integer.parseInt(tf_id.getText());
+        int id = idCittadino;
         String cv = tf_centrovaccinale.getText();
         String noteMdt = tf_noteMdt.getText();
         String noteFebbre = tf_noteFebbre.getText();
@@ -38,11 +45,13 @@ public class ControllerAddEventiAvversi {
             Registry registro = LocateRegistry.getRegistry(1099);
             InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
 
-            boolean response = stub.addEventiAvversi(nuovoEventiavversi);
-            if(response){
-                lb_errore.setText("Eventi avversi aggiunti correttamente");
-            }else{
-                lb_errore.setText("ERRORE, riprovare");
+            String response = stub.addEventiAvversi(nuovoEventiavversi);
+            if(response.equals("ERRORE nel inserimento dei dati")){
+                lb_errore.setText(response);
+            }else if(response.equals("ERRORE, centro vaccinale inserito errato")){
+                lb_errore.setText(response);
+            }else if(response.equals("Dati inseriti correttamente")){
+                lb_errore.setText(response);
             }
         }catch (Exception e){
             e.printStackTrace();
