@@ -278,29 +278,32 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
     @Override
     public ArrayList<CentroVaccinale> cercaCentroVaccinale(String nomeCV) throws RemoteException {
         DataTables dt = new DataTables();
-        ArrayList<CentroVaccinale> listaCentri = new ArrayList<>();
-        String query = "SELECT * FROM centrivaccinali WHERE nome LIKE '%"+nomeCV+"%'";
+        ArrayList<CentroVaccinale> listaRisultato = new ArrayList<>();
+        String query = "SELECT * FROM centrivaccinali WHERE nome LIKE '%"+nomeCV+"%' ";
         try {
             ResultSet rs = db.submitQuery(query);
-            /*
-            while (rs.next()){
-                System.out.print(rs.getString("nome"));
-                System.out.println(rs.getString("comune"));
-            }
-             */
-            listaCentri = dt.handleCentriVaccinaliSet(rs);
-            System.out.println("dentro try arrivo");
-            //listaCentri = dt.getCentriVaccinaliTable();
-            //System.out.println(listaCentri.toString());
-        } catch (SQLException e) {
+            dt.handleCentriVaccinaliSet(rs);
+            listaRisultato = dt.getCentriVaccinaliTable();
+        }catch (SQLException e){
             e.printStackTrace();
         }
-        return listaCentri;
+        return listaRisultato;
     }
 
     @Override
-    public String cercaCentroVaccinale(String comune, String tipologia) throws RemoteException {
-        return null;
+    public ArrayList<CentroVaccinale> cercaCentroVaccinale(String comune, String tipologia) throws RemoteException {
+        DataTables dt = new DataTables();
+        ArrayList<CentroVaccinale> listaRisultato = new ArrayList<>();
+        String query = "SELECT * FROM centrivaccinali WHERE comune = '"+comune+"' AND tipologia = '"+tipologia+"' ";
+        try {
+            ResultSet rs = db.submitQuery(query);
+            dt.handleCentriVaccinaliSet(rs);
+            listaRisultato = dt.getCentriVaccinaliTable();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        System.out.println(listaRisultato);
+        return listaRisultato;
     }
 
     public static void main(String[] args) {

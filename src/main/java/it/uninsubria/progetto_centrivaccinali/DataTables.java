@@ -37,8 +37,8 @@ public class DataTables {
     }
 
     public ArrayList<CentroVaccinale> handleCentriVaccinaliSet(ResultSet rs) throws SQLException {
-        rs.first(); //così handle iniziano da prima riga
-        while(rs.next()) {
+        rs.first();
+        do {
             CentroVaccinale cv = new CentroVaccinale(rs.getString("nome"),
                     rs.getString("indirizzo"),
                     rs.getString("comune"),
@@ -46,7 +46,7 @@ public class DataTables {
                     rs.getInt("cap"),
                     rs.getString("tipologia"));
             centriVaccinaliTable.add(cv);
-        }
+        }while(rs.next());
         return centriVaccinaliTable;
     }
 

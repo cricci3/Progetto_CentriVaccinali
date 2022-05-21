@@ -23,6 +23,6 @@ public interface InterfaceRMI extends Remote {
     //restiuiscono dei valori che cittadino deve leggere, server rimanda robe al client
     public String visualizzaInfoCentroVaccinale(CentroVaccinale centro) throws RemoteException; //non funziona
     public ArrayList<CentroVaccinale> cercaCentroVaccinale(String nomeCV) throws RemoteException; //non funziona
-    public String cercaCentroVaccinale(String comune, String tipologia) throws RemoteException;
+    public ArrayList<CentroVaccinale> cercaCentroVaccinale(String comune, String tipologia) throws RemoteException;
 
 }

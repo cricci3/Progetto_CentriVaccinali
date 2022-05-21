@@ -63,6 +63,7 @@ public class ControllerHelloCittadino {
             stage.setScene(scene);
             stage.show();
         }catch (Exception e){
+            e.printStackTrace();
             System.out.println( "Exception on FXMLLoader.load()" );
             System.out.println( "  * url: " + url );
             System.out.println( "  * " + e );
