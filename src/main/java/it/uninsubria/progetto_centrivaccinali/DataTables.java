@@ -13,6 +13,7 @@ public class DataTables {
     private ArrayList<Operatore> operatoriList;
     private ArrayList<String> listLog;
     private ArrayList<Integer> listId;
+    private ArrayList<Double> listaMedie;
 
     public DataTables() {
         this.centriVaccinaliTable = new ArrayList<CentroVaccinale>();
@@ -22,6 +23,7 @@ public class DataTables {
         this.operatoriList = new ArrayList<Operatore>();
         this.listLog = new ArrayList<>();
         this.listId = new ArrayList<>();
+        this.listaMedie = new ArrayList<>();
     }
 
     public void handleOperatoriSet(ResultSet rs) throws SQLException{
@@ -108,41 +110,20 @@ public class DataTables {
         return this.cittadiniVaccinatiTable;
     }
 
-
-    public String handleEventiAvversiSet(ResultSet rs) throws SQLException{
-        String risultato = null;
-        while (rs.next()){
-            risultato.concat(rs.getString("febbre"));
-            risultato.concat(String.valueOf(rs.getInt("media")));
-        }
-        return risultato;
+    public void handleMedieEventiAvversi(ResultSet rs) throws SQLException{
+        rs.first();
+        do{
+            listaMedie.add(rs.getDouble("febbre"));
+            listaMedie.add(rs.getDouble("malDiTesta"));
+            listaMedie.add(rs.getDouble("doloriMuscolari"));
+            listaMedie.add(rs.getDouble("linfoadenopatia"));
+            listaMedie.add(rs.getDouble("tachicardia"));
+            listaMedie.add(rs.getDouble("crisiIpertensive"));
+        }while (rs.next());
     }
 
-    /*
-    public void handleEventiAvversiSet(ResultSet rs) throws SQLException {
-        //rs.first(); //così handle iniziano da prima riga
-        while(rs.next()) {
-            EventiAvversi eventi = new EventiAvversi((rs.getString("cittadino"),
-                    rs.getString("testa"),
-                    rs.getString("noteTesta"),
-                    rs.getString("febbre"),
-                    rs.getString("noteFebbre"),
-                    rs.getString("dolori"),
-                    rs.getString("noteDolori"),
-                    rs.getString("linfoadenopatia"),
-                    rs.getString("noteLinfo"),
-                    rs.getString("tachicardia"),
-                    rs.getString("noteTach"),
-                    rs.getString("crisiI"),
-                    rs.getString("noteCrisiI"));
-            cittadiniVaccinatiTable.add(eventi);
-        }
-    }
-    
-     */
-
-    public ArrayList<EventiAvversi> getEventiAvversiTables(){
-        return this.eventiAvversiTable;
+    public ArrayList<Double> getMedieEventiAvversiTable(){
+        return this.listaMedie;
     }
 
 }

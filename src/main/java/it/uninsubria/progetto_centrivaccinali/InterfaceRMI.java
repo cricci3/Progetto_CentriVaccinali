@@ -19,10 +19,9 @@ public interface InterfaceRMI extends Remote {
     public boolean loginCittadino(String username, String password) throws RemoteException;
     public int loginCittadinoID(String username, String password) throws RemoteException;
 
-    //metodi lettura db
-    //restiuiscono dei valori che cittadino deve leggere, server rimanda robe al client
-    public String visualizzaInfoCentroVaccinale(CentroVaccinale centro) throws RemoteException; //non funziona
-    public ArrayList<CentroVaccinale> cercaCentroVaccinale(String nomeCV) throws RemoteException; //non funziona
+    public ArrayList<CentroVaccinale> getInfoCentroVaccinale(String centro) throws RemoteException;
+    public ArrayList<Double> getMedieCentroVaccinale(String centro) throws RemoteException;
+    public ArrayList<CentroVaccinale> cercaCentroVaccinale(String nomeCV) throws RemoteException;
     public ArrayList<CentroVaccinale> cercaCentroVaccinale(String comune, String tipologia) throws RemoteException;
 
 }

@@ -258,21 +258,41 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
 
     //funzione chiamata quando un cittadino vuole cercare informazioni riguardo a un centro vaccinale
     @Override
-    public String visualizzaInfoCentroVaccinale(CentroVaccinale centro){
-        String query = "SELECT febbre, avg(febbre) AS media FROM eventiavversi"+
-                "WHERE nomeCV = "+centro.getNome()+
-                "GROUP BY febbre";
-
-        String informazione = null;
+    public ArrayList<CentroVaccinale> getInfoCentroVaccinale(String centro){
+        String query = "SELECT * FROM centrivaccinali WHERE nome = '"+centro+"'";
+        ArrayList<CentroVaccinale> infoCentro = new ArrayList<>();
         try {
             ResultSet rs = db.submitQuery(query);
             DataTables dt = new DataTables();
-            String media = dt.handleEventiAvversiSet(rs);
-            informazione = centro.toString()+media;
+            infoCentro = dt.handleCentriVaccinaliSet(rs);
+            if(!infoCentro.isEmpty()){
+                return infoCentro;
+            }
         }catch (SQLException e){
             e.printStackTrace();
         }
-        return informazione;
+        return infoCentro;
+    }
+
+    @Override
+    public ArrayList<Double> getMedieCentroVaccinale(String centro) throws RemoteException {
+        String query = "SELECT avg(febbre) as febbre," +
+                "avg(malditesta) as malDiTesta," +
+                "avg(dolorim) as doloriMuscolari," +
+                "avg(linfoadenopatia) as linfoadenopatia," +
+                "avg(tachicardia) as tachicardia," +
+                "avg(crisii) as crisiIpertensive "+
+                "FROM eventiavversi WHERE nomecv = '"+centro+"'";
+        ArrayList<Double> listaMedie = new ArrayList<>();
+        try {
+            ResultSet rs = db.submitQuery(query);
+            DataTables dt = new DataTables();
+            dt.handleMedieEventiAvversi(rs);
+            listaMedie = dt.getMedieEventiAvversiTable();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return listaMedie;
     }
 
     @Override
