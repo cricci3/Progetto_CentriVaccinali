@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerAddVaccinato">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerAddVaccinato">
    <children>
       <Label layoutX="152.0" layoutY="40.0" text="Aggiungi un nuovo vaccinato">
          <font>
@@ -28,5 +28,6 @@
       <Label layoutX="318.0" layoutY="183.0" text="Codice Fiscale" />
       <Label layoutX="143.0" layoutY="235.0" text="Data di vaccinazione" />
       <Label layoutX="318.0" layoutY="235.0" text="Vaccino somministrato" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="&lt;-" />
    </children>
 </AnchorPane>

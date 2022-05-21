@@ -1,13 +1,24 @@
 package it.uninsubria.progetto_centrivaccinali;
 
-import javafx.event.*;
-import javafx.fxml.*;
-import javafx.scene.control.*;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.net.URL;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 public class ControllerAddEventiAvversi {
+    private Parent root;
+    private Scene scene;
+    private Stage stage;
     @FXML
     private TextField tf_mdt, tf_febbre, tf_linfo, tf_crisi, tf_dolori, tf_tachi, tf_id, tf_centrovaccinale;
     @FXML
@@ -55,6 +66,25 @@ public class ControllerAddEventiAvversi {
             }
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    public void back(ActionEvent event){
+        String sceneFile = "login-cittadino.fxml";
+        URL url = getClass().getResource(sceneFile);
+        try {
+            FXMLLoader fxmlLoader;
+            fxmlLoader= new FXMLLoader(url);
+            root = fxmlLoader.load();
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println( "Exception on FXMLLoader.load()" );
+            System.out.println( "  * url: " + url );
+            System.out.println( "  * " + e );
+            System.out.println( "    ----------------------------------------\n" );
         }
     }
 }

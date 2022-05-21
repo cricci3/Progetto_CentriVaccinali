@@ -2,14 +2,22 @@ package it.uninsubria.progetto_centrivaccinali;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.rmi.registry.*;
 import java.util.ResourceBundle;
 
 public class ControllerAddVaccinato implements Initializable {
+    private Parent root;
+    private Scene scene;
+    private Stage stage;
     @FXML
     private ChoiceBox<String> cb_vaccino;
     @FXML
@@ -60,5 +68,24 @@ public class ControllerAddVaccinato implements Initializable {
             e.printStackTrace();
         }
 
+    }
+
+    public void back(ActionEvent event){
+        String sceneFile = "hello-operatore.fxml";
+        URL url = getClass().getResource(sceneFile);
+        try {
+            FXMLLoader fxmlLoader;
+            fxmlLoader= new FXMLLoader(url);
+            root = fxmlLoader.load();
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println( "Exception on FXMLLoader.load()" );
+            System.out.println( "  * url: " + url );
+            System.out.println( "  * " + e );
+            System.out.println( "    ----------------------------------------\n" );
+        }
     }
 }

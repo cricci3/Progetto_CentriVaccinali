@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerRegistrazioneCittadino">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerRegistrazioneCittadino">
    <children>
       <Label layoutX="109.0" layoutY="14.0" text="Registrazione Cittadino Vaccinato" textAlignment="CENTER">
          <font>
@@ -32,5 +32,6 @@
       <PasswordField fx:id="pf_passwordReg" layoutX="111.0" layoutY="316.0" promptText="Almeno 8 caratteri" />
       <Button layoutX="370.0" layoutY="310.0" mnemonicParsing="false" onAction="#registrazioneCittadino" style="-fx-padding: 10;" text="Registrati" />
       <Label fx:id="lb_erroreReg" layoutX="249.0" layoutY="347.0" prefHeight="17.0" prefWidth="101.0" textAlignment="CENTER" textFill="RED" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="&lt;-" />
    </children>
 </AnchorPane>

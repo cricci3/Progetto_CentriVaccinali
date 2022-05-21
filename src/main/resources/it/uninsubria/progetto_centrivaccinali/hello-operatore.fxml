@@ -12,5 +12,6 @@
          </font></Label>
       <Button layoutX="189.0" layoutY="151.0" mnemonicParsing="false" onAction="#switchToAddCentroVaccinale" style="-fx-padding: 10;" text="Aggiungi un nuovo centro vaccinale" />
       <Button layoutX="206.0" layoutY="217.0" mnemonicParsing="false" onAction="#switchToAddVaccinato" style="-fx-padding: 10;" text="Aggiungi un nuovo vaccinato" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="Logout" />
    </children>
 </AnchorPane>
