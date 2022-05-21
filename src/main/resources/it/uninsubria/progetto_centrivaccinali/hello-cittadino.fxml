@@ -10,7 +10,7 @@
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Label>
-      <Button layoutX="189.0" layoutY="92.0" mnemonicParsing="false" style="-fx-padding: 10;" text="Cerca informazioni sui centri vaccinali" textAlignment="CENTER" />
+      <Button layoutX="189.0" layoutY="92.0" mnemonicParsing="false" onAction="#switchToInfo" style="-fx-padding: 10;" text="Cerca informazioni sui centri vaccinali" textAlignment="CENTER" />
       <Button layoutX="188.0" layoutY="181.0" mnemonicParsing="false" onAction="#switchToRegistrazione" prefHeight="37.0" prefWidth="227.0" style="-fx-padding: 10;" text="Registrati al sistema*" />
       <Button layoutX="188.0" layoutY="273.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="37.0" prefWidth="227.0" style="-fx-padding: 10;" text="Login*" />
       <Label layoutX="185.0" layoutY="334.0" text="*operazioni riservate a cittadini già vaccinati" textAlignment="CENTER" />
