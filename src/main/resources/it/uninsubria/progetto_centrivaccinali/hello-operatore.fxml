@@ -4,14 +4,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerHelloOperatore">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerHelloOperatore">
    <children>
       <Label layoutX="111.0" layoutY="70.0" text="Seleziona l'operazione desiderata">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Label>
       <Button layoutX="189.0" layoutY="151.0" mnemonicParsing="false" onAction="#switchToAddCentroVaccinale" style="-fx-padding: 10;" text="Aggiungi un nuovo centro vaccinale" />
-      <Button layoutX="206.0" layoutY="217.0" mnemonicParsing="false" onAction="#switchToAddVaccinato" style="-fx-padding: 10;" text="Aggiungi un nuovo vaccinato" />
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="Logout" />
+      <Button layoutX="188.0" layoutY="217.0" mnemonicParsing="false" onAction="#switchToAddVaccinato" prefHeight="37.0" prefWidth="211.0" style="-fx-padding: 10;" text="Aggiungi un nuovo vaccinato" />
    </children>
 </AnchorPane>

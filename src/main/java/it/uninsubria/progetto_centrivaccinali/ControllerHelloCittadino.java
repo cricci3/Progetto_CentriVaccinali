@@ -51,8 +51,8 @@ public class ControllerHelloCittadino {
         }
     }
 
-    public void back(ActionEvent event){
-        String sceneFile = "hello-view.fxml";
+    public void switchToInfo(ActionEvent event) {
+        String sceneFile = "hello-informazioni.fxml";
         URL url = getClass().getResource(sceneFile);
         try {
             FXMLLoader fxmlLoader;
