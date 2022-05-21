@@ -30,13 +30,13 @@ public class ControllerAddEventiAvversi {
         int dolori = Integer.parseInt(tf_dolori.getText());
         int tachi = Integer.parseInt(tf_tachi.getText());
         int id = idCittadino;
-        String cv = tf_centrovaccinale.getText();
-        String noteMdt = tf_noteMdt.getText();
-        String noteFebbre = tf_noteFebbre.getText();
-        String noteLinfo = tf_noteLinfo.getText();
-        String noteCrisi = tf_noteCrisi.getText();
-        String noteDolori = tf_noteDolori.getText();
-        String noteTachi = tf_noteTachi.getText();
+        String cv = tf_centrovaccinale.getText().toLowerCase();
+        String noteMdt = tf_noteMdt.getText().toLowerCase();
+        String noteFebbre = tf_noteFebbre.getText().toLowerCase();
+        String noteLinfo = tf_noteLinfo.getText().toLowerCase();
+        String noteCrisi = tf_noteCrisi.getText().toLowerCase();
+        String noteDolori = tf_noteDolori.getText().toLowerCase();
+        String noteTachi = tf_noteTachi.getText().toLowerCase();
 
         EventiAvversi nuovoEventiavversi = new EventiAvversi(id, cv, febbre, noteFebbre, mdt, noteMdt, dolori,
                 noteDolori, linfo, noteLinfo, tachi, noteTachi, crisi, noteCrisi);

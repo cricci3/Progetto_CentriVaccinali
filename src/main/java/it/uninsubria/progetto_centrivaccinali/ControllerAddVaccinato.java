@@ -27,12 +27,12 @@ public class ControllerAddVaccinato implements Initializable {
 
     @FXML
     public void addVaccinato(ActionEvent event){
-        String nome = tf_nome.getText();
-        String cognome = tf_cognome.getText();
-        String nomeCV = tf_nomecentrovaccinale.getText().replaceAll(" ","");
-        String cf = tf_codicefiscale.getText();
-        String datavaccinazione = dp_datavaccinazione.getValue().toString();
-        String nomeVaccino = cb_vaccino.getValue();
+        String nome = tf_nome.getText().toLowerCase();
+        String cognome = tf_cognome.getText().toLowerCase();
+        String nomeCV = tf_nomecentrovaccinale.getText().replaceAll(" ","").toLowerCase();
+        String cf = tf_codicefiscale.getText().toLowerCase();
+        String datavaccinazione = dp_datavaccinazione.getValue().toString().toLowerCase();
+        String nomeVaccino = cb_vaccino.getValue().toLowerCase();
         int id=0;
         do {
             id= IdGenerator.generateUniqueId();

@@ -24,10 +24,10 @@ public class ControllerRegistrazioneCittadino {
 
     public void registrazioneCittadino(ActionEvent event) {
         int id = (int)Integer.parseInt(tf_idReg.getText());
-        String nomeCV = tf_nomeCVReg.getText().replaceAll(" ","");
-        String nome = tf_nomeReg.getText();
-        String cognome = tf_cognomeReg.getText();
-        String email = tf_emailReg.getText();
+        String nomeCV = tf_nomeCVReg.getText().replaceAll(" ","").toLowerCase();
+        String nome = tf_nomeReg.getText().toLowerCase();
+        String cognome = tf_cognomeReg.getText().toLowerCase();
+        String email = tf_emailReg.getText().toLowerCase();
         String username = tf_usernameReg.getText();
         String password = pf_passwordReg.getText();
 
