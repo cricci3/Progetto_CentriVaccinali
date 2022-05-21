@@ -69,4 +69,22 @@ public class ControllerHelloCittadino {
             System.out.println( "    ----------------------------------------\n" );
         }
     }
+    public void back(ActionEvent event){
+        String sceneFile = "hello-view.fxml";
+        URL url = getClass().getResource(sceneFile);
+        try {
+            FXMLLoader fxmlLoader;
+            fxmlLoader= new FXMLLoader(url);
+            root = fxmlLoader.load();
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println( "Exception on FXMLLoader.load()" );
+            System.out.println( "  * url: " + url );
+            System.out.println( "  * " + e );
+            System.out.println( "    ----------------------------------------\n" );
+        }
+    }
 }
