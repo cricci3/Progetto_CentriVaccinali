@@ -1,14 +1,21 @@
 package it.uninsubria.progetto_centrivaccinali;
 
 import javafx.beans.value.*;
+import javafx.event.*;
 import javafx.fxml.*;
+import javafx.scene.*;
 import javafx.scene.control.*;
+import javafx.stage.*;
 
 import java.net.*;
 import java.rmi.registry.*;
 import java.util.*;
 
 public class ControllerRisultatiRicerca implements Initializable {
+    private Parent root;
+    private Scene scene;
+    private Stage stage;
+
     @FXML
     private ListView<String> lv_centri;
     @FXML
@@ -59,5 +66,24 @@ public class ControllerRisultatiRicerca implements Initializable {
 
             }
         });
+    }
+
+    public void back(ActionEvent event) {
+        String sceneFile = "hello-informazioni.fxml";
+        URL url = getClass().getResource(sceneFile);
+        try {
+            FXMLLoader fxmlLoader;
+            fxmlLoader= new FXMLLoader(url);
+            root = fxmlLoader.load();
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println( "Exception on FXMLLoader.load()" );
+            System.out.println( "  * url: " + url );
+            System.out.println( "  * " + e );
+            System.out.println( "    ----------------------------------------\n" );
+        }
     }
 }
