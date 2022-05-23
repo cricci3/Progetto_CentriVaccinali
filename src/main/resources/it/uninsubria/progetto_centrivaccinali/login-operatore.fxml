@@ -16,7 +16,7 @@
       <Label layoutX="171.0" layoutY="210.0" text="Password" />
       <PasswordField fx:id="pf_password" layoutX="171.0" layoutY="227.0" prefHeight="25.0" prefWidth="263.0" />
       <Button fx:id="btn_login" layoutX="275.0" layoutY="280.0" mnemonicParsing="false" onAction="#logIn" style="-fx-padding: 10;" text="Login" />
-      <Label fx:id="lb_control" alignment="CENTER" layoutX="289.0" layoutY="338.0" textAlignment="CENTER" />
+      <Label fx:id="lb_control" alignment="CENTER" layoutX="6.0" layoutY="338.0" prefHeight="17.0" prefWidth="582.0" textAlignment="CENTER" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="&lt;-" />
    </children>
 </AnchorPane>

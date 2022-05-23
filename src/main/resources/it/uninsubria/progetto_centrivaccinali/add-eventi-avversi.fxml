@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerAddEventiAvversi">
+<AnchorPane prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerAddEventiAvversi">
    <children>
       <Label layoutX="173.0" layoutY="13.0" text="Inserisci eventi avversi">
          <font>
@@ -32,7 +32,7 @@
       <Label layoutX="73.0" layoutY="405.0" text="Centro Vaccinale" />
       <TextField fx:id="tf_centrovaccinale" layoutX="172.0" layoutY="401.0" prefHeight="25.0" prefWidth="348.0" promptText="Inserisci il centro vaccinale" />
       <Button layoutX="265.0" layoutY="443.0" mnemonicParsing="false" onAction="#inviaDati" style="-fx-padding: 10;" text="Invia dati" />
-      <Label fx:id="lb_errore" alignment="CENTER" layoutX="81.0" layoutY="491.0" prefHeight="17.0" prefWidth="432.0" textAlignment="CENTER" />
+      <Label fx:id="lb_errore" alignment="CENTER" layoutX="5.0" layoutY="491.0" prefHeight="17.0" prefWidth="588.0" textAlignment="CENTER" />
       <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#back" text="Logout" />
    </children>
 </AnchorPane>

@@ -51,7 +51,7 @@ public class ControllerRisultatiRicerca implements Initializable {
                                     "Indirizzo: "+centro.getIndirizzo()+"\n"+
                                     "Comune: "+centro.getComune()+" ("+centro.getProvincia()+"), "+centro.getCap()+"\n"+
                                     "Tipologia: "+centro.getTipologia()+"\n\n"+
-                                    "Medie degli eventi avversi relativi a questo centro\n"+
+                                    "Medie degli eventi avversi\nrelativi a questo centro\n"+
                                     "Febbre: "+medieCV.get(0)+
                                     "\nMal di testa: "+medieCV.get(1)+
                                     "\nDolori Muscolari: "+medieCV.get(2)+

@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerLoginCittadino">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uninsubria.progetto_centrivaccinali.ControllerLoginCittadino">
    <children>
       <Label layoutX="213.0" layoutY="44.0" text="Login Cittadino" textAlignment="CENTER">
          <font>
@@ -15,7 +15,7 @@
       <Label layoutX="192.0" layoutY="208.0" text="Password" />
       <PasswordField fx:id="pf_pswLogin" layoutX="190.0" layoutY="226.0" prefHeight="25.0" prefWidth="220.0" />
       <Button layoutX="275.0" layoutY="269.0" mnemonicParsing="false" onAction="#loginCittadino" style="-fx-padding: 10;" text="Login" />
-      <Label fx:id="lb_erroreLogin" alignment="CENTER" layoutX="107.0" layoutY="325.0" prefHeight="17.0" prefWidth="386.0" textAlignment="CENTER" />
+      <Label fx:id="lb_erroreLogin" alignment="CENTER" layoutX="13.0" layoutY="325.0" prefHeight="17.0" prefWidth="578.0" textAlignment="CENTER" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="&lt;-" />
    </children>
 </AnchorPane>
