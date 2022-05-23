@@ -26,7 +26,7 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
     //funzione chiamata quando operatore inserisce un nuovo centro vaccinale
     //da aggiungere a listenerButton invio dati
     @Override
-    public boolean addCentroVaccinale(CentroVaccinale cv){
+    public synchronized boolean addCentroVaccinale(CentroVaccinale cv){
         try{
             String query = "INSERT INTO centrivaccinali VALUES ('" + cv.getNome() + "','" + cv.getIndirizzo() + "','"
                     + cv.getComune() + "','" + cv.getProvincia() + "','" + cv.getTipologia() + "','" + cv.getCap() + "')";
@@ -50,7 +50,7 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
     //funzione chiamata quando operatore inserisce un nuovo vaccinato in un centro vaccinale
     //da aggiungere a listenerButton invio dati
     @Override
-    public boolean addCittadinoVaccinato(CittadinoVaccinato cittV) {
+    public synchronized boolean addCittadinoVaccinato(CittadinoVaccinato cittV) {
         String query = "INSERT INTO vaccinati_"+cittV.getNomeCV()+" VALUES ('" + cittV.getIdUnivoco() + "','" + cittV.getNome() + "','"
                 + cittV.getCognome() + "','" + cittV.getCf() + "','" + cittV.getDataVaccinazione() + "','" + cittV.getNomeVaccino() + "')";
         try {
