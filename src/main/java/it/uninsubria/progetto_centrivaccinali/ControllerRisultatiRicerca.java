@@ -63,9 +63,6 @@ public class ControllerRisultatiRicerca implements Initializable {
                 }catch (Exception e){
                     e.printStackTrace();
                 }
-
-
-
             }
         });
     }
