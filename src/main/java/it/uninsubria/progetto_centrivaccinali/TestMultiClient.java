@@ -11,7 +11,7 @@ public class TestMultiClient {
             InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
 
             for(int i=0; i<9; i++){
-                new TestAddCentro(stub, i);
+                new TesterAddCentro(stub, i);
             }
         } catch (RemoteException | NotBoundException e) {
             e.printStackTrace();

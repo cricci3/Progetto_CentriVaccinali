@@ -2,11 +2,11 @@ package it.uninsubria.progetto_centrivaccinali;
 
 import java.rmi.*;
 
-public class TestAddCentro extends Thread {
+public class TesterAddCentro extends Thread {
     InterfaceRMI stub;
     int myId;
 
-    public TestAddCentro(InterfaceRMI stub, int i) {
+    public TesterAddCentro(InterfaceRMI stub, int i) {
         this.stub = stub;
         myId = i;
 
