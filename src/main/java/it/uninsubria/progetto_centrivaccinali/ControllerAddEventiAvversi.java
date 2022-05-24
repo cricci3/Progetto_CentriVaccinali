@@ -30,24 +30,32 @@ public class ControllerAddEventiAvversi {
 
     public void getId(int id) {
         idCittadino = id;
-        lb_errore.setText(String.valueOf(idCittadino));
+        //lb_errore.setText(String.valueOf(idCittadino));
     }
 
     public void inviaDati(ActionEvent actionEvent) {
-        int mdt = Integer.parseInt(tf_mdt.getText());
-        int febbre = Integer.parseInt(tf_febbre.getText());
-        int linfo = Integer.parseInt(tf_linfo.getText());
-        int crisi = Integer.parseInt(tf_crisi.getText());
-        int dolori = Integer.parseInt(tf_dolori.getText());
-        int tachi = Integer.parseInt(tf_tachi.getText());
-        int id = idCittadino;
-        String cv = tf_centrovaccinale.getText().toLowerCase();
-        String noteMdt = tf_noteMdt.getText().toLowerCase();
-        String noteFebbre = tf_noteFebbre.getText().toLowerCase();
-        String noteLinfo = tf_noteLinfo.getText().toLowerCase();
-        String noteCrisi = tf_noteCrisi.getText().toLowerCase();
-        String noteDolori = tf_noteDolori.getText().toLowerCase();
-        String noteTachi = tf_noteTachi.getText().toLowerCase();
+        int mdt, febbre,linfo,crisi,dolori,tachi,id;
+        String cv, noteMdt, noteFebbre, noteDolori, noteLinfo, noteTachi, noteCrisi;
+        do {
+            mdt = Integer.parseInt(tf_mdt.getText());
+            febbre = Integer.parseInt(tf_febbre.getText());
+            linfo = Integer.parseInt(tf_linfo.getText());
+            crisi = Integer.parseInt(tf_crisi.getText());
+            dolori = Integer.parseInt(tf_dolori.getText());
+            tachi = Integer.parseInt(tf_tachi.getText());
+            id = idCittadino;
+            cv = tf_centrovaccinale.getText().toLowerCase().replaceAll(" ", "");
+            noteMdt = tf_noteMdt.getText().toLowerCase();
+            noteFebbre = tf_noteFebbre.getText().toLowerCase();
+            noteLinfo = tf_noteLinfo.getText().toLowerCase();
+            noteCrisi = tf_noteCrisi.getText().toLowerCase();
+            noteDolori = tf_noteDolori.getText().toLowerCase();
+            noteTachi = tf_noteTachi.getText().toLowerCase();
+            lb_errore.setText("Verificare che i dati siano compresi tra 1 e 5");
+        }while(mdt<1 || mdt>5 || febbre<1 || febbre>5 || linfo<1 || linfo>5 ||
+                crisi<1 || crisi>5 || dolori <1 ||dolori>5 || tachi<1 || tachi>5);
+
+        lb_errore.setText("Valori inseriti correttamente");
 
         EventiAvversi nuovoEventiavversi = new EventiAvversi(id, cv, febbre, noteFebbre, mdt, noteMdt, dolori,
                 noteDolori, linfo, noteLinfo, tachi, noteTachi, crisi, noteCrisi);
