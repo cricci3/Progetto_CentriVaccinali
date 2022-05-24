@@ -7,6 +7,7 @@ import javafx.scene.image.*;
 import javafx.stage.*;
 
 import java.io.*;
+import java.util.*;
 
 public class HelloApplication extends Application {
     @Override
@@ -14,7 +15,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Centri Vaccinali");
-        Image icon = new Image(getClass().getResourceAsStream("logo-centri-vaccinali.png"));
+        Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo-centri-vaccinali.png")));
         stage.getIcons().add(icon);
         stage.setScene(scene);
         stage.show();
