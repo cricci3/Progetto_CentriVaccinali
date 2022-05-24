@@ -41,31 +41,30 @@ public class ControllerAddVaccinato implements Initializable {
         do {
             id= IdGenerator.generateUniqueId();
         }while(id>99999999 || id<=9999999);
-        System.out.println(id);
-
 
         if(cf.length()!=16){
-            lbl_addVaccinato.setText("Codice fiscale errato");
-        }
+            lbl_addVaccinato.setText("Codice Fiscale errato");
+        }else {
 
-        CittadinoVaccinato nuovoVaccinato = new CittadinoVaccinato(nomeCV,id,nome,cognome,cf,datavaccinazione,nomeVaccino);
+            CittadinoVaccinato nuovoVaccinato = new CittadinoVaccinato(nomeCV, id, nome, cognome, cf, datavaccinazione, nomeVaccino);
 
-        try {
-            Registry registro = LocateRegistry.getRegistry(1099);
-            InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
+            try {
+                Registry registro = LocateRegistry.getRegistry(1099);
+                InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
 
-            boolean response = stub.addCittadinoVaccinato(nuovoVaccinato);
+                boolean response = stub.addCittadinoVaccinato(nuovoVaccinato);
 
-            if (response) {
-                lbl_addVaccinato.setText("Vaccinato aggiunto correttamente");
-                lb_id.setText("ID cittadino: "+id);
-            } else {
+                if (response) {
+                    lbl_addVaccinato.setText("Vaccinato aggiunto correttamente");
+                    lb_id.setText("ID cittadino: " + id);
+                } else {
+                    lbl_addVaccinato.setText("ERRORE, riprovare");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
                 lbl_addVaccinato.setText("ERRORE, riprovare");
             }
-        }catch (Exception e){
-            e.printStackTrace();
         }
-
     }
 
     public void back(ActionEvent event){
