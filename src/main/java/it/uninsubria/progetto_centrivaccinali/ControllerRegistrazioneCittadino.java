@@ -28,16 +28,17 @@ public class ControllerRegistrazioneCittadino {
         String nome = tf_nomeReg.getText().toLowerCase();
         String cognome = tf_cognomeReg.getText().toLowerCase();
         String email = tf_emailReg.getText().toLowerCase();
-        String username = tf_usernameReg.getText();
+        String username = tf_usernameReg.getText().toLowerCase();
         String password = pf_passwordReg.getText();
 
-        if(password.length()<8){
+        if(username.equals("")){
+            lb_erroreReg.setText("Inserire uno username");
+        }else if(password.length()<8){
             lb_erroreReg.setText("Password deve avere almeno 8 caratteri");
         }else{
             try {
                 Registry registro = LocateRegistry.getRegistry(1099);
                 InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
-                //stub.addCittadinoRegistrato(id,nomeCV,nome,cognome,email,username,password);
 
                 boolean result = stub.controlloRegistrazione(id, nomeCV);
                 //se result == false non è ancora registrato e può farlo
@@ -63,10 +64,6 @@ public class ControllerRegistrazioneCittadino {
                             System.out.println( "  * " + e );
                             System.out.println( "    ----------------------------------------\n" );
                         }
-
-
-
-
                     }else{
                         lb_erroreReg.setText("A questo ID non corrisponde nessun cittadino vaccinato");
                     }

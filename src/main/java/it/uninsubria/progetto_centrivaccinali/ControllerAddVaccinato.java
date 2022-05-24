@@ -42,10 +42,9 @@ public class ControllerAddVaccinato implements Initializable {
             id= IdGenerator.generateUniqueId();
         }while(id>99999999 || id<=9999999);
 
-        if(cf.length()!=16){
-            lbl_addVaccinato.setText("Codice Fiscale errato");
+        if(cf.length()!=16 || nome.equals("") || cognome.equals("") || nomeCV.equals("") || nomeVaccino.equals("")){
+            lbl_addVaccinato.setText("ERRORE, Inserire i dati correttamente");
         }else {
-
             CittadinoVaccinato nuovoVaccinato = new CittadinoVaccinato(nomeCV, id, nome, cognome, cf, datavaccinazione, nomeVaccino);
 
             try {

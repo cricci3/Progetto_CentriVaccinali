@@ -41,21 +41,24 @@ public class ControllerAddCentroVaccinale implements Initializable{
         String tipologia = cb_tipoCV.getValue().toLowerCase();
 
 
+        if (!nomeCV.equals("") && !indirizzoCV.equals("") &&!comune.equals("") &&!provincia.equals("") && !tipologia.equals("")){
+            CentroVaccinale nuovoCentro = new CentroVaccinale(nomeCV, indirizzoCV, comune, provincia, cap, tipologia);
 
-        CentroVaccinale nuovoCentro = new CentroVaccinale(nomeCV, indirizzoCV, comune, provincia, cap, tipologia);
+            try {
+                Registry registro = LocateRegistry.getRegistry(1099);
+                InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
 
-        try {
-            Registry registro = LocateRegistry.getRegistry(1099);
-            InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
-
-            boolean response = stub.addCentroVaccinale(nuovoCentro);
-            if(response){
-                lb_centro.setText("Centro aggiunto correttamente");
-            }else{
-                lb_centro.setText("ERRORE, riprovare");
+                boolean response = stub.addCentroVaccinale(nuovoCentro);
+                if(response){
+                    lb_centro.setText("Centro aggiunto correttamente");
+                }else{
+                    lb_centro.setText("ERRORE, riprovare");
+                }
+            }catch (Exception e){
+                e.printStackTrace();
             }
-        }catch (Exception e){
-            e.printStackTrace();
+        } else {
+            lb_centro.setText("Inserire tutti i dati");
         }
     }
 

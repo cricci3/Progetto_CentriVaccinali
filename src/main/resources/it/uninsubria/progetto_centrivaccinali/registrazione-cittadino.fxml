@@ -31,7 +31,7 @@
       <Label layoutX="111.0" layoutY="298.0" text="Crea una password" />
       <PasswordField fx:id="pf_passwordReg" layoutX="111.0" layoutY="316.0" promptText="Almeno 8 caratteri" />
       <Button layoutX="370.0" layoutY="310.0" mnemonicParsing="false" onAction="#registrazioneCittadino" style="-fx-padding: 10;" text="Registrati" />
-      <Label fx:id="lb_erroreReg" layoutX="7.0" layoutY="347.0" prefHeight="17.0" prefWidth="584.0" textAlignment="CENTER" textFill="RED" />
+      <Label fx:id="lb_erroreReg" alignment="CENTER" layoutX="7.0" layoutY="347.0" prefHeight="17.0" prefWidth="584.0" textAlignment="CENTER" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="&lt;-" />
    </children>
 </AnchorPane>
