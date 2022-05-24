@@ -1,24 +1,19 @@
 package it.uninsubria.progetto_centrivaccinali;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.event.*;
+import javafx.fxml.*;
+import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
+import javafx.stage.*;
 
-import java.io.IOException;
-import java.net.URL;
+import java.net.*;
 import java.rmi.registry.*;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ControllerAddVaccinato implements Initializable {
-    private Parent root, root_popup;
-    private Scene scene, scene_popup;
-    private Stage stage, stage_popup;
+    private Parent root;
+    private Scene scene;
+    private Stage stage;
     @FXML
     private ChoiceBox<String> cb_vaccino;
     @FXML
@@ -27,7 +22,7 @@ public class ControllerAddVaccinato implements Initializable {
     private DatePicker dp_datavaccinazione;
     private String[] vaccini = {"Pfizer", "Moderna", "AstraZeneca", "Johnson&Johnson"};
     @FXML
-    private Label lbl_addVaccinato;
+    private Label lbl_addVaccinato, lb_id;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -63,7 +58,7 @@ public class ControllerAddVaccinato implements Initializable {
 
             if (response) {
                 lbl_addVaccinato.setText("Vaccinato aggiunto correttamente");
-                popupId(id);
+                lb_id.setText("ID cittadino: "+id);
             } else {
                 lbl_addVaccinato.setText("ERRORE, riprovare");
             }
@@ -71,15 +66,6 @@ public class ControllerAddVaccinato implements Initializable {
             e.printStackTrace();
         }
 
-    }
-
-    private void popupId(int id) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("popup_id.fxml"));
-        root_popup = fxmlLoader.load();
-        stage_popup = new Stage();
-        scene_popup= new Scene(root_popup);
-        stage_popup.setScene(scene_popup);
-        stage_popup.show();
     }
 
     public void back(ActionEvent event){
