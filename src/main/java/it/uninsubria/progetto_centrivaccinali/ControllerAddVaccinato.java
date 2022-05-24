@@ -10,14 +10,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.rmi.registry.*;
 import java.util.ResourceBundle;
 
 public class ControllerAddVaccinato implements Initializable {
-    private Parent root;
-    private Scene scene;
-    private Stage stage;
+    private Parent root, root_popup;
+    private Scene scene, scene_popup;
+    private Stage stage, stage_popup;
     @FXML
     private ChoiceBox<String> cb_vaccino;
     @FXML
@@ -62,6 +63,7 @@ public class ControllerAddVaccinato implements Initializable {
 
             if (response) {
                 lbl_addVaccinato.setText("Vaccinato aggiunto correttamente");
+                popupId(id);
             } else {
                 lbl_addVaccinato.setText("ERRORE, riprovare");
             }
@@ -69,6 +71,15 @@ public class ControllerAddVaccinato implements Initializable {
             e.printStackTrace();
         }
 
+    }
+
+    private void popupId(int id) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("popup_id.fxml"));
+        root_popup = fxmlLoader.load();
+        stage_popup = new Stage();
+        scene_popup= new Scene(root_popup);
+        stage_popup.setScene(scene_popup);
+        stage_popup.show();
     }
 
     public void back(ActionEvent event){
