@@ -30,5 +30,6 @@
       <TextField fx:id="tf_provinciaCV" layoutX="425.0" layoutY="274.0" prefHeight="25.0" prefWidth="84.0" promptText="es. VA" />
       <Button fx:id="btn_addCV" layoutX="258.0" layoutY="328.0" mnemonicParsing="false" onAction="#addCentroVaccinale" style="-fx-padding: 10;" text="Aggiungi" />
       <Label fx:id="lb_centro" alignment="CENTER" layoutX="25.0" layoutY="365.0" prefHeight="17.0" prefWidth="549.0" textAlignment="CENTER" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="&lt;-" />
    </children>
 </AnchorPane>
