@@ -1,18 +1,14 @@
 package it.uninsubria.progetto_centrivaccinali;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.event.*;
+import javafx.fxml.*;
+import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
+import javafx.stage.*;
 
-import java.net.URL;
+import java.net.*;
 import java.rmi.registry.*;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ControllerAddVaccinato implements Initializable {
     private Parent root;
@@ -26,7 +22,7 @@ public class ControllerAddVaccinato implements Initializable {
     private DatePicker dp_datavaccinazione;
     private String[] vaccini = {"Pfizer", "Moderna", "AstraZeneca", "Johnson&Johnson"};
     @FXML
-    private Label lbl_addVaccinato;
+    private Label lbl_addVaccinato, lb_id;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -62,6 +58,7 @@ public class ControllerAddVaccinato implements Initializable {
 
             if (response) {
                 lbl_addVaccinato.setText("Vaccinato aggiunto correttamente");
+                lb_id.setText("ID cittadino: "+id);
             } else {
                 lbl_addVaccinato.setText("ERRORE, riprovare");
             }
