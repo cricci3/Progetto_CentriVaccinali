@@ -27,11 +27,10 @@ public class DataTables {
     }
 
     public void handleOperatoriSet(ResultSet rs) throws SQLException{
-        rs.first();
-        do {
+        while (rs.next()){
             Operatore operatore = new Operatore(rs.getString("username"), rs.getString("password"));
             operatoriList.add(operatore);
-        }while (rs.next());
+        }
     }
 
     public ArrayList<Operatore> getOperatoriTable(){
@@ -39,8 +38,7 @@ public class DataTables {
     }
 
     public ArrayList<CentroVaccinale> handleCentriVaccinaliSet(ResultSet rs) throws SQLException {
-        rs.first();
-        do {
+        while(rs.next()){
             CentroVaccinale cv = new CentroVaccinale(rs.getString("nome"),
                     rs.getString("indirizzo"),
                     rs.getString("comune"),
@@ -48,7 +46,7 @@ public class DataTables {
                     rs.getInt("cap"),
                     rs.getString("tipologia"));
             centriVaccinaliTable.add(cv);
-        }while(rs.next());
+        }
         return centriVaccinaliTable;
     }
 
@@ -57,19 +55,20 @@ public class DataTables {
     }
 
     public void handleCittadiniRegistratiSet(ResultSet rs, String cv) throws SQLException {
-        rs.first();
-        CittadinoRegistrato cittr = new CittadinoRegistrato(
-            cv,
-            rs.getInt("idcittadino"),
-            rs.getString("nome"),
-            rs.getString("cognome"),
-            rs.getString("cf"),
-            null, null,
-            rs.getString("email"),
-            rs.getString("username"),
-            rs.getString("password")
-        );
-        cittadiniRegistratiTable.add(cittr);
+        while(rs.next()) {
+            CittadinoRegistrato cittr = new CittadinoRegistrato(
+                    cv,
+                    rs.getInt("idcittadino"),
+                    rs.getString("nome"),
+                    rs.getString("cognome"),
+                    rs.getString("cf"),
+                    null, null,
+                    rs.getString("email"),
+                    rs.getString("username"),
+                    rs.getString("password")
+            );
+            cittadiniRegistratiTable.add(cittr);
+        }
     }
 
     public ArrayList<CittadinoRegistrato> getCittadiniRegistratiTable(){
@@ -77,12 +76,11 @@ public class DataTables {
     }
 
     public void handleLoginCittadini(ResultSet rs) throws SQLException {
-        rs.first();
-        do {
+        while(rs.next()){
             listLog.add(rs.getString("username"));
             listLog.add(rs.getString("password"));
             listId.add(rs.getInt("idcittadino"));
-        }while(rs.next());
+        }
     }
 
     public ArrayList<String> getLoggatiTable(){
@@ -92,8 +90,7 @@ public class DataTables {
 
 
     public void handleCittadiniVaccinatiSet(ResultSet rs, String nomeCV) throws SQLException {
-        rs.first();
-        do {
+        while(rs.next()){
             CittadinoVaccinato cittv = new CittadinoVaccinato(
                     nomeCV,
                     rs.getInt("idcittadino"),
@@ -103,7 +100,7 @@ public class DataTables {
                     rs.getString("datavaccinazione"),
                     rs.getString("nomevaccino"));
             cittadiniVaccinatiTable.add(cittv);
-        }while (rs.next());
+        }
     }
 
     public ArrayList<CittadinoVaccinato> getCittadiniVaccinatiTable(){
@@ -111,15 +108,14 @@ public class DataTables {
     }
 
     public void handleMedieEventiAvversi(ResultSet rs) throws SQLException{
-        rs.first();
-        do{
+        while (rs.next()){
             listaMedie.add(rs.getDouble("febbre"));
             listaMedie.add(rs.getDouble("malDiTesta"));
             listaMedie.add(rs.getDouble("doloriMuscolari"));
             listaMedie.add(rs.getDouble("linfoadenopatia"));
             listaMedie.add(rs.getDouble("tachicardia"));
             listaMedie.add(rs.getDouble("crisiIpertensive"));
-        }while (rs.next());
+        }
     }
 
     public ArrayList<Double> getMedieEventiAvversiTable(){

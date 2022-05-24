@@ -47,6 +47,7 @@ public class ControllerAddVaccinato implements Initializable {
         }while(id>99999999 || id<=9999999);
         System.out.println(id);
 
+
         if(cf.length()!=16){
             lbl_addVaccinato.setText("Codice fiscale errato");
         }
