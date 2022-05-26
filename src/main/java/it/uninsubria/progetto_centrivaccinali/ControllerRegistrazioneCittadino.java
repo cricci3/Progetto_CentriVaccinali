@@ -44,7 +44,7 @@ public class ControllerRegistrazioneCittadino {
                 //se result == false non è ancora registrato e può farlo
                 if(!result){
                     //serve ora controllare se a id corrisponde un cittadino vaccinato
-                    result = stub.addCittadinoRegistrato2(id, nomeCV, nome, cognome, email, username, password);
+                    result = stub.addCittadinoRegistrato(id, nomeCV, nome, cognome, email, username, password);
                     if(result){
                         lb_erroreReg.setText("Registrazione effettuata con successo");
 

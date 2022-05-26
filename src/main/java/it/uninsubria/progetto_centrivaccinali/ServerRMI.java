@@ -6,6 +6,10 @@ import java.rmi.server.*;
 import java.sql.*;
 import java.util.*;
 
+/**
+ * @author Macrina Alessandro mtr. 737128 VA
+ * @author Ricci Claudio mtr. 747555 VA
+ */
 public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
     private static final long serialVersionUID = 1L;
     //creo riferimenti al Database
@@ -19,14 +23,21 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
     }
     DataTables dt = new DataTables();
 
+    /**
+     * Costruttore del Server
+     * @throws RemoteException
+     */
     protected ServerRMI() throws RemoteException {
         super();
     }
 
-    //funzione chiamata quando operatore inserisce un nuovo centro vaccinale
-    //da aggiungere a listenerButton invio dati
+    /**
+     * Metodo che permette di inserire un centro vaccinale all'interno della tabella "centrivaccinali" nel database
+     * @param cv Oggetto centro vaccinale che verrà inserito nel databse
+     * @return true se la query viene eseguita correttamente, false in caso contrario
+     */
     @Override
-    public synchronized boolean addCentroVaccinale(CentroVaccinale cv){
+    public synchronized boolean addCentroVaccinale(CentroVaccinale cv) throws RemoteException{
         try{
             String query = "INSERT INTO centrivaccinali VALUES ('" + cv.getNome() + "','" + cv.getIndirizzo() + "','"
                     + cv.getComune() + "','" + cv.getProvincia() + "','" + cv.getTipologia() + "','" + cv.getCap() + "')";
@@ -47,10 +58,13 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return true;
     }
 
-    //funzione chiamata quando operatore inserisce un nuovo vaccinato in un centro vaccinale
-    //da aggiungere a listenerButton invio dati
+    /**
+     * Metodo che permette di inserire un cittadino vaccinato presso un centro vaccinale all'interno della tabella "vaccinati_nomeCentroVaccinale" nel database
+     * @param cittV oggetto cittadinoVaccinato che verrà inserito nel database
+     * @return true se la query viene eseguita correttamente, false in caso contrario
+     */
     @Override
-    public synchronized boolean addCittadinoVaccinato(CittadinoVaccinato cittV) {
+    public synchronized boolean addCittadinoVaccinato(CittadinoVaccinato cittV) throws RemoteException {
         String query = "INSERT INTO vaccinati_"+cittV.getNomeCV()+" VALUES ('" + cittV.getIdUnivoco() + "','" + cittV.getNome() + "','"
                 + cittV.getCognome() + "','" + cittV.getCf() + "','" + cittV.getDataVaccinazione() + "','" + cittV.getNomeVaccino() + "')";
         try {
@@ -62,6 +76,12 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return true;
     }
 
+    /**
+     * Metodo che permette di controllare se un cittadino è già registrato. Il metodo fa una ricerca all'interno della tabella "cittadini_registrati"
+     * @param id numero intero che rappresenta l'id del cittadino di cui vogliamo controllare la registrazione
+     * @param nomeCV Stringa rappresentante il nome del centro vaccinale presso cui dichiara di essersi registrato il cittadino
+     * @return true se l'id passato come parametro viene trovato nella ricerca e quindi il cittadino è già registrato. false se all'id non corrisponde nessun cittadino registrato
+     */
     @Override
     public boolean controlloRegistrazione(int id, String nomeCV) throws RemoteException {
         String query = "SELECT * FROM cittadini_registrati WHERE idcittadino='"+id+"'";
@@ -72,7 +92,7 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
             dt.handleCittadiniRegistratiSet(rs, nomeCV);
             ArrayList<CittadinoRegistrato> list = dt.getCittadiniRegistratiTable();
             if(!list.isEmpty()){
-                registrato = true; //id inserito risulta già nella lista dei registrati
+                registrato = true;
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -80,44 +100,19 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return registrato;
     }
 
-    //funzione chiamata quando cittadino, in seguito a vaccinazione effettua registrazione al sistema
-    //da aggiungere a listenerButton invio dati
+    /**
+     * Metodo che tramite i parametri passati effettua una nuova registrazione di un cittadino nella tabella del database "cittadini_registrati"
+     * @param id numero intero rappresentante id del cittadino
+     * @param nomeCV String rappresentante il nome del centro vaccinale presso cui il cittadino si è vaccinato
+     * @param nome String rappresentante il nome del cittadino
+     * @param cognome String rappresentante il cognome del cittadino
+     * @param email String rappresentante la mail del cittadino
+     * @param username String rappresentante lo username del cittadino
+     * @param password String rappresentante la password inserita dal cittadino
+     * @return true se query di inserimento va a buon fine, false altrimenti
+     */
     @Override
-    public boolean addCittadinoRegistrato(int id, String nomeCV, String nome, String cognome, String email, String username, String password) {
-        String query = "SELECT * FROM vaccinati_"+nomeCV+" WHERE idcittadino = '"+id+"'";
-        boolean response = false;
-        try {
-            ResultSet rs = db.submitQuery(query);
-            DataTables dt = new DataTables();
-            dt.handleCittadiniVaccinatiSet(rs, nomeCV);
-            ArrayList<CittadinoVaccinato> listaCittadini = dt.getCittadiniVaccinatiTable();
-            if(listaCittadini.isEmpty()){
-                System.out.println("La lista è vuota");
-            }else{
-                //stampa tutto il contenuto di vaccinati_nomeCentro (serve a noi)
-                for (CittadinoVaccinato cittadinoVaccinato : listaCittadini){
-                    System.out.println(cittadinoVaccinato.toString());
-                }
-                //crea un vaccinato con i dati inseriti dall'utente e controlla se nei cittadini vaccinati ne esiste uno che corrisponde
-                CittadinoVaccinato cittadino = listaCittadini.get(0);
-                //CittadinoRegistrato registrato = new CittadinoRegistrato(nomeCV, id, nome, cognome, cittadinoVaccinato.getCf(), cittadinoVaccinato.getDataVaccinazione(), cittadinoVaccinato.getNomeVaccino(), email, username, password);
-                //se esiste un cittadino vaccinato corrispondente ai dati inseriti allora può registrarsi
-                query = "INSERT INTO cittadini_registrati VALUES ('"+id+"','"+nome+"','"+cognome+"','"+ cittadino.cf+"','"+email+"','"+username+"','"+password+"')";
-                try{
-                    db.submitQuery(query);
-                    response = true;
-                }catch (SQLException e){
-                    e.printStackTrace();
-                }
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return response;
-    }
-
-    @Override
-    public boolean addCittadinoRegistrato2(int id, String nomeCV, String nome, String cognome, String email, String username, String password) throws RemoteException {
+    public boolean addCittadinoRegistrato(int id, String nomeCV, String nome, String cognome, String email, String username, String password) throws RemoteException {
         String query = "SELECT * FROM vaccinati_"+nomeCV+" WHERE idcittadino='"+id+"'";
         DataTables dt = new DataTables();
         boolean response = false;
@@ -141,11 +136,13 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return response;
     }
 
-    //funzione chiamata quando un cittadino inserisce i suoi eventi avversi
-    //da aggiungere a listenerButton invio dati eventi avversi
+    /**
+     * Metodo che inserisce nella tabella "eventiavversi" gli eventi avversi inseriti da un cittadino
+     * @param eventi Oggetto EventiAvversi che contiene tutti i dati
+     * @return Una stringa che comunica l'avvenuta o meno dell'inserimento degli eventi avversi
+     */
     @Override
-    public String addEventiAvversi(EventiAvversi eventi) {
-        //CittadinoRegistrato cittadino = eventi.getCittadino();
+    public String addEventiAvversi(EventiAvversi eventi) throws RemoteException {
         String queryControlloCentro = "SELECT * FROM vaccinati_"+eventi.getCentroVaccinale()+" WHERE idcittadino = '"+eventi.getId()+"'";
         try {
             ResultSet rs = db.submitQuery(queryControlloCentro);
@@ -171,8 +168,14 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return "Dati inseriti correttamente";
     }
 
+    /**
+     * Metodo che controla se username e password inseriti da operatore vaccinale siano corretti, effettua una ricerca sulla tabella del database "operatori"
+     * @param username Stringa rappresentante username operatore
+     * @param password Stringa rappresentante password operatore
+     * @return true se le credenziali sono state trovate nella tabella, false altrimenti
+     */
     @Override
-    public boolean loginOperatore2(String username, String password) throws RemoteException {
+    public boolean loginOperatore(String username, String password) throws RemoteException {
         String query = "SELECT * FROM operatori WHERE username = '"+username+"' AND password = '"+password+"'";
         boolean response = false;
         try {
@@ -191,55 +194,14 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return response;
     }
 
+    /**
+     * Metodo che controla se username e password inseriti da cittadino siano corretti, effettua una ricerca sulla tabella del database "cittadini_registrati"
+     * @param username Stringa rappresentante username cittadino registrato
+     * @param password Stringa rappresentante password cittadino registrato
+     * @return true se le credenziali sono state trovate nella tabella, false altrimenti
+     */
     @Override
-    public boolean loginOperatore(String username, String password) throws RemoteException {
-        String query = "SELECT * FROM operatori";
-        boolean response = false;
-        try {
-            ResultSet rs = db.submitQuery(query);
-            DataTables dt = new DataTables();
-            dt.handleOperatoriSet(rs);
-            ArrayList<Operatore> operatoriList = dt.getOperatoriTable();
-            if(operatoriList.isEmpty()){
-                System.out.println("LA LISTA è VUOTA");
-            }else{
-                for (Operatore operatore : operatoriList){
-                    System.out.println(operatore.toString());
-                }
-                Operatore ricercato = new Operatore(username, password);
-                for (Operatore operatore : operatoriList){
-                    if(operatore.getUsername().equals(ricercato.getUsername()))
-                        if(operatore.getPassword().equals(ricercato.getPassword())){
-                            response = true;
-                            break;
-                        }
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return response;
-    }
-
-    @Override
-    public boolean loginCittadino(String username, String password) throws RemoteException {
-        String query = "SELECT * FROM cittadini_registrati WHERE username = '"+username+"' AND password = '"+password+"'";
-        boolean response = false;
-        try {
-            ResultSet rs = db.submitQuery(query);
-            dt.handleLoginCittadini(rs);
-            ArrayList<String> lista = dt.getLoggatiTable();
-            if(!lista.isEmpty()){
-                response = true;
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return response;
-    }
-
-    @Override
-    public int loginCittadinoID(String username, String password) throws RemoteException {
+    public int loginCittadino(String username, String password) throws RemoteException {
         String query = "SELECT * FROM cittadini_registrati WHERE username = '"+username+"' AND password = '"+password+"'";
         try {
             ResultSet rs = db.submitQuery(query);
@@ -256,9 +218,13 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return 0;
     }
 
-    //funzione chiamata quando un cittadino vuole cercare informazioni riguardo a un centro vaccinale
+    /**
+     * Metodo che permette di trovare un centro vaccinale
+     * @param centro Stringa rappresentante il nome del centro vaccinale che si vuole cercare
+     * @return ArrayList<CentroVaccinale> contente il centro vaccinale cercato
+     */
     @Override
-    public ArrayList<CentroVaccinale> getInfoCentroVaccinale(String centro){
+    public ArrayList<CentroVaccinale> getInfoCentroVaccinale(String centro) throws RemoteException {
         String query = "SELECT * FROM centrivaccinali WHERE nome = '"+centro+"'";
         ArrayList<CentroVaccinale> infoCentro = new ArrayList<>();
         try {
@@ -274,8 +240,13 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return infoCentro;
     }
 
+    /**
+     * Metodo che permette di calcolare le medie degli eventi avversi relativi a un centro vaccinale
+     * @param centro Stringa rappresentante il nome del centro vaccinale di cui si vogliono calcolare le medie
+     * @return ArrayList<Double> contente le medie ti tutti gli eventi avversi
+     */
     @Override
-    public ArrayList<Double> getMedieCentroVaccinale(String centro) throws RemoteException {
+    public ArrayList<Double> visualizzaInfoCentroVaccinale(String centro) throws RemoteException {
         String query = "SELECT avg(febbre) as febbre," +
                 "avg(malditesta) as malDiTesta," +
                 "avg(dolorim) as doloriMuscolari," +
@@ -295,6 +266,11 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return listaMedie;
     }
 
+    /**
+     * Metodo che permette di trovare un centro vaccinale passata una stringa rappresentante il nome cercato
+     * @param nomeCV Stringa rappresentante il nome del centro vaccinale cercato
+     * @return ArrayList<CentroVaccinale> contenente tutte le informazioni del centro trovato
+     */
     @Override
     public ArrayList<CentroVaccinale> cercaCentroVaccinale(String nomeCV) throws RemoteException {
         DataTables dt = new DataTables();
@@ -310,6 +286,12 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return listaRisultato;
     }
 
+    /**
+     * Metodo che permette di trovare un centro vaccinale passata una stringa rappresentante il nome cercato
+     * @param comune Stringa rappresentante il nome del comune del centro vaccinale cercato
+     * @param tipologia Stringa rappresentante la tipologia del centro vaccinale cercato
+     * @return ArrayList<CentroVaccinale> contenente tutte le informazioni del centro trovato
+     */
     @Override
     public ArrayList<CentroVaccinale> cercaCentroVaccinale(String comune, String tipologia) throws RemoteException {
         DataTables dt = new DataTables();

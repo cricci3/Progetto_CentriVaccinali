@@ -46,7 +46,7 @@ public class ControllerRisultatiRicerca implements Initializable {
                     ArrayList<CentroVaccinale> centroVaccinale = stub.getInfoCentroVaccinale(nomeCV);
                     CentroVaccinale centro = centroVaccinale.get(0);
 
-                    ArrayList<Double> medieCV = stub.getMedieCentroVaccinale(nomeCV);
+                    ArrayList<Double> medieCV = stub.visualizzaInfoCentroVaccinale(nomeCV);
                     String info = "Nome: "+centro.getNome()+"\n"+
                                     "Indirizzo: "+centro.getIndirizzo()+"\n"+
                                     "Comune: "+centro.getComune()+" ("+centro.getProvincia()+"), "+centro.getCap()+"\n"+

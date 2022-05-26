@@ -27,7 +27,7 @@ public class ControllerLoginOperatore {
             Registry registro = LocateRegistry.getRegistry(1099);
             InterfaceRMI stub = (InterfaceRMI) registro.lookup("CentriVaccinali");
 
-            boolean result = stub.loginOperatore2(username, password);
+            boolean result = stub.loginOperatore(username, password);
 
             if(result){
                 lb_control.setText("TUTTO OK");

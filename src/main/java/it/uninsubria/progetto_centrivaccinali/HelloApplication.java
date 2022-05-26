@@ -9,6 +9,10 @@ import javafx.stage.*;
 import java.io.*;
 import java.util.*;
 
+/**
+ * @author Macrina Alessandro mtr. 737128 VA
+ * @author Ricci Claudio mtr. 747555 VA
+ */
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
