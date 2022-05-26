@@ -29,14 +29,54 @@ public class CittadinoRegistrato extends CittadinoVaccinato implements Serializa
         this.password = password;
     }
 
+    /**
+     * @return username dell'oggetto CittadinoRegistrato che ha chiamato il metodo
+     */
     public String getUsername() {
         return this.username;
     }
 
+    /**
+     * @return password dell'oggetto CittadinoRegistrato che ha chiamato il metodo
+     */
     public String getPassword() {
         return this.password;
     }
 
+    /**
+     * @return email dell'oggetto CittadinoRegistrato che ha chiamato il metodo
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * Metodo che permette di modificare il parametro email
+     * @param email String rappresentante la mail che si vuole impostare
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * Metodo che permette di modificare il parametro username
+     * @param username String rappresentante lo username che si vuole impostare
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * Metodo che permette di modificare il parametro password
+     * @param password String rappresentante la password che si vuole impostare
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @return String rappresentante tutte le informazioni di un oggetto CittadinoRegistrato
+     */
     @Override
     public String toString() {
         return "Cittadino Registrato -> nome: "+nome
