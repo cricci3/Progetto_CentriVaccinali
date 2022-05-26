@@ -33,7 +33,10 @@ public class ControllerAddEventiAvversi {
         //lb_errore.setText(String.valueOf(idCittadino));
     }
 
-    public void inviaDati(ActionEvent actionEvent) {
+    /**
+     * Metodo che crea un oggetto della classe EventiAvversi, il quale viene poi mandato al server per poter essere inserito nel database
+     */
+    public void inviaDati() {
         int mdt, febbre,linfo,crisi,dolori,tachi,id;
         String cv, noteMdt, noteFebbre, noteDolori, noteLinfo, noteTachi, noteCrisi;
         mdt = Integer.parseInt(tf_mdt.getText());
@@ -82,6 +85,10 @@ public class ControllerAddEventiAvversi {
         }
     }
 
+    /**
+     * Metodo che permette di passare a pagina precedente dell'interfaccia grafica
+     * @param event
+     */
     public void back(ActionEvent event){
         String sceneFile = "login-cittadino.fxml";
         URL url = getClass().getResource(sceneFile);

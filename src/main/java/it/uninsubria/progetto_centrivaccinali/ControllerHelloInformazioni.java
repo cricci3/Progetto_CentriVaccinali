@@ -30,6 +30,10 @@ public class ControllerHelloInformazioni implements Initializable{
     }
 
 
+    /**
+     * Metodo che permette di invocare il metodo del server "cercaCentroVaccinale", permette di cercare un centro vaccinale per nome
+     * @param event
+     */
     public void cercaNomeCentro(ActionEvent event) {
         String nomeCV = tf_nome.getText().toLowerCase();
 
@@ -72,6 +76,10 @@ public class ControllerHelloInformazioni implements Initializable{
 
     }
 
+    /**
+     * Metodo che permette di invocare il metodo del server "cercaCentroVaccinale", permette di cercare un centro vaccinale per comune e tipologia
+     * @param event
+     */
     public void cercaTipoComuneCentro(ActionEvent event) {
         String comune = tf_comune.getText().toLowerCase();
         String tipo = cb_tipo.getValue();
@@ -109,6 +117,11 @@ public class ControllerHelloInformazioni implements Initializable{
             e.printStackTrace();
         }
     }
+
+    /**
+     * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
+     * @param event
+     */
     public void back(ActionEvent event){
         String sceneFile = "hello-cittadino.fxml";
         URL url = getClass().getResource(sceneFile);

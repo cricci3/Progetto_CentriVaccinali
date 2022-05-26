@@ -21,7 +21,10 @@ public class ControllerLoginCittadino {
     private Scene scene;
     private Stage stage;
 
-
+    /**
+     * Metodo che permette di invocare il metodo "loginCittadino" del server per poter effetuare l'accesso al sistema, da parte di un cittadino
+     * @param event
+     */
     public void loginCittadino(ActionEvent event) {
         String username = tf_usernameLogin.getText();
         String password = pf_pswLogin.getText();
@@ -62,6 +65,10 @@ public class ControllerLoginCittadino {
         }
     }
 
+    /**
+     * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
+     * @param event
+     */
     public void back(ActionEvent event){
         String sceneFile = "hello-cittadino.fxml";
         URL url = getClass().getResource(sceneFile);

@@ -19,6 +19,10 @@ public class ControllerLoginOperatore {
     @FXML
     private Label lb_control;
 
+    /**
+     * Metodo che permette di invocare il metodo "loginOperatore" del server, permette a un operatore di effettuare l'accesso al sistema
+     * @param event
+     */
     public void logIn(ActionEvent event){
         String username = tf_username.getText();
         String password = pf_password.getText();
@@ -57,6 +61,10 @@ public class ControllerLoginOperatore {
         }
     }
 
+    /**
+     * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
+     * @param event
+     */
     public void back(ActionEvent event){
         String sceneFile = "hello-view.fxml";
         URL url = getClass().getResource(sceneFile);

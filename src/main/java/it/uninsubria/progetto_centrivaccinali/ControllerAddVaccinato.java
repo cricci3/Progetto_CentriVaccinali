@@ -29,8 +29,11 @@ public class ControllerAddVaccinato implements Initializable {
         cb_vaccino.getItems().addAll(vaccini);
     }
 
+    /**
+     * Metodo che permette di creare un oggetto della classe CittadinoVaccinato, il quale viene poi mandato al server per poter essere inserito nel database
+     */
     @FXML
-    public void addVaccinato(ActionEvent event){
+    public void addVaccinato(){
         String nome = tf_nome.getText().toLowerCase();
         String cognome = tf_cognome.getText().toLowerCase();
         String nomeCV = tf_nomecentrovaccinale.getText().replaceAll(" ","").toLowerCase();
@@ -66,6 +69,10 @@ public class ControllerAddVaccinato implements Initializable {
         }
     }
 
+    /**
+     * Metodo che permette di passare a pagina precedente dell'interfaccia grafica
+     * @param event
+     */
     public void back(ActionEvent event){
         String sceneFile = "hello-operatore.fxml";
         URL url = getClass().getResource(sceneFile);

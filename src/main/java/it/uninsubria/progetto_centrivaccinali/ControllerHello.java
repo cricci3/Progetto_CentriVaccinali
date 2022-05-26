@@ -12,6 +12,10 @@ public class ControllerHello {
     private Scene scene;
     private Stage stage;
 
+    /**
+     * Metodo che permette di passare alla pagina dell'interfaccia grafica "login-operatore"
+     * @param event
+     */
     @FXML
     protected void switchToOperatore(ActionEvent event){
         String sceneFile = "login-operatore.fxml";
@@ -32,6 +36,10 @@ public class ControllerHello {
         }
     }
 
+    /**
+     * Metodo che permette di passare alla pagina dell'interfaccia grafica "hello-cittadino"
+     * @param event
+     */
     @FXML
     protected void switchToCittadino(ActionEvent event){
         String sceneFile = "hello-cittadino.fxml";

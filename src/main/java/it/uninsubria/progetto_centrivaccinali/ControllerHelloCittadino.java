@@ -12,6 +12,10 @@ public class ControllerHelloCittadino {
     private Scene scene;
     private Stage stage;
 
+    /**
+     * Metodo che permette di passare alla pagina della GUI "registrazione-cittadino"
+     * @param event
+     */
     @FXML
     public void switchToRegistrazione(ActionEvent event) {
         String sceneFile = "registrazione-cittadino.fxml";
@@ -32,6 +36,10 @@ public class ControllerHelloCittadino {
         }
     }
 
+    /**
+     * Metodo che permette di passare alla pagina della GUI "login-cittadino"
+     * @param event
+     */
     public void switchToLogin(ActionEvent event) {
         String sceneFile = "login-cittadino.fxml";
         URL url = getClass().getResource(sceneFile);
@@ -51,6 +59,10 @@ public class ControllerHelloCittadino {
         }
     }
 
+    /**
+     * Metodo che permette di passare alla pagina della GUI "hello-informazioni"
+     * @param event
+     */
     public void switchToInfo(ActionEvent event) {
         String sceneFile = "hello-informazioni.fxml";
         URL url = getClass().getResource(sceneFile);
@@ -70,6 +82,11 @@ public class ControllerHelloCittadino {
             System.out.println( "    ----------------------------------------\n" );
         }
     }
+
+    /**
+     * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
+     * @param event
+     */
     public void back(ActionEvent event){
         String sceneFile = "hello-view.fxml";
         URL url = getClass().getResource(sceneFile);

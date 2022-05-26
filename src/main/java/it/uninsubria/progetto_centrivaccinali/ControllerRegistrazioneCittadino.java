@@ -22,6 +22,10 @@ public class ControllerRegistrazioneCittadino {
     private Label lb_erroreReg;
 
 
+    /**
+     * Metodo che permette di invocare il metodo "controlloRegistrazione" del server
+     * @param event
+     */
     public void registrazioneCittadino(ActionEvent event) {
         int id = (int)Integer.parseInt(tf_idReg.getText());
         String nomeCV = tf_nomeCVReg.getText().replaceAll(" ","").toLowerCase();
@@ -76,6 +80,10 @@ public class ControllerRegistrazioneCittadino {
         }
     }
 
+    /**
+     * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
+     * @param event
+     */
     public void back(ActionEvent event){
         String sceneFile = "hello-cittadino.fxml";
         URL url = getClass().getResource(sceneFile);

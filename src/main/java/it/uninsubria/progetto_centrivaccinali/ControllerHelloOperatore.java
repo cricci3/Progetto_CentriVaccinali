@@ -12,6 +12,11 @@ public class ControllerHelloOperatore {
     private Scene scene;
     private Stage stage;
     private Parent root;
+
+    /**
+     * Metodo che permette di passare alla pagina della GUI "add-centro-vaccinale"
+     * @param event
+     */
     @FXML
     protected void switchToAddCentroVaccinale(ActionEvent event){
         String sceneFile = "add-centro-vaccinale.fxml";
@@ -32,6 +37,10 @@ public class ControllerHelloOperatore {
         }
     }
 
+    /**
+     * Metodo che permette di passare alla pagina della GUI "add-vaccinato"
+     * @param event
+     */
     @FXML
     protected void switchToAddVaccinato(ActionEvent event){
         String sceneFile = "add-vaccinato.fxml";
@@ -53,6 +62,10 @@ public class ControllerHelloOperatore {
         }
     }
 
+    /**
+     * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
+     * @param event
+     */
     public void back(ActionEvent event){
         String sceneFile = "login-operatore.fxml";
         URL url = getClass().getResource(sceneFile);

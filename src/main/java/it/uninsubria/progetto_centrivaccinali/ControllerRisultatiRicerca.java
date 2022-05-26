@@ -23,7 +23,10 @@ public class ControllerRisultatiRicerca implements Initializable {
 
     public static ArrayList<String> listaCentri = new ArrayList<>();
 
-
+    /**
+     * Metodo che permette di passare una lista di centri vaccinali dalla pagina precedente della GUI a quella gestita da questa classe
+     * @param listaRisultato lista di oggetti tipo CentroVaccinale
+     */
     public void caricaRisultati(ArrayList<CentroVaccinale> listaRisultato) {
         for (CentroVaccinale centro : listaRisultato) {
             listaCentri.add(centro.getNome());
@@ -67,6 +70,10 @@ public class ControllerRisultatiRicerca implements Initializable {
         });
     }
 
+    /**
+     * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
+     * @param event
+     */
     public void back(ActionEvent event) {
         String sceneFile = "hello-informazioni.fxml";
         URL url = getClass().getResource(sceneFile);

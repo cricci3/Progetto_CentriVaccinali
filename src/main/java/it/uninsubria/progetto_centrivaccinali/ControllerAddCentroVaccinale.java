@@ -32,7 +32,10 @@ public class ControllerAddCentroVaccinale implements Initializable{
         cb_tipoCV.getItems().addAll(tipologia);
     }
 
-    public void addCentroVaccinale(ActionEvent actionEvent) {
+    /**
+     * Metodo che permette di mandare un oggetto di tipo CentroVaccinale al server per poter essere inserito nel database
+     */
+    public void addCentroVaccinale() {
         String nomeCV = tf_nomeCV.getText().replaceAll(" ","").toLowerCase();
         String indirizzoCV = tf_indirizzoCV.getText().toLowerCase();
         String comune = tf_comuneCV.getText().toLowerCase();
@@ -62,6 +65,10 @@ public class ControllerAddCentroVaccinale implements Initializable{
         }
     }
 
+    /**
+     * Metodo che permette di passare a pagina precedente dell'interfaccia grafica
+     * @param event
+     */
     public void back(ActionEvent event){
         String sceneFile = "hello-operatore.fxml";
         URL url = getClass().getResource(sceneFile);

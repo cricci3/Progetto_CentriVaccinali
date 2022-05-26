@@ -4,8 +4,6 @@ import java.sql.*;
 import java.util.*;
 
 public class DataTables {
-    //permette di accedere al meccanismo dei cursori
-    //permette di navigare tra le tuple come se fosse un DBMS
     private ArrayList<CentroVaccinale> centriVaccinaliTable;
     private ArrayList<CittadinoRegistrato> cittadiniRegistratiTable;
     private ArrayList<CittadinoVaccinato> cittadiniVaccinatiTable; //da implementare
@@ -15,6 +13,9 @@ public class DataTables {
     private ArrayList<Integer> listId;
     private ArrayList<Double> listaMedie;
 
+    /**
+     * Costruttore, istanza tutte le liste che verranno gestite dai metodi della classe
+     */
     public DataTables() {
         this.centriVaccinaliTable = new ArrayList<CentroVaccinale>();
         this.cittadiniRegistratiTable = new ArrayList<CittadinoRegistrato>();
@@ -26,6 +27,11 @@ public class DataTables {
         this.listaMedie = new ArrayList<>();
     }
 
+    /**
+     * Preso un ResultSet come input, lo scorre e crea degli oggetti Operatore ad ogni iterazione
+     * @param rs
+     * @throws SQLException
+     */
     public void handleOperatoriSet(ResultSet rs) throws SQLException{
         while (rs.next()){
             Operatore operatore = new Operatore(rs.getString("username"), rs.getString("password"));
@@ -33,10 +39,18 @@ public class DataTables {
         }
     }
 
+    /**
+     * @return una lista contenente oggetti di tipo Operatore
+     */
     public ArrayList<Operatore> getOperatoriTable(){
         return this.operatoriList;
     }
 
+    /**
+     * Preso un ResultSet come input, lo scorre e crea degli oggetti CentroVaccinale ad ogni iterazione
+     * @param rs
+     * @throws SQLException
+     */
     public ArrayList<CentroVaccinale> handleCentriVaccinaliSet(ResultSet rs) throws SQLException {
         while(rs.next()){
             CentroVaccinale cv = new CentroVaccinale(rs.getString("nome"),
@@ -50,10 +64,18 @@ public class DataTables {
         return centriVaccinaliTable;
     }
 
+    /**
+     * @return una lista di oggetti CentroVaccinale
+     */
     public ArrayList<CentroVaccinale> getCentriVaccinaliTable(){
         return this.centriVaccinaliTable;
     }
 
+    /**
+     * Preso un ResultSet come input, lo scorre e crea degli oggetti CittadinoRegistrato ad ogni iterazione
+     * @param rs
+     * @throws SQLException
+     */
     public void handleCittadiniRegistratiSet(ResultSet rs, String cv) throws SQLException {
         while(rs.next()) {
             CittadinoRegistrato cittr = new CittadinoRegistrato(
@@ -71,10 +93,18 @@ public class DataTables {
         }
     }
 
+    /**
+     * @return una lista di oggetti CittadinoRegistrato
+     */
     public ArrayList<CittadinoRegistrato> getCittadiniRegistratiTable(){
        return this.cittadiniRegistratiTable;
     }
 
+    /**
+     * Preso un ResultSet come input, lo scorre e crea una lista contenente String username, password e una con Integer idCittadino
+     * @param rs
+     * @throws SQLException
+     */
     public void handleLoginCittadini(ResultSet rs) throws SQLException {
         while(rs.next()){
             listLog.add(rs.getString("username"));
@@ -83,12 +113,23 @@ public class DataTables {
         }
     }
 
+    /**
+     * @return una lista di String
+     */
     public ArrayList<String> getLoggatiTable(){
         return this.listLog;
     }
+
+    /**
+     * @return una lista di Integer
+     */
     public ArrayList<Integer> getListIdTable(){ return this.listId; }
 
-
+    /**
+     * Preso un ResultSet come input, lo scorre e crea degli oggetti CittadinoVaccinato ad ogni iterazione
+     * @param rs
+     * @throws SQLException
+     */
     public void handleCittadiniVaccinatiSet(ResultSet rs, String nomeCV) throws SQLException {
         while(rs.next()){
             CittadinoVaccinato cittv = new CittadinoVaccinato(
@@ -103,10 +144,18 @@ public class DataTables {
         }
     }
 
+    /**
+     * @return una lista di oggetti CittadinoVaccinato
+     */
     public ArrayList<CittadinoVaccinato> getCittadiniVaccinatiTable(){
         return this.cittadiniVaccinatiTable;
     }
 
+    /**
+     * Preso un ResultSet come input, lo scorre e aggiunge i risultati del result set a una lista di double
+     * @param rs
+     * @throws SQLException
+     */
     public void handleMedieEventiAvversi(ResultSet rs) throws SQLException{
         while (rs.next()){
             listaMedie.add(rs.getDouble("febbre"));
@@ -118,6 +167,9 @@ public class DataTables {
         }
     }
 
+    /**
+     * @return una lista di double
+     */
     public ArrayList<Double> getMedieEventiAvversiTable(){
         return this.listaMedie;
     }

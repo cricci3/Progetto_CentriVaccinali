@@ -12,6 +12,10 @@ public class ControllerHelloEventiAvversi {
     private Scene scene;
     private Stage stage;
 
+    /**
+     * Metodo che permette di passare alla pagina della GUI "add-eventi-avversi"
+     * @param event
+     */
     public void switchToAddEventiAvversi(ActionEvent event) {
         String sceneFile = "add-eventi-avversi.fxml";
         URL url = getClass().getResource(sceneFile);
@@ -31,6 +35,10 @@ public class ControllerHelloEventiAvversi {
         }
     }
 
+    /**
+     * Metodo che permette di passare alla pagina della GUI "hello-cittadino"
+     * @param event
+     */
     public void switchToHelloCittadino(ActionEvent event) {
         String sceneFile = "hello-cittadino.fxml";
         URL url = getClass().getResource(sceneFile);
