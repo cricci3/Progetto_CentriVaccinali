@@ -20,6 +20,23 @@ public class EventiAvversi implements Serializable {
     private int valoreCrisiI;
     private String notaCrisiI;
 
+    /**
+     *
+     * @param id
+     * @param centro
+     * @param febbre
+     * @param notaFebbre
+     * @param testa
+     * @param notaMdT
+     * @param dolori
+     * @param notaDolori
+     * @param linfoadenopatia
+     * @param notaLinfo
+     * @param tachicardia
+     * @param notaTach
+     * @param crisi
+     * @param notaCrisi
+     */
     EventiAvversi(int id, String centro, int febbre, String notaFebbre, int testa, String notaMdT,
                   int dolori, String notaDolori, int linfoadenopatia, String notaLinfo,
                   int tachicardia, String notaTach, int crisi, String notaCrisi){

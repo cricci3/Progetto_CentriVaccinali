@@ -13,6 +13,16 @@ public class CittadinoVaccinato implements Serializable {
     public String nomeVaccino;
     public int idUnivoco;
 
+    /**
+     * Costruttore
+     * @param nomeCV String rappresentante il nome del centro vaccinale
+     * @param id int rappresentnate id a 8 bit
+     * @param nome String rappresentante nome del cittadino vaccinato
+     * @param cognome String rappresentante cognome del cittadino vaccinato
+     * @param cf String rappresentante codice fiscale del cittadino vaccinato
+     * @param data String rappresentante data di vaccinazione
+     * @param nomeV String rappresentante nome del vaccino somministrato
+     */
     CittadinoVaccinato(String nomeCV, int id, String nome, String cognome, String cf, String data, String nomeV){
         this.nomeCV=nomeCV;
         this.idUnivoco=id;
