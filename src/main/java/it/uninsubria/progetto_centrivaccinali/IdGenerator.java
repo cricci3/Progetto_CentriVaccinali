@@ -3,6 +3,9 @@ package it.uninsubria.progetto_centrivaccinali;
 import java.util.*;
 
 public class IdGenerator {
+    /**
+     * @return IdUnivoco
+     */
     public static int generateUniqueId() {
         UUID idOne = UUID.randomUUID();
         String str = "" + idOne;
