@@ -75,6 +75,7 @@ public class ControllerRisultatiRicerca implements Initializable {
      * @param event
      */
     public void back(ActionEvent event) {
+        listaCentri.clear();
         String sceneFile = "hello-informazioni.fxml";
         URL url = getClass().getResource(sceneFile);
         try {
