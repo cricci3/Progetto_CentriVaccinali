@@ -2,6 +2,10 @@ package it.uninsubria.progetto_centrivaccinali;
 
 import java.util.*;
 
+/**
+ * @author Macrina Alessandro mtr. 737128 VA
+ * @author Ricci Claudio mtr. 747555 VA
+ */
 public class IdGenerator {
     /**
      * @return IdUnivoco

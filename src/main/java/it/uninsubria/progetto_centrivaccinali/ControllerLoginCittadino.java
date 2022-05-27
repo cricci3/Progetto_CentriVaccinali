@@ -17,8 +17,17 @@ public class ControllerLoginCittadino {
     @FXML
     private Label lb_erroreLogin;
 
+    /**
+     * root
+     */
     private Parent root;
+    /**
+     * scene
+     */
     private Scene scene;
+    /**
+     * stage
+     */
     private Stage stage;
 
     /**

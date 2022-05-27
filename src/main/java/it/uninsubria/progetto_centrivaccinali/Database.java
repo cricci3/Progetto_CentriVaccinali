@@ -3,16 +3,43 @@ package it.uninsubria.progetto_centrivaccinali;
 import java.sql.*;
 
 public class Database {
+    /**
+     * protocol
+     */
     private final static String protocol = "jdbc:postgresql"+"://";
+    /**
+     * host
+     */
     private final static String host = "localhost"+"/";//indirizzo di rete del dbms
+    /**
+     * resource
+     */
     private final static String resource = "CentriVaccinaliDB";//nome db a cui vogliamo collegarci
 
+    /**
+     * url
+     */
     private final static String url = protocol + host + resource;
+    /**
+     * user
+     */
     private final static String user = "postgres";
+    /**
+     * password
+     */
     private final static String password = "ciao1234";
 
+    /**
+     * database
+     */
     private static Database database;
+    /**
+     * connection
+     */
     private static Connection connection;
+    /**
+     * statement
+     */
     private static Statement statement;
 
     /**

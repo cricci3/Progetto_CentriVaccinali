@@ -11,7 +11,11 @@ import java.util.*;
  * @author Ricci Claudio mtr. 747555 VA
  */
 public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
+    /**
+     * serial version UID
+     */
     private static final long serialVersionUID = 1L;
+
     //creo riferimenti al Database
     Database db;
     {
@@ -308,6 +312,10 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         return listaRisultato;
     }
 
+    /**
+     * main
+     * @param args
+     */
     public static void main(String[] args) {
         try {
             ServerRMI obj = new ServerRMI();

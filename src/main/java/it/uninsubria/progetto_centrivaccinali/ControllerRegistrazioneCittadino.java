@@ -10,8 +10,17 @@ import java.net.*;
 import java.rmi.registry.*;
 
 public class ControllerRegistrazioneCittadino {
+    /**
+     * root
+     */
     private Parent root;
+    /**
+     * scene
+     */
     private Scene scene;
+    /**
+     * stage
+     */
     private Stage stage;
     @FXML
     private TextField tf_nomeReg, tf_cognomeReg, tf_idReg, tf_nomeCVReg,

@@ -1,7 +1,13 @@
 package it.uninsubria.progetto_centrivaccinali;
 
 public class Operatore {
+    /**
+     * username
+     */
     private String username;
+    /**
+     * password
+     */
     private String password;
 
     /**

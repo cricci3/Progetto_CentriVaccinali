@@ -8,9 +8,17 @@ import javafx.stage.*;
 import java.net.*;
 
 public class ControllerHelloOperatore {
-
+    /**
+     * scene
+     */
     private Scene scene;
+    /**
+     * stage
+     */
     private Stage stage;
+    /**
+     * root
+     */
     private Parent root;
 
     /**

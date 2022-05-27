@@ -16,8 +16,17 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 public class ControllerAddEventiAvversi {
+    /**
+     * root
+     */
     private Parent root;
+    /**
+     * scene
+     */
     private Scene scene;
+    /**
+     * stage
+     */
     private Stage stage;
     @FXML
     private TextField tf_mdt, tf_febbre, tf_linfo, tf_crisi, tf_dolori, tf_tachi, tf_id, tf_centrovaccinale;
@@ -26,8 +35,14 @@ public class ControllerAddEventiAvversi {
     @FXML
     private Label lb_errore;
 
+    /**
+     * id cittadino
+     */
     private int idCittadino;
 
+    /**
+     * @param id
+     */
     public void getId(int id) {
         idCittadino = id;
         //lb_errore.setText(String.valueOf(idCittadino));

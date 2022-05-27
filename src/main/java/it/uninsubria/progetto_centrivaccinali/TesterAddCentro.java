@@ -2,10 +2,19 @@ package it.uninsubria.progetto_centrivaccinali;
 
 import java.rmi.*;
 
+/**
+ * @author Macrina Alessandro mtr. 737128 VA
+ * @author Ricci Claudio mtr. 747555 VA
+ */
 public class TesterAddCentro extends Thread {
     InterfaceRMI stub;
     int myId;
 
+    /**
+     * costruttore
+     * @param stub
+     * @param i
+     */
     public TesterAddCentro(InterfaceRMI stub, int i) {
         this.stub = stub;
         myId = i;
@@ -13,6 +22,9 @@ public class TesterAddCentro extends Thread {
         start();
     }
 
+    /**
+     * run
+     */
     @Override
     public void run() {
         String nome = "Nome_"+myId;

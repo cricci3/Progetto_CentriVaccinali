@@ -12,8 +12,17 @@ import java.rmi.registry.*;
 import java.util.*;
 
 public class ControllerRisultatiRicerca implements Initializable {
+    /**
+     * root
+     */
     private Parent root;
+    /**
+     * scene
+     */
     private Scene scene;
+    /**
+     * stage
+     */
     private Stage stage;
 
     @FXML

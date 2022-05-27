@@ -13,11 +13,19 @@ import java.rmi.registry.*;
 import java.util.*;
 
 public class ControllerAddCentroVaccinale implements Initializable{
+    /**
+     * root
+     */
     private Parent root;
+    /**
+     * scene
+     */
     private Scene scene;
+    /**
+     * stage
+     */
     private Stage stage;
-    @FXML
-    private Button btn_addCV;
+
     @FXML
     private TextField tf_nomeCV, tf_indirizzoCV, tf_comuneCV, tf_capCV, tf_provinciaCV;
     @FXML
@@ -25,8 +33,16 @@ public class ControllerAddCentroVaccinale implements Initializable{
     @FXML
     private Label lb_centro;
 
+    /**
+     * array tipi centro vaccinale
+     */
     private final String[] tipologia = {"ospedale","hub","aziendale"};
 
+    /**
+     * initialize
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cb_tipoCV.getItems().addAll(tipologia);

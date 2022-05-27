@@ -8,8 +8,17 @@ import javafx.stage.*;
 import java.net.*;
 
 public class ControllerHelloEventiAvversi {
+    /**
+     * root
+     */
     private Parent root;
+    /**
+     * scene
+     */
     private Scene scene;
+    /**
+     * stage
+     */
     private Stage stage;
 
     /**

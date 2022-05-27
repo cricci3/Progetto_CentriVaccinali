@@ -3,14 +3,38 @@ package it.uninsubria.progetto_centrivaccinali;
 import java.io.*;
 
 public class CittadinoVaccinato implements Serializable {
+    /**
+     * serialVersionUID
+     */
     private static final long serialVersionUID = 1L;
 
+    /**
+     * nome
+     */
     public String nome;
+    /**
+     * cognome
+     */
     public String cognome;
+    /**
+     * nome centro vaccinale
+     */
     public String nomeCV;
+    /**
+     * codice fiscale
+     */
     public String cf;
+    /**
+     * data vaccinazione
+     */
     public String dataVaccinazione;
+    /**
+     * nome vaccino
+     */
     public String nomeVaccino;
+    /**
+     * id
+     */
     public int idUnivoco;
 
     /**

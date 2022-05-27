@@ -11,8 +11,17 @@ import java.rmi.registry.*;
 import java.util.*;
 
 public class ControllerHelloInformazioni implements Initializable{
+    /**
+     * root
+     */
     private Parent root;
+    /**
+     * scene
+     */
     private Scene scene;
+    /**
+     * stage
+     */
     private Stage stage;
     @FXML
     private TextField tf_nome, tf_comune;
@@ -22,8 +31,15 @@ public class ControllerHelloInformazioni implements Initializable{
 
     @FXML
     private ChoiceBox<String> cb_tipo;
+    /**
+     * tipologie di centro vaccinale
+     */
     private final String[] tipologia = {"ospedale","hub","aziendale"};
 
+    /**
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cb_tipo.getItems().addAll(tipologia);

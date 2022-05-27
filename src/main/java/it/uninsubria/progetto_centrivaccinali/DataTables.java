@@ -4,13 +4,37 @@ import java.sql.*;
 import java.util.*;
 
 public class DataTables {
+    /**
+     * list centri vaccinali
+     */
     private ArrayList<CentroVaccinale> centriVaccinaliTable;
+    /**
+     * list cittadini registrati
+     */
     private ArrayList<CittadinoRegistrato> cittadiniRegistratiTable;
-    private ArrayList<CittadinoVaccinato> cittadiniVaccinatiTable; //da implementare
-    private ArrayList<EventiAvversi> eventiAvversiTable; //da implementare
+    /**
+     * list cittadini vaccinati
+     */
+    private ArrayList<CittadinoVaccinato> cittadiniVaccinatiTable;
+    /**
+     * list eventi avversi
+     */
+    private ArrayList<EventiAvversi> eventiAvversiTable;
+    /**
+     * list operatore
+     */
     private ArrayList<Operatore> operatoriList;
+    /**
+     * list loggati
+     */
     private ArrayList<String> listLog;
+    /**
+     * list id
+     */
     private ArrayList<Integer> listId;
+    /**
+     * list medie
+     */
     private ArrayList<Double> listaMedie;
 
     /**

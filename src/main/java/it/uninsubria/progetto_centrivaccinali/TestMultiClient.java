@@ -3,7 +3,15 @@ package it.uninsubria.progetto_centrivaccinali;
 import java.rmi.*;
 import java.rmi.registry.*;
 
+/**
+ * @author Macrina Alessandro mtr. 737128 VA
+ * @author Ricci Claudio mtr. 747555 VA
+ */
 public class TestMultiClient {
+    /**
+     * main
+     * @param args
+     */
     public static void main(String[] args) {
         Registry registro = null;
         try {

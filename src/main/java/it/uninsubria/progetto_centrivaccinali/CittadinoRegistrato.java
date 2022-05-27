@@ -3,10 +3,22 @@ package it.uninsubria.progetto_centrivaccinali;
 import java.io.*;
 
 public class CittadinoRegistrato extends CittadinoVaccinato implements Serializable {
+    /**
+     * serialVersionUID
+     */
     private static final long serialVersionUID = 1L;
 
+    /**
+     * email
+     */
     public String email;
+    /**
+     * username
+     */
     public String username;
+    /**
+     * password
+     */
     public String password;
 
     /**

@@ -3,21 +3,66 @@ package it.uninsubria.progetto_centrivaccinali;
 import java.io.*;
 
 public class EventiAvversi implements Serializable {
+    /**
+     * serial version UID
+     */
     private static final long serialVersionUID = 1L;
 
+    /**
+     * id
+     */
     private int id;
+    /**
+     * centro vaccinale nome
+     */
     private String centroVaccinale;
+    /**
+     * valore evento avverso
+     */
     private int valoreFebbre;
+    /**
+     * nota evento avverso
+     */
     private String notaFebbre;
+    /**
+     * valore evento avverso
+     */
     private int valoreMalDiTesta;
+    /**
+     * nota evento avverso
+     */
     private String notaMdT;
+    /**
+     * valore evento avverso
+     */
     private int valoreDolori;
+    /**
+     * nota evento avverso
+     */
     private String notaDolori;
+    /**
+     * valore evento avverso
+     */
     private int valoreLinfoadenopatia;
+    /**
+     * nota evento avverso
+     */
     private String notaLinfoadenopatia;
+    /**
+     * valore evento avverso
+     */
     private int valoreTachicardia;
+    /**
+     * nota evento avverso
+     */
     private String notaTachicardia;
+    /**
+     * valore evento avverso
+     */
     private int valoreCrisiI;
+    /**
+     * nota evento avverso
+     */
     private String notaCrisiI;
 
     /**

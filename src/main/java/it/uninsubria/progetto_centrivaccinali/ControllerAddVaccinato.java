@@ -11,8 +11,17 @@ import java.rmi.registry.*;
 import java.util.*;
 
 public class ControllerAddVaccinato implements Initializable {
+    /**
+     * root
+     */
     private Parent root;
+    /**
+     * scene
+     */
     private Scene scene;
+    /**
+     * stage
+     */
     private Stage stage;
     @FXML
     private ChoiceBox<String> cb_vaccino;
@@ -24,6 +33,10 @@ public class ControllerAddVaccinato implements Initializable {
     @FXML
     private Label lbl_addVaccinato, lb_id;
 
+    /**
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cb_vaccino.getItems().addAll(vaccini);

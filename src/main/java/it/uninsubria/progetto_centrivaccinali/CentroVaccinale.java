@@ -3,13 +3,34 @@ package it.uninsubria.progetto_centrivaccinali;
 import java.io.*;
 
 public class CentroVaccinale implements Serializable {
+    /**
+     * serialVersionUID
+     */
     private static final long serialVersionUID = 1L;
 
+    /**
+     * nome
+     */
     public String nome;
+    /**
+     * tipologia
+     */
     public String tipologia;
+    /**
+     * indirizzo
+     */
     public String indirizzo; //nome via, numero civico
+    /**
+     * comune
+     */
     public String comune;
+    /**
+     * cap
+     */
     public int cap;
+    /**
+     * provincia
+     */
     public String provincia;
 
     /**

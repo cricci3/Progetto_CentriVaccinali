@@ -10,9 +10,17 @@ import java.net.*;
 import java.rmi.registry.*;
 
 public class ControllerLoginOperatore {
-
+    /**
+     * root
+     */
     private Parent root;
+    /**
+     * scene
+     */
     private Scene scene;
+    /**
+     * stage
+     */
     private Stage stage;
     @FXML
     private TextField tf_username, pf_password;
