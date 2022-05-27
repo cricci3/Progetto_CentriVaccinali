@@ -44,7 +44,7 @@ public class Database {
 
     /**
      * Costruttore
-     * @throws SQLException
+     * @throws SQLException Eccezione
      */
     private Database() throws SQLException {
         connection = DriverManager.getConnection(url, user, password);
@@ -54,7 +54,7 @@ public class Database {
     /**
      * Metodo che usa il design pattern Singleton, se il db non è ancora stato istanziato lo fa, altrimenti passa un riferimento all'istanza già creata
      * @return un'istanza database
-     * @throws SQLException
+     * @throws SQLException Eccezione
      */
     public static Database getInstance() throws SQLException { //SINGLETON per assicurarmi di gestire la comunicazione con db in modo centralizzato
         if(database == null) {
@@ -67,7 +67,7 @@ public class Database {
      * Metodo che permette di eseguire una query sul database
      * @param query String rappresentante la query
      * @return true se query effettuata con successo, false altrimento
-     * @throws SQLException
+     * @throws SQLException Eccezione
      */
     public ResultSet submitQuery(String query) throws SQLException{
         if(statement.execute(query)) {

@@ -27,7 +27,7 @@ public class HelloApplication extends Application {
 
     /**
      * main client
-     * @param args
+     * @param args args[]
      */
     public static void main(String[] args) {
         launch();

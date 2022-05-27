@@ -12,8 +12,8 @@ public class TesterAddCentro extends Thread {
 
     /**
      * costruttore
-     * @param stub
-     * @param i
+     * @param stub riferimento all'interfaccia
+     * @param i id thread
      */
     public TesterAddCentro(InterfaceRMI stub, int i) {
         this.stub = stub;

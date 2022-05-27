@@ -53,8 +53,8 @@ public class DataTables {
 
     /**
      * Preso un ResultSet come input, lo scorre e crea degli oggetti Operatore ad ogni iterazione
-     * @param rs
-     * @throws SQLException
+     * @param rs ResultSet
+     * @throws SQLException Eccezione
      */
     public void handleOperatoriSet(ResultSet rs) throws SQLException{
         while (rs.next()){
@@ -72,8 +72,8 @@ public class DataTables {
 
     /**
      * Preso un ResultSet come input, lo scorre e crea degli oggetti CentroVaccinale ad ogni iterazione
-     * @param rs
-     * @throws SQLException
+     * @param rs ResultSet
+     * @throws SQLException Eccezione
      */
     public ArrayList<CentroVaccinale> handleCentriVaccinaliSet(ResultSet rs) throws SQLException {
         while(rs.next()){
@@ -97,8 +97,8 @@ public class DataTables {
 
     /**
      * Preso un ResultSet come input, lo scorre e crea degli oggetti CittadinoRegistrato ad ogni iterazione
-     * @param rs
-     * @throws SQLException
+     * @param rs ResultSet
+     * @throws SQLException Eccezione
      */
     public void handleCittadiniRegistratiSet(ResultSet rs, String cv) throws SQLException {
         while(rs.next()) {
@@ -126,8 +126,8 @@ public class DataTables {
 
     /**
      * Preso un ResultSet come input, lo scorre e crea una lista contenente String username, password e una con Integer idCittadino
-     * @param rs
-     * @throws SQLException
+     * @param rs ResultSet
+     * @throws SQLException Eccezione
      */
     public void handleLoginCittadini(ResultSet rs) throws SQLException {
         while(rs.next()){
@@ -151,8 +151,8 @@ public class DataTables {
 
     /**
      * Preso un ResultSet come input, lo scorre e crea degli oggetti CittadinoVaccinato ad ogni iterazione
-     * @param rs
-     * @throws SQLException
+     * @param rs ResultSet
+     * @throws SQLException Eccezione
      */
     public void handleCittadiniVaccinatiSet(ResultSet rs, String nomeCV) throws SQLException {
         while(rs.next()){
@@ -177,8 +177,8 @@ public class DataTables {
 
     /**
      * Preso un ResultSet come input, lo scorre e aggiunge i risultati del result set a una lista di double
-     * @param rs
-     * @throws SQLException
+     * @param rs ResultSet
+     * @throws SQLException Eccezione
      */
     public void handleMedieEventiAvversi(ResultSet rs) throws SQLException{
         while (rs.next()){

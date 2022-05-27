@@ -16,7 +16,9 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
      */
     private static final long serialVersionUID = 1L;
 
-    //creo riferimenti al Database
+    /**
+     * Istanza database
+     */
     Database db;
     {
         try {
@@ -29,7 +31,7 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
 
     /**
      * Costruttore del Server
-     * @throws RemoteException
+     * @throws RemoteException Eccezione
      */
     protected ServerRMI() throws RemoteException {
         super();
@@ -314,7 +316,7 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
 
     /**
      * main
-     * @param args
+     * @param args args[]
      */
     public static void main(String[] args) {
         try {

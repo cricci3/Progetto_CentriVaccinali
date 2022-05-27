@@ -10,7 +10,7 @@ import java.rmi.registry.*;
 public class TestMultiClient {
     /**
      * main
-     * @param args
+     * @param args args[]
      */
     public static void main(String[] args) {
         Registry registro = null;
