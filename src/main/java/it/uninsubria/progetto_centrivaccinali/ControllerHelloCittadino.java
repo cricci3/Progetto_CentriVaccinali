@@ -26,7 +26,7 @@ public class ControllerHelloCittadino {
 
     /**
      * Metodo che permette di passare alla pagina della GUI "registrazione-cittadino"
-     * @param event
+     * @param event event
      */
     @FXML
     public void switchToRegistrazione(ActionEvent event) {
@@ -50,7 +50,7 @@ public class ControllerHelloCittadino {
 
     /**
      * Metodo che permette di passare alla pagina della GUI "login-cittadino"
-     * @param event
+     * @param event event
      */
     public void switchToLogin(ActionEvent event) {
         String sceneFile = "login-cittadino.fxml";
@@ -73,7 +73,7 @@ public class ControllerHelloCittadino {
 
     /**
      * Metodo che permette di passare alla pagina della GUI "hello-informazioni"
-     * @param event
+     * @param event event
      */
     public void switchToInfo(ActionEvent event) {
         String sceneFile = "hello-informazioni.fxml";
@@ -97,7 +97,7 @@ public class ControllerHelloCittadino {
 
     /**
      * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
-     * @param event
+     * @param event event
      */
     public void back(ActionEvent event){
         String sceneFile = "hello-view.fxml";

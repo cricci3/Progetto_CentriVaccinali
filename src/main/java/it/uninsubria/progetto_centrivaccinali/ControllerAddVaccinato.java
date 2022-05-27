@@ -32,13 +32,16 @@ public class ControllerAddVaccinato implements Initializable {
     private TextField tf_nome, tf_cognome, tf_nomecentrovaccinale, tf_codicefiscale;
     @FXML
     private DatePicker dp_datavaccinazione;
+    /**
+     * nomi vaccini
+     */
     private String[] vaccini = {"Pfizer", "Moderna", "AstraZeneca", "Johnson&Johnson"};
     @FXML
     private Label lbl_addVaccinato, lb_id;
 
     /**
-     * @param url
-     * @param resourceBundle
+     * @param url url
+     * @param resourceBundle resourceBundle
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -87,7 +90,7 @@ public class ControllerAddVaccinato implements Initializable {
 
     /**
      * Metodo che permette di passare a pagina precedente dell'interfaccia grafica
-     * @param event
+     * @param event event
      */
     public void back(ActionEvent event){
         String sceneFile = "hello-operatore.fxml";

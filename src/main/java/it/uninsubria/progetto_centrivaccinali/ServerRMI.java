@@ -231,7 +231,7 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
     /**
      * Metodo che permette di trovare un centro vaccinale
      * @param centro Stringa rappresentante il nome del centro vaccinale che si vuole cercare
-     * @return ArrayList<CentroVaccinale> contente il centro vaccinale cercato
+     * @return ArrayList contente il centro vaccinale cercato
      */
     @Override
     public ArrayList<CentroVaccinale> getInfoCentroVaccinale(String centro) throws RemoteException {
@@ -253,7 +253,7 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
     /**
      * Metodo che permette di calcolare le medie degli eventi avversi relativi a un centro vaccinale
      * @param centro Stringa rappresentante il nome del centro vaccinale di cui si vogliono calcolare le medie
-     * @return ArrayList<Double> contente le medie ti tutti gli eventi avversi
+     * @return ArrayList contente le medie ti tutti gli eventi avversi
      */
     @Override
     public ArrayList<Double> visualizzaInfoCentroVaccinale(String centro) throws RemoteException {
@@ -279,7 +279,7 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
     /**
      * Metodo che permette di trovare un centro vaccinale passata una stringa rappresentante il nome cercato
      * @param nomeCV Stringa rappresentante il nome del centro vaccinale cercato
-     * @return ArrayList<CentroVaccinale> contenente tutte le informazioni del centro trovato
+     * @return ArrayList contenente tutte le informazioni del centro trovato
      */
     @Override
     public ArrayList<CentroVaccinale> cercaCentroVaccinale(String nomeCV) throws RemoteException {
@@ -300,7 +300,7 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
      * Metodo che permette di trovare un centro vaccinale passata una stringa rappresentante il nome cercato
      * @param comune Stringa rappresentante il nome del comune del centro vaccinale cercato
      * @param tipologia Stringa rappresentante la tipologia del centro vaccinale cercato
-     * @return ArrayList<CentroVaccinale> contenente tutte le informazioni del centro trovato
+     * @return ArrayList contenente tutte le informazioni del centro trovato
      */
     @Override
     public ArrayList<CentroVaccinale> cercaCentroVaccinale(String comune, String tipologia) throws RemoteException {

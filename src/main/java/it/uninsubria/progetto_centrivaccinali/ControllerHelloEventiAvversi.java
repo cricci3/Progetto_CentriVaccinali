@@ -49,7 +49,7 @@ public class ControllerHelloEventiAvversi {
 
     /**
      * Metodo che permette di passare alla pagina della GUI "hello-cittadino"
-     * @param event
+     * @param event event
      */
     public void switchToHelloCittadino(ActionEvent event) {
         String sceneFile = "hello-cittadino.fxml";

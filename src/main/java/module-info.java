@@ -1,3 +1,6 @@
+/**
+ * File moduleinfo
+ */
 module it.uninsubria.progetto_centrivaccinali {
     requires javafx.controls;
     requires javafx.fxml;

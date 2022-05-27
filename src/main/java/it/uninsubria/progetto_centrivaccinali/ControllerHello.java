@@ -26,7 +26,7 @@ public class ControllerHello {
 
     /**
      * Metodo che permette di passare alla pagina dell'interfaccia grafica "login-operatore"
-     * @param event
+     * @param event event
      */
     @FXML
     protected void switchToOperatore(ActionEvent event){
@@ -50,7 +50,7 @@ public class ControllerHello {
 
     /**
      * Metodo che permette di passare alla pagina dell'interfaccia grafica "hello-cittadino"
-     * @param event
+     * @param event event
      */
     @FXML
     protected void switchToCittadino(ActionEvent event){

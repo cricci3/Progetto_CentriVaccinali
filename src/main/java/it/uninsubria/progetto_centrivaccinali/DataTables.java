@@ -101,6 +101,7 @@ public class DataTables {
     /**
      * Preso un ResultSet come input, lo scorre e crea degli oggetti CittadinoRegistrato ad ogni iterazione
      * @param rs ResultSet
+     * @param cv String nome centro vaccinale
      * @throws SQLException Eccezione
      */
     public void handleCittadiniRegistratiSet(ResultSet rs, String cv) throws SQLException {
@@ -155,6 +156,7 @@ public class DataTables {
     /**
      * Preso un ResultSet come input, lo scorre e crea degli oggetti CittadinoVaccinato ad ogni iterazione
      * @param rs ResultSet
+     * @param nomeCV nome centro vaccinale
      * @throws SQLException Eccezione
      */
     public void handleCittadiniVaccinatiSet(ResultSet rs, String nomeCV) throws SQLException {

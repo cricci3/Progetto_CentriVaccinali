@@ -44,7 +44,7 @@ public class ControllerAddEventiAvversi {
     private int idCittadino;
 
     /**
-     * @param id
+     * @param id id
      */
     public void getId(int id) {
         idCittadino = id;
@@ -105,7 +105,7 @@ public class ControllerAddEventiAvversi {
 
     /**
      * Metodo che permette di passare a pagina precedente dell'interfaccia grafica
-     * @param event
+     * @param event event
      */
     public void back(ActionEvent event){
         String sceneFile = "login-cittadino.fxml";
