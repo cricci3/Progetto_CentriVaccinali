@@ -9,6 +9,9 @@ import javafx.stage.*;
 import java.net.*;
 import java.rmi.registry.*;
 
+/**
+ * ControllerLoginCittadino
+ */
 public class ControllerLoginCittadino {
     @FXML
     private TextField tf_usernameLogin;
@@ -32,7 +35,7 @@ public class ControllerLoginCittadino {
 
     /**
      * Metodo che permette di invocare il metodo "loginCittadino" del server per poter effetuare l'accesso al sistema, da parte di un cittadino
-     * @param event
+     * @param event event
      */
     public void loginCittadino(ActionEvent event) {
         String username = tf_usernameLogin.getText();
@@ -76,7 +79,7 @@ public class ControllerLoginCittadino {
 
     /**
      * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
-     * @param event
+     * @param event event
      */
     public void back(ActionEvent event){
         String sceneFile = "hello-cittadino.fxml";

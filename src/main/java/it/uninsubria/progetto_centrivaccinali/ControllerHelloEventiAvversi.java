@@ -7,6 +7,9 @@ import javafx.stage.*;
 
 import java.net.*;
 
+/**
+ * ControllerHelloEventiAvversi
+ */
 public class ControllerHelloEventiAvversi {
     /**
      * root
@@ -23,7 +26,7 @@ public class ControllerHelloEventiAvversi {
 
     /**
      * Metodo che permette di passare alla pagina della GUI "add-eventi-avversi"
-     * @param event
+     * @param event event
      */
     public void switchToAddEventiAvversi(ActionEvent event) {
         String sceneFile = "add-eventi-avversi.fxml";

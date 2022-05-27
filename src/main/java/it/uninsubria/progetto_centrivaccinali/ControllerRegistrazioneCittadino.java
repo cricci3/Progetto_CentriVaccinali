@@ -9,6 +9,9 @@ import javafx.stage.*;
 import java.net.*;
 import java.rmi.registry.*;
 
+/**
+ * ControllerRegistrazioneCittadino
+ */
 public class ControllerRegistrazioneCittadino {
     /**
      * root
@@ -33,7 +36,7 @@ public class ControllerRegistrazioneCittadino {
 
     /**
      * Metodo che permette di invocare il metodo "controlloRegistrazione" del server
-     * @param event
+     * @param event event
      */
     public void registrazioneCittadino(ActionEvent event) {
         int id = (int)Integer.parseInt(tf_idReg.getText());
@@ -91,7 +94,7 @@ public class ControllerRegistrazioneCittadino {
 
     /**
      * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
-     * @param event
+     * @param event event
      */
     public void back(ActionEvent event){
         String sceneFile = "hello-cittadino.fxml";

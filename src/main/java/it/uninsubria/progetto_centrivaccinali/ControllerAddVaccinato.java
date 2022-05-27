@@ -10,6 +10,9 @@ import java.net.*;
 import java.rmi.registry.*;
 import java.util.*;
 
+/**
+ * ControllerAddVaccinato
+ */
 public class ControllerAddVaccinato implements Initializable {
     /**
      * root

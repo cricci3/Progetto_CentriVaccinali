@@ -7,7 +7,13 @@ import java.rmi.*;
  * @author Ricci Claudio mtr. 747555 VA
  */
 public class TesterAddCentro extends Thread {
+    /**
+     * Stub Server
+     */
     InterfaceRMI stub;
+    /**
+     * ID
+     */
     int myId;
 
     /**

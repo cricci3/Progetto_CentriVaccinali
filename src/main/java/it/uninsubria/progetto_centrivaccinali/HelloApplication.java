@@ -14,6 +14,11 @@ import java.util.*;
  * @author Ricci Claudio mtr. 747555 VA
  */
 public class HelloApplication extends Application {
+    /**
+     * Start
+     * @param stage stage
+     * @throws IOException eccezione
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));

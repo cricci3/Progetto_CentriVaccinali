@@ -7,6 +7,9 @@ import javafx.stage.*;
 
 import java.net.*;
 
+/**
+ * ControllerHello
+ */
 public class ControllerHello {
     /**
      * root

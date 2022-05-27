@@ -2,6 +2,11 @@ package it.uninsubria.progetto_centrivaccinali;
 
 import java.io.*;
 
+/**
+ * Classe CittadinoVaccinato
+ * @author Claudio Ricci
+ * @author Alessandro Macrina
+ */
 public class CittadinoVaccinato implements Serializable {
     /**
      * serialVersionUID

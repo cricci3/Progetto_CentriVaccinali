@@ -12,6 +12,11 @@ import java.net.*;
 import java.rmi.registry.*;
 import java.util.*;
 
+/**
+ * ControllerAddCentroVaccinale
+ * @author Claudio Ricci
+ * @author Alessandro Macrina
+ */
 public class ControllerAddCentroVaccinale implements Initializable{
     /**
      * root

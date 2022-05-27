@@ -2,6 +2,9 @@ package it.uninsubria.progetto_centrivaccinali;
 
 import java.io.*;
 
+/**
+ * EventiAvversi
+ */
 public class EventiAvversi implements Serializable {
     /**
      * serial version UID

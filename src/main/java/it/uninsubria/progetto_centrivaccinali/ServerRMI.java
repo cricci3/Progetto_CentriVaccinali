@@ -27,6 +27,10 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Istanza Datatables
+     */
     DataTables dt = new DataTables();
 
     /**

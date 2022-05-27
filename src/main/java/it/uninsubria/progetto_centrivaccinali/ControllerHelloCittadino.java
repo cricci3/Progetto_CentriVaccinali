@@ -7,6 +7,9 @@ import javafx.stage.*;
 
 import java.net.*;
 
+/**
+ * ControllerHelloCittadino
+ */
 public class ControllerHelloCittadino {
     /**
      * root

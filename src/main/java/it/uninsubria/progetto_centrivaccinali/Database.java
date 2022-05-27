@@ -2,6 +2,9 @@ package it.uninsubria.progetto_centrivaccinali;
 
 import java.sql.*;
 
+/**
+ * Database
+ */
 public class Database {
     /**
      * protocol

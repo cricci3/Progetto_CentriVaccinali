@@ -10,6 +10,9 @@ import java.net.*;
 import java.rmi.registry.*;
 import java.util.*;
 
+/**
+ * ControllerHelloInformazioni
+ */
 public class ControllerHelloInformazioni implements Initializable{
     /**
      * root
@@ -37,8 +40,8 @@ public class ControllerHelloInformazioni implements Initializable{
     private final String[] tipologia = {"ospedale","hub","aziendale"};
 
     /**
-     * @param url
-     * @param resourceBundle
+     * @param url url
+     * @param resourceBundle resourceBundle
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,7 +51,7 @@ public class ControllerHelloInformazioni implements Initializable{
 
     /**
      * Metodo che permette di invocare il metodo del server "cercaCentroVaccinale", permette di cercare un centro vaccinale per nome
-     * @param event
+     * @param event event
      */
     public void cercaNomeCentro(ActionEvent event) {
         String nomeCV = tf_nome.getText().toLowerCase();
@@ -94,7 +97,7 @@ public class ControllerHelloInformazioni implements Initializable{
 
     /**
      * Metodo che permette di invocare il metodo del server "cercaCentroVaccinale", permette di cercare un centro vaccinale per comune e tipologia
-     * @param event
+     * @param event event
      */
     public void cercaTipoComuneCentro(ActionEvent event) {
         String comune = tf_comune.getText().toLowerCase();
@@ -136,7 +139,7 @@ public class ControllerHelloInformazioni implements Initializable{
 
     /**
      * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
-     * @param event
+     * @param event event
      */
     public void back(ActionEvent event){
         String sceneFile = "hello-cittadino.fxml";

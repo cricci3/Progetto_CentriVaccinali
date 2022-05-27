@@ -11,6 +11,9 @@ import java.net.*;
 import java.rmi.registry.*;
 import java.util.*;
 
+/**
+ * ControllerRisultatiRicerca
+ */
 public class ControllerRisultatiRicerca implements Initializable {
     /**
      * root
@@ -30,6 +33,9 @@ public class ControllerRisultatiRicerca implements Initializable {
     @FXML
     private Label lb_infoCentro;
 
+    /**
+     * ArrayList listacentri
+     */
     public static ArrayList<String> listaCentri = new ArrayList<>();
 
     /**
@@ -42,11 +48,22 @@ public class ControllerRisultatiRicerca implements Initializable {
         }
     }
 
+    /**
+     * Initialize
+     * @param url url
+     * @param resourceBundle resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lv_centri.getItems().addAll(listaCentri);
 
         lv_centri.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            /**
+             * changed
+             * @param observableValue observableValue
+             * @param s s
+             * @param t1 t1
+             */
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 String nomeCV = lv_centri.getSelectionModel().getSelectedItem();
@@ -81,7 +98,7 @@ public class ControllerRisultatiRicerca implements Initializable {
 
     /**
      * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
-     * @param event
+     * @param event event
      */
     public void back(ActionEvent event) {
         listaCentri.clear();

@@ -9,6 +9,9 @@ import javafx.stage.*;
 import java.net.*;
 import java.rmi.registry.*;
 
+/**
+ * ControllerLoginOperatore
+ */
 public class ControllerLoginOperatore {
     /**
      * root
@@ -29,7 +32,7 @@ public class ControllerLoginOperatore {
 
     /**
      * Metodo che permette di invocare il metodo "loginOperatore" del server, permette a un operatore di effettuare l'accesso al sistema
-     * @param event
+     * @param event event
      */
     public void logIn(ActionEvent event){
         String username = tf_username.getText();
@@ -71,7 +74,7 @@ public class ControllerLoginOperatore {
 
     /**
      * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
-     * @param event
+     * @param event event
      */
     public void back(ActionEvent event){
         String sceneFile = "hello-view.fxml";

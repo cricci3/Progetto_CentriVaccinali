@@ -7,6 +7,9 @@ import javafx.stage.*;
 
 import java.net.*;
 
+/**
+ * ControllerHelloOperatore
+ */
 public class ControllerHelloOperatore {
     /**
      * scene
@@ -23,7 +26,7 @@ public class ControllerHelloOperatore {
 
     /**
      * Metodo che permette di passare alla pagina della GUI "add-centro-vaccinale"
-     * @param event
+     * @param event event
      */
     @FXML
     protected void switchToAddCentroVaccinale(ActionEvent event){
@@ -47,7 +50,7 @@ public class ControllerHelloOperatore {
 
     /**
      * Metodo che permette di passare alla pagina della GUI "add-vaccinato"
-     * @param event
+     * @param event event
      */
     @FXML
     protected void switchToAddVaccinato(ActionEvent event){
@@ -72,7 +75,7 @@ public class ControllerHelloOperatore {
 
     /**
      * Metodo che permette di passare alla pagina precedente dell'interfaccia grafica
-     * @param event
+     * @param event event
      */
     public void back(ActionEvent event){
         String sceneFile = "login-operatore.fxml";

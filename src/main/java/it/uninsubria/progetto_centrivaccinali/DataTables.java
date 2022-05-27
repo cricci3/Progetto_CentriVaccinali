@@ -3,6 +3,9 @@ package it.uninsubria.progetto_centrivaccinali;
 import java.sql.*;
 import java.util.*;
 
+/**
+ * Datatables
+ */
 public class DataTables {
     /**
      * list centri vaccinali

@@ -1,5 +1,8 @@
 package it.uninsubria.progetto_centrivaccinali;
 
+/**
+ * Operatore
+ */
 public class Operatore {
     /**
      * username
