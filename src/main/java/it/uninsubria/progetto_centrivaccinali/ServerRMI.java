@@ -11,14 +11,41 @@ import java.util.*;
  * @author Ricci Claudio mtr. 747555 VA
  */
 public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
-    /**
-     * serial version UID
-     */
+    /** serial version UID */
     private static final long serialVersionUID = 1L;
 
+    /**  username DB */
+    public static String username;
+    /** password DB */
+    public static String password;
+
     /**
-     * Istanza database
+     * main
+     * @param args args[]
      */
+    public static void main(String[] args) {
+        try {
+            Scanner sc = new Scanner(System.in);
+
+                System.out.println("Inserire username del db");
+                username = sc.nextLine();
+
+                System.out.println("Inserire la password del database");
+                password = sc.nextLine();
+                ServerRMI obj = new ServerRMI();
+             if(Database.credenzialiOk) {
+                 Registry registro = LocateRegistry.createRegistry(1099);
+                 registro.rebind("CentriVaccinali", obj);
+                 System.out.println("Server ready");
+             }else{
+                 System.out.println("Credenziali errate, riavviare il server");
+             }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /** Istanza database */
     Database db;
     {
         try {
@@ -28,9 +55,7 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         }
     }
 
-    /**
-     * Istanza Datatables
-     */
+    /** Istanza Datatables */
     DataTables dt = new DataTables();
 
     /**
@@ -316,20 +341,5 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
         }
         System.out.println(listaRisultato);
         return listaRisultato;
-    }
-
-    /**
-     * main
-     * @param args args[]
-     */
-    public static void main(String[] args) {
-        try {
-            ServerRMI obj = new ServerRMI();
-            Registry registro = LocateRegistry.createRegistry(1099);
-            registro.rebind("CentriVaccinali",obj);
-            System.out.println("Server ready");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
 }

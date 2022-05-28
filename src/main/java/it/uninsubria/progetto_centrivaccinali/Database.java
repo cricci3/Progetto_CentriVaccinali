@@ -6,52 +6,36 @@ import java.sql.*;
  * Database
  */
 public class Database {
-    /**
-     * protocol
-     */
-    private final static String protocol = "jdbc:postgresql"+"://";
-    /**
-     * host
-     */
-    private final static String host = "localhost"+"/";//indirizzo di rete del dbms
-    /**
-     * resource
-     */
-    private final static String resource = "CentriVaccinaliDB";//nome db a cui vogliamo collegarci
+    /** protocol */
+    private final static String protocol = "jdbc:postgresql://";
+    /** host */
+    private final static String host = "localhost/";
+    /** resource */
+    private final static String resource = "CentriVaccinaliDB";
 
-    /**
-     * url
-     */
+    /** url */
     private final static String url = protocol + host + resource;
-    /**
-     * user
-     */
-    private final static String user = "postgres";
-    /**
-     * password
-     */
-    private final static String password = "ciao1234";
 
-    /**
-     * database
-     */
+    /** database */
     private static Database database;
-    /**
-     * connection
-     */
+    /** connection */
     private static Connection connection;
-    /**
-     * statement
-     */
+    /** statement */
     private static Statement statement;
+    /** verifica credenziali DB */
+    public static boolean credenzialiOk;
 
     /**
      * Costruttore
-     * @throws SQLException Eccezione
      */
-    private Database() throws SQLException {
-        connection = DriverManager.getConnection(url, user, password);
-        statement =  connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+    private Database(){
+        try {
+            connection = DriverManager.getConnection(url, ServerRMI.username, ServerRMI.password);
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            credenzialiOk = true;
+        }catch (SQLException e){
+            credenzialiOk = false;
+        }
     }
 
     /**
