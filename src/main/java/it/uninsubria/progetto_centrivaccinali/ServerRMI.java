@@ -79,10 +79,10 @@ public class ServerRMI extends UnicastRemoteObject implements InterfaceRMI {
             db.submitQuery(query);
 
             query = "CREATE TABLE Vaccinati_"+cv.getNome()+" ("
-                    +"idcittadino INTEGER PRIMARY KEY,"
+                    +"idcittadino INTEGER UNIQUE,"
                     +"nome VARCHAR(50) NOT NULL,"
                     +"cognome VARCHAR(50) NOT NULL,"
-                    +"cf VARCHAR(16) NOT NULL,"
+                    +"cf VARCHAR(16) PRIMARY KEY,"
                     +"dataVaccinazione DATE NOT NULL,"
                     +"nomeVaccino VARCHAR(50) NOT NULL )";
             db.submitQuery(query);
