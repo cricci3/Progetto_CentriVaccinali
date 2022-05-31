@@ -69,13 +69,14 @@
                     <target>17</target>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running with: mvn clean javafx:run -->
+
                         <id>client</id>
                         <configuration>
                             <mainClass>
@@ -91,6 +92,7 @@
                     </execution>
                 </executions>
             </plugin>
+
 
             <!--
             <plugin>
