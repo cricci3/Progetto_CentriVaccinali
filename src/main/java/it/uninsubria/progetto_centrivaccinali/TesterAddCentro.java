@@ -33,30 +33,23 @@ public class TesterAddCentro extends Thread {
      */
     @Override
     public void run() {
-        String nome = "Nome_"+myId;
-        String cognome = "Cognome_"+myId;
-        String nomeCV = "Centro_100";
-        String cf =  "codicefiscale__"+myId;
-        String datavaccinazione = "23/05/2022";
-        String nomeVaccino = "Vaccino_"+myId;
-        int id=0;
-        do {
-            id= IdGenerator.generateUniqueId();
-        }while(id>99999999 || id<=9999999);
-        System.out.println(id);
+        String nomeCV = "Centro"+myId;
+        String indirizzo = "via "+myId;
+        String comune = "Comune"+myId;
+        String provincia = String.valueOf(myId);
+        int cap =  Integer.parseInt( "210"+myId);
+        String tipologia = "hub";
 
-        CittadinoVaccinato nuovoVaccinato = new CittadinoVaccinato(nomeCV,id,nome,cognome,cf,datavaccinazione,nomeVaccino);
-
-        boolean response = false;
+        CentroVaccinale nuovoCentro = new CentroVaccinale(nomeCV, indirizzo, comune, provincia, cap, tipologia);
+        boolean response;
         try {
-            response = stub.addCittadinoVaccinato(nuovoVaccinato);
+            response = stub.addCentroVaccinale(nuovoCentro);
             if(response){
-                System.out.println("Test "+myId+" cittadino aggiunto");
+                System.out.println("Test "+myId+" centro aggiunto");
             }else
-                System.err.println("Test "+myId+" cittadino NON aggiunto");
+                System.err.println("Test "+myId+" centro NON aggiunto");
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-
     }
 }

@@ -172,6 +172,8 @@ public class CittadinoVaccinato implements Serializable {
      */
     @Override
     public String toString() {
-        return "Cittadino Vaccinato -> nome: "+nome+", cognome: "+cognome+", nomeCV: "+nomeCV+", cf: "+cf+", dataVaccinazione: "+dataVaccinazione+", nomeVaccino: "+nomeVaccino+", idUnivoco: " + idUnivoco;
+        return "Cittadino Vaccinato -> nome: "+nome+", cognome: "+cognome+", nomeCV: "
+                +nomeCV+", cf: "+cf+", dataVaccinazione: "+dataVaccinazione+", nomeVaccino: "
+                +nomeVaccino+", idUnivoco: " + idUnivoco;
     }
 }
