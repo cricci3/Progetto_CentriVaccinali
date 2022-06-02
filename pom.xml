@@ -89,6 +89,21 @@
                             <noHeaderFiles>true</noHeaderFiles>
                         </configuration>
                     </execution>
+                    <execution>
+                        <!-- Default configuration for running with: mvn clean javafx:run -->
+                        <id>server</id>
+                        <configuration>
+                            <mainClass>
+                                it.uninsubria.progetto_centrivaccinali/it.uninsubria.progetto_centrivaccinali.ServerRMI
+                            </mainClass>
+                            <launcher>app</launcher>
+                            <jlinkZipName>app</jlinkZipName>
+                            <jlinkImageName>app</jlinkImageName>
+                            <noManPages>true</noManPages>
+                            <stripDebug>true</stripDebug>
+                            <noHeaderFiles>true</noHeaderFiles>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
 
