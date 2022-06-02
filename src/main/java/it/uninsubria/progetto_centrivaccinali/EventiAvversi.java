@@ -4,6 +4,8 @@ import java.io.*;
 
 /**
  * EventiAvversi
+ * @author Claudio Ricci mtr. 747555, VA
+ * @author Alessandro Macrina mtr. 737128, VA
  */
 public class EventiAvversi implements Serializable {
     /**

@@ -79,7 +79,7 @@
                         <id>client</id>
                         <configuration>
                             <mainClass>
-                                it.uninsubria.progetto_centrivaccinali.StartClient
+                                it.uninsubria.progetto_centrivaccinali/it.uninsubria.progetto_centrivaccinali.StartClient
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

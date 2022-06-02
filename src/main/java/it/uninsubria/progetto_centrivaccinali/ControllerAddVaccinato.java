@@ -12,6 +12,8 @@ import java.util.*;
 
 /**
  * ControllerAddVaccinato
+ * @author Claudio Ricci mtr. 747555, VA
+ * @author Alessandro Macrina mtr. 737128, VA
  */
 public class ControllerAddVaccinato implements Initializable {
     /**

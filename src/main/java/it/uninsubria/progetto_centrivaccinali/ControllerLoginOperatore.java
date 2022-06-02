@@ -11,6 +11,8 @@ import java.rmi.registry.*;
 
 /**
  * ControllerLoginOperatore
+ * @author Claudio Ricci mtr. 747555, VA
+ * @author Alessandro Macrina mtr. 737128, VA
  */
 public class ControllerLoginOperatore {
     /**

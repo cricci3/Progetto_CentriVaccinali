@@ -4,6 +4,8 @@ import java.sql.*;
 
 /**
  * Database
+ * @author Claudio Ricci mtr. 747555, VA
+ * @author Alessandro Macrina mtr. 737128, VA
  */
 public class Database {
     /** protocol */

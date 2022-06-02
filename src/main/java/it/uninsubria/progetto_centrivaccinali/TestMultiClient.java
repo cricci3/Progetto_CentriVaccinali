@@ -4,6 +4,7 @@ import java.rmi.*;
 import java.rmi.registry.*;
 
 /**
+ * TestMultiClient
  * @author Macrina Alessandro mtr. 737128 VA
  * @author Ricci Claudio mtr. 747555 VA
  */

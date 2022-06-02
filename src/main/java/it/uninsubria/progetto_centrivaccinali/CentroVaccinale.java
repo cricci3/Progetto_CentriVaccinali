@@ -4,8 +4,8 @@ import java.io.*;
 
 /**
  * Classe CentroVaccinale
- * @author Claudio Ricci
- * @author Alessandro Macrina
+ * @author Claudio Ricci mtr. 747555, VA
+ * @author Alessandro Macrina mtr. 737128, VA
  */
 public class CentroVaccinale implements Serializable {
     /**

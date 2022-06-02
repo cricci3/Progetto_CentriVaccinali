@@ -4,7 +4,9 @@ import java.sql.*;
 import java.util.*;
 
 /**
- * Datatables
+ * DataTables
+ * @author Claudio Ricci mtr. 747555, VA
+ * @author Alessandro Macrina mtr. 737128, VA
  */
 public class DataTables {
     /**

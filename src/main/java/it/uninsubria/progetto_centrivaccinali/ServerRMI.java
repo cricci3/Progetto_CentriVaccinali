@@ -7,6 +7,7 @@ import java.sql.*;
 import java.util.*;
 
 /**
+ * ServerRMI
  * @author Macrina Alessandro mtr. 737128 VA
  * @author Ricci Claudio mtr. 747555 VA
  */

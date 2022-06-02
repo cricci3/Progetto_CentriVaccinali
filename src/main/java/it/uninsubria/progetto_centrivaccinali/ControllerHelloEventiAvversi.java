@@ -9,6 +9,8 @@ import java.net.*;
 
 /**
  * ControllerHelloEventiAvversi
+ * @author Claudio Ricci mtr. 747555, VA
+ * @author Alessandro Macrina mtr. 737128, VA
  */
 public class ControllerHelloEventiAvversi {
     /**
